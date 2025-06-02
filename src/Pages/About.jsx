@@ -205,7 +205,7 @@ const AboutPage = () => {
                 data-aos="fade-right"
                 data-aos-duration="1300"
               >
-                Eki Zulfar Rachman
+                Arun Vignesh V
               </span>
             </h2>
             
@@ -214,20 +214,17 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              seorang siswa Teknik Jaringan Komputer dan Telekomunikasi yang
-              tertarik dalam pengembangan Front-End. Saya berfokus pada
-              menciptakan pengalaman digital yang menarik dan selalu berusaha
-              memberikan solusi terbaik dalam setiap proyek.
+              Myself Arun Vignesh V, a BCA student at VISTAS, committed to continuous learning and growth in the dynamic field of technology. With a long-term goal of building a strong foundation in web development, I actively pursue relevant courses and certifications to enhance my skills. I thrive on challenges, try to excel in problemsolving, and am dedicated to developing innovative solutions. I am actively pursuing courses on Web Development and making my bases strong in programming languages.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/drive/folders/1BOm51Grsabb3zj6Xk27K-iRwI1zITcpo" className="w-full lg:w-auto">
+              <a href="https://www.linkedin.com/in/arun-vignesh-v-ab4545328/overlay/1747998713253/single-media-viewer/?profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8" className="w-full lg:w-auto"target="_blank" rel="noopener noreferrer">
               <button 
                 data-aos="fade-up"
                 data-aos-duration="800"
                 className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download Resume
               </button>
               </a>
               <a href="#Portofolio" className="w-full lg:w-auto">

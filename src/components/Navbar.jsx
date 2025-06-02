@@ -78,13 +78,13 @@ const Navbar = () => {
         <div className="mx-auto px-4 sm:px-6 lg:px-[10%]">
             <div className="flex items-center justify-between h-16">
                 {/* Logo */}
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 -ml-8">
                     <a
                         href="#Home"
                         onClick={(e) => scrollToSection(e, "#Home")}
                         className="text-xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent"
                     >
-                        Ekizr
+                        Arun Vignesh V
                     </a>
                 </div>
     
