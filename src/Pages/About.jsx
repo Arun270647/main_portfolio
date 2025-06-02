@@ -115,8 +115,8 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
 const AboutPage = () => {
   // Memoized calculations
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
-    const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-    const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
+    // const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
+    // const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
     
     const startDate = new Date("2021-11-06");
     const today = new Date();
@@ -124,8 +124,8 @@ const AboutPage = () => {
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
 
     return {
-      totalProjects: storedProjects.length,
-      totalCertificates: storedCertificates.length,
+      totalProjects: 3, // Directly set to 2
+      totalCertificates: 6, // Directly set to 6
       YearExperience: experience
     };
   }, []);
