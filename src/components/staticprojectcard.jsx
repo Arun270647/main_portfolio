@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 // 1. Import your static image from the assets folder
-import projectImage from '../assets/image_c53cb8.jpg';
 
 const StaticProjectCard = ({ Title, Description, Link, Image, containImage, containerBg }) => {
   return (
