@@ -1,10 +1,29 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
-import { getDocs, addDoc, collection, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../firebase-comment';
 import { MessageCircle, UserCircle2, Loader2, AlertCircle, Send, ImagePlus, X } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+// Static comments data
+const staticComments = [
+  {
+    id: 1,
+    name: "John Doe",
+    comment: "Great portfolio! Love the design and animations.",
+    timestamp: "2024-03-15T10:30:00Z"
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    comment: "Impressive projects and clean code structure.",
+    timestamp: "2024-03-14T15:45:00Z"
+  },
+  {
+    id: 3,
+    name: "Mike Johnson",
+    comment: "The UI/UX is really well thought out.",
+    timestamp: "2024-03-13T09:15:00Z"
+  }
+];
 
 const Comment = memo(({ comment, formatDate, index }) => (
     <div 
@@ -181,139 +200,148 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
     );
 });
 
-const Komentar = () => {
-    const [comments, setComments] = useState([]);
+const Commentar = () => {
+    const [comments, setComments] = useState(staticComments);
+    const [newComment, setNewComment] = useState('');
+    const [name, setName] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
+    const commentsEndRef = useRef(null);
 
     useEffect(() => {
-        // Initialize AOS
         AOS.init({
             once: false,
-            duration: 1000,
         });
     }, []);
+
+    const scrollToBottom = () => {
+        commentsEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
 
     useEffect(() => {
-        const commentsRef = collection(db, 'portfolio-comments');
-        const q = query(commentsRef, orderBy('createdAt', 'desc'));
-        
-        return onSnapshot(q, (querySnapshot) => {
-            const commentsData = querySnapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setComments(commentsData);
-        });
-    }, []);
+        scrollToBottom();
+    }, [comments]);
 
-    const uploadImage = useCallback(async (imageFile) => {
-        if (!imageFile) return null;
-        const storageRef = ref(storage, `profile-images/${Date.now()}_${imageFile.name}`);
-        await uploadBytes(storageRef, imageFile);
-        return getDownloadURL(storageRef);
-    }, []);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!name.trim() || !newComment.trim()) {
+            setError('Please fill in all fields');
+            return;
+        }
 
-    const handleCommentSubmit = useCallback(async ({ newComment, userName, imageFile }) => {
-        setError('');
         setIsSubmitting(true);
-        
+        setError('');
+
         try {
-            const profileImageUrl = await uploadImage(imageFile);
-            await addDoc(collection(db, 'portfolio-comments'), {
-                content: newComment,
-                userName,
-                profileImage: profileImageUrl,
-                createdAt: serverTimestamp(),
-            });
+            // Simulate adding a new comment
+            const newCommentObj = {
+                id: comments.length + 1,
+                name: name.trim(),
+                comment: newComment.trim(),
+                timestamp: new Date().toISOString()
+            };
+
+            setComments(prev => [...prev, newCommentObj]);
+            setNewComment('');
+            setName('');
         } catch (error) {
-            setError('Failed to post comment. Please try again.');
-            console.error('Error adding comment: ', error);
+            setError('Failed to add comment. Please try again.');
         } finally {
             setIsSubmitting(false);
         }
-    }, [uploadImage]);
+    };
 
-    const formatDate = useCallback((timestamp) => {
-        if (!timestamp) return '';
-        const date = timestamp.toDate();
-        const now = new Date();
-        const diffMinutes = Math.floor((now - date) / (1000 * 60));
-        const diffHours = Math.floor(diffMinutes / 60);
-        const diffDays = Math.floor(diffHours / 24);
-
-        if (diffMinutes < 1) return 'Just now';
-        if (diffMinutes < 60) return `${diffMinutes}m ago`;
-        if (diffHours < 24) return `${diffHours}h ago`;
-        if (diffDays < 7) return `${diffDays}d ago`;
-
-        return new Intl.DateTimeFormat('en-US', {
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',
-            day: 'numeric'
-        }).format(date);
-    }, []);
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    };
 
     return (
-        <div className="w-full bg-gradient-to-b from-white/10 to-white/5 rounded-2xl overflow-hidden backdrop-blur-xl shadow-xl" data-aos="fade-up" data-aos-duration="1000">
-        <div className="p-6 border-b border-white/10" data-aos="fade-down" data-aos-duration="800">
-            <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-indigo-500/20">
-                    <MessageCircle className="w-6 h-6 text-indigo-400" />
+        <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                    <MessageCircle className="w-6 h-6 text-purple-400" />
+                    <h2 className="text-2xl font-bold text-white">Comments</h2>
                 </div>
-                <h3 className="text-xl font-semibold text-white">
-                    Comments <span className="text-indigo-400">({comments.length})</span>
-                </h3>
-            </div>
-        </div>
-        <div className="p-6 space-y-6">
-            {error && (
-                <div className="flex items-center gap-2 p-4 text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl" data-aos="fade-in">
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                    <p className="text-sm">{error}</p>
-                </div>
-            )}
-            
-            <div >
-                <CommentForm onSubmit={handleCommentSubmit} isSubmitting={isSubmitting} error={error} />
-            </div>
 
-            <div className="space-y-4 h-[300px] overflow-y-auto custom-scrollbar" data-aos="fade-up" data-aos-delay="200">
-                {comments.length === 0 ? (
-                    <div className="text-center py-8" data-aos="fade-in">
-                        <UserCircle2 className="w-12 h-12 text-indigo-400 mx-auto mb-3 opacity-50" />
-                        <p className="text-gray-400">No comments yet. Start the conversation!</p>
-                    </div>
-                ) : (
-                    comments.map((comment, index) => (
-                        <Comment 
-                            key={comment.id} 
-                            comment={comment} 
-                            formatDate={formatDate}
-                            index={index}
+                <div className="space-y-6">
+                    {comments.map((comment) => (
+                        <div
+                            key={comment.id}
+                            className="bg-white/5 rounded-2xl p-4 sm:p-6 border border-white/10"
+                            data-aos="fade-up"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
+                                    <UserCircle2 className="w-6 h-6 text-purple-400" />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <h3 className="font-semibold text-white">{comment.name}</h3>
+                                        <span className="text-sm text-gray-400">
+                                            {formatDate(comment.timestamp)}
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-300">{comment.comment}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                    <div ref={commentsEndRef} />
+                </div>
+
+                <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+                    {error && (
+                        <div className="flex items-center gap-2 text-red-400 bg-red-400/10 p-3 rounded-lg">
+                            <AlertCircle className="w-5 h-5" />
+                            <span>{error}</span>
+                        </div>
+                    )}
+
+                    <div className="space-y-4">
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Your name"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/50 transition-colors"
                         />
-                    ))
-                )}
+                        <textarea
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                            placeholder="Write your comment..."
+                            rows="4"
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:from-purple-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                        {isSubmitting ? (
+                            <>
+                                <Loader2 className="w-5 h-5 animate-spin" />
+                                <span>Posting...</span>
+                            </>
+                        ) : (
+                            <>
+                                <Send className="w-5 h-5" />
+                                <span>Post Comment</span>
+                            </>
+                        )}
+                    </button>
+                </form>
             </div>
         </div>
-        <style jsx>{`
-            .custom-scrollbar::-webkit-scrollbar {
-                width: 6px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-track {
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: 6px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb {
-                background: rgba(99, 102, 241, 0.5);
-                border-radius: 6px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                background: rgba(99, 102, 241, 0.7);
-            }
-        `}</style>
-    </div>
     );
 };
 
-export default Komentar;
+export default memo(Commentar);
