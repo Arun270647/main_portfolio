@@ -13,6 +13,21 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Certificate from "../components/Certificate";
 import { Code, Award, Boxes } from "lucide-react";
+import htmlIcon from '../assets/techstack/html.svg';
+import cssIcon from '../assets/techstack/css.svg';
+import jsIcon from '../assets/techstack/javascript.svg';
+import tailwindIcon from '../assets/techstack/tailwindcss.svg';
+import reactIcon from '../assets/techstack/react.svg';
+import viteIcon from '../assets/techstack/vite.svg';
+import nodejsIcon from '../assets/techstack/nodejs.svg';
+import bootstrapIcon from '../assets/techstack/bootstrap.svg';
+import firebaseIcon from '../assets/techstack/firebase.svg';
+import materialuiIcon from '../assets/techstack/materialui.svg';
+import vercelIcon from '../assets/techstack/vercel.svg';
+import canvaIcon from '../assets/techstack/canva.svg';
+import marinadigiLogo from '../assets/projects/md-logo.png';
+import cpsportsLogo from '../assets/projects/cp-logo.png';
+import artHausLogo from '../assets/projects/art.png';
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -84,35 +99,43 @@ function a11yProps(index) {
 }
 
 const techStacks = [
-  { icon: "html.svg", language: "HTML" },
-  { icon: "css.svg", language: "CSS" },
-  { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
-  { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { TechStackIcon: htmlIcon, Language: "HTML" },
+  { TechStackIcon: cssIcon, Language: "CSS" },
+  { TechStackIcon: jsIcon, Language: "JavaScript" },
+  { TechStackIcon: tailwindIcon, Language: "Tailwind CSS" },
+  { TechStackIcon: reactIcon, Language: "ReactJS" },
+  { TechStackIcon: viteIcon, Language: "Vite" },
+  { TechStackIcon: nodejsIcon, Language: "Node JS" },
+  { TechStackIcon: bootstrapIcon, Language: "Bootstrap" },
+  { TechStackIcon: firebaseIcon, Language: "Firebase" },
+  { TechStackIcon: materialuiIcon, Language: "Material UI" },
+  { TechStackIcon: vercelIcon, Language: "Vercel" },
+  { TechStackIcon: canvaIcon, Language: "Canva" },
 ];
 
 // Static project data
 const staticProjects = [
   {
-    Title: "Project 1",
-    Description: "A modern web application built with React and Tailwind CSS",
-    Link: "https://example.com/project1"
+    Title: "Marina Digitals",
+    Description: "One of the lead web developer in the creation of the working of the website for Marina Digital, a digital marketing company",
+    Link: "https://marinadigi.com",
+    Image: marinadigiLogo
   },
   {
-    Title: "Project 2",
-    Description: "An e-commerce platform with advanced features",
-    Link: "https://example.com/project2"
+    Title: "Cp Sports Academy",
+    Description: "Assited in creating the website for Cp Sports Academy, a sports academy for children",
+    Link: "https://www.cpsports.in",
+    Image: cpsportsLogo,
+    containImage: true,
+    containerBg: 'bg-white'
   },
   {
-    Title: "Project 3",
-    Description: "A social media dashboard with real-time updates",
-    Link: "https://example.com/project3"
+    Title: "Selva's Art Haus",
+    Description: "An Exquisite mehndi artistry, elegant makeup designs, and intricate aari embroidery work that brings your fashion dreams to life.",
+    Link: "https://selvasarthaus.netlify.app/",
+    Image: artHausLogo,
+    containImage: true,
+    containerBg: 'bg-black'
   }
 ];
 
@@ -232,6 +255,9 @@ export default function FullWidthTabs() {
                       Title={project.Title}
                       Description={project.Description}
                       Link={project.Link}
+                      Image={project.Image}
+                      containImage={project.containImage}
+                      containerBg={project.containerBg}
                     />
                   </div>
                 ))}
@@ -277,14 +303,17 @@ export default function FullWidthTabs() {
 
           <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
                 {techStacks.map((tech, index) => (
                   <div
                     key={index}
-                    data-aos={index % 4 === 0 ? "fade-up-right" : index % 4 === 1 ? "fade-up" : index % 4 === 2 ? "fade-up-left" : "fade-up"}
-                    data-aos-duration={index % 4 === 0 ? "1000" : index % 4 === 1 ? "1200" : index % 4 === 2 ? "1000" : "1200"}
+                    data-aos={index % 6 === 0 ? "fade-up-right" : index % 6 === 1 ? "fade-up" : index % 6 === 2 ? "fade-up-left" : index % 6 === 3 ? "fade-up-right" : index % 6 === 4 ? "fade-up" : "fade-up-left"}
+                    data-aos-duration={index % 6 === 0 ? "1000" : index % 6 === 1 ? "1200" : index % 6 === 2 ? "1000" : index % 6 === 3 ? "1200" : index % 6 === 4 ? "1000" : "1200"}
                   >
-                    <TechStackIcon icon={tech.icon} language={tech.language} />
+                    <TechStackIcon
+                      TechStackIcon={tech.TechStackIcon}
+                      Language={tech.Language}
+                    />
                   </div>
                 ))}
               </div>

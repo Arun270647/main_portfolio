@@ -2,6 +2,7 @@ import React, { useEffect, memo, useMemo } from "react"
 import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import resumePDF from '../assets/Arun Resume.pdf'
 
 // Memoized Components
 const Header = memo(() => (
@@ -218,23 +219,23 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://www.linkedin.com/in/arun-vignesh-v-ab4545328/overlay/1747998713253/single-media-viewer/?profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8" className="w-full lg:w-auto"target="_blank" rel="noopener noreferrer">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="800"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
-              >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download Resume
-              </button>
+              <a href={resumePDF} download className="w-full lg:w-auto">
+                <button 
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+                >
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download Resume
+                </button>
               </a>
               <a href="#Portofolio" className="w-full lg:w-auto">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="1000"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#a855f7]/10 animate-bounce-slow delay-200"
-              >
-                <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
-              </button>
+                <button 
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#a855f7]/10 animate-bounce-slow delay-200"
+                >
+                  <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
+                </button>
               </a>
             </div>
           </div>
