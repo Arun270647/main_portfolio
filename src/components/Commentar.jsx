@@ -7,19 +7,19 @@ import "aos/dist/aos.css";
 const staticComments = [
   {
     id: 1,
-    name: "John Doe",
-    comment: "Great portfolio! Love the design and animations.",
+    name: "Marina Digitals",
+    comment: "",
     timestamp: "2024-03-15T10:30:00Z"
   },
   {
     id: 2,
-    name: "Jane Smith",
+    name: "CP Sports",
     comment: "Impressive projects and clean code structure.",
     timestamp: "2024-03-14T15:45:00Z"
   },
   {
     id: 3,
-    name: "Mike Johnson",
+    name: "Selva's Art haus",
     comment: "The UI/UX is really well thought out.",
     timestamp: "2024-03-13T09:15:00Z"
   }
