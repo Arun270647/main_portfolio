@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Ensure useEffect is imported
 import "./index.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -12,6 +12,24 @@ import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
+
+  //
+  // --- MODIFIED SECTION ---
+  //
+  useEffect(() => {
+    // We only want this effect to run when the welcome screen is hidden
+    if (!showWelcome) {
+      // Use setTimeout to delay the scroll until after the browser has
+      // handled any potential hash-based scrolling.
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, 0);
+    }
+  }, [showWelcome]);
+  //
+  // --- END OF MODIFIED SECTION ---
+  //
+
   return (
     <>
       <AnimatePresence mode="wait">
