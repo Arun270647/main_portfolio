@@ -28,6 +28,13 @@ import canvaIcon from '../assets/techstack/canva.svg';
 import marinadigiLogo from '../assets/projects/md-logo.png';
 import cpsportsLogo from '../assets/projects/cp-logo.png';
 import artHausLogo from '../assets/projects/art.png';
+import fullStackImg from '../assets/certificates/full-stack.png';
+import pcapUdemyImg from '../assets/certificates/PCAP-udemy.png';
+import corizoInternImg from '../assets/certificates/corizo-intern.png';
+import corizoAndroidImg from '../assets/certificates/corizo-android.png';
+import pythonOpenedgImg from '../assets/certificates/python-openedg.png';
+import novitechCourseImg from '../assets/certificates/novitech-course.png';
+import novitechInternImg from '../assets/certificates/novitech-intern.png';
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -142,19 +149,53 @@ const staticProjects = [
 // Static certificate data
 const staticCertificates = [
   {
-    Title: "Web Development",
-    Issuer: "Example University",
-    Date: "2023"
+    Title: "Full Stack Web Development",
+    Issuer: "Rare Minds",
+    Date: "April 2025",
+    Image: fullStackImg,
+    CredentialLink: "https://www.linkedin.com/in/arun-vignesh-v-ab4545328/details/certifications/1744177098980/single-media-viewer/?type=IMAGE&profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8"
   },
   {
-    Title: "React Development",
-    Issuer: "Example Academy",
-    Date: "2023"
+    Title: "PCAP: Programming Essentials in Python",
+    Issuer: "Udemy",
+    Date: "June 2024",
+    Image: pcapUdemyImg,
+    CredentialLink: "https://udemy-certificate.s3.amazonaws.com/image/UC-8b81c966-8c1e-409e-bf77-b876fc782935.jpg"
   },
   {
-    Title: "UI/UX Design",
-    Issuer: "Example Institute",
-    Date: "2023"
+    Title: "Corizo Internship - Android App Development",
+    Issuer: "Corizo",
+    Date: "March 2025",
+    Image: corizoInternImg,
+    CredentialLink: "https://cert.diceid.com/cid/FXskkVwGxq"
+  },
+  {
+    Title: "Corizo Course - Android App Development",
+    Issuer: "Corizo",
+    Date: "Februaru 2025",
+    Image: corizoAndroidImg,
+    CredentialLink: "https://cert.diceid.com/cid/O5RIq9K0U9"
+  },
+  {
+    Title: "Python Essentials - OpenEDG",
+    Issuer: "OpenEDG",
+    Date: "June 2023",
+    Image: pythonOpenedgImg,
+    CredentialLink: "https://verify.openedg.org/?id=00WD.oBa1.vwGz"
+  },
+  {
+    Title: "Novitech Course Completion",
+    Issuer: "Novitech",
+    Date: "May 2024",
+    Image: novitechCourseImg,
+    CredentialLink: "https://www.linkedin.com/in/arun-vignesh-v-ab4545328/details/certifications/381465058/multiple-media-viewer/?profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8&treasuryMediaId=1733400769903"
+  },
+  {
+    Title: "Novitech Internship",
+    Issuer: "Novitech",
+    Date: "May 2024",
+    Image: novitechInternImg,
+    CredentialLink: "https://www.linkedin.com/in/arun-vignesh-v-ab4545328/details/certifications/381465058/multiple-media-viewer/?profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8&treasuryMediaId=1733400769904"
   }
 ];
 
@@ -286,6 +327,8 @@ export default function FullWidthTabs() {
                       Title={certificate.Title}
                       Issuer={certificate.Issuer}
                       Date={certificate.Date}
+                      Image={certificate.Image}
+                      CredentialLink={certificate.CredentialLink}
                     />
                   </div>
                 ))}

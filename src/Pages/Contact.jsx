@@ -201,14 +201,10 @@ const ContactPage = () => {
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
-
-            <div className="mt-10 pt-6 border-t border-white/10 flex justify-center space-x-6">
-              <SocialLinks />
-            </div>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl transform transition-all duration-300 hover:shadow-[#6366f1]/10">
-            <Komentar />
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl flex items-center justify-center">
+            <SocialLinks />
           </div>
         </div>
       </div>

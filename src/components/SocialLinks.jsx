@@ -20,7 +20,7 @@ const socialLinks = [
   {
     name: "Instagram",
     displayName: "Instagram",
-    subText: "@ekizr_",
+    subText: "@Arun",
     icon: Instagram,
     url: "https://www.instagram.com/ekizr_/?hl=id",
     color: "#E4405F",
@@ -29,9 +29,9 @@ const socialLinks = [
   {
     name: "GitHub",
     displayName: "Github",
-    subText: "@EkiZR",
+    subText: "@Arun",
     icon: Github,
-    url: "https://github.com/EkiZR",
+    url: "https://github.com/Arun270647",
     color: "#ffffff",
     gradient: "from-[#333] to-[#24292e]"
   }
