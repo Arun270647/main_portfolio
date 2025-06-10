@@ -75,10 +75,11 @@ const Navbar = () => {
                 : "bg-transparent"
         }`}
     >
-        <div className="mx-auto px-4 sm:px-6 lg:px-[10%]">
+        {/* --- FIX: Increased horizontal padding on large screens (lg, xl) for more margin --- */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24 xl:px-32">
             <div className="flex items-center justify-between h-16">
                 {/* Logo */}
-                <div className="flex-shrink-0 -ml-8">
+                <div className="flex-shrink-0">
                     <a
                         href="#Home"
                         onClick={(e) => scrollToSection(e, "#Home")}
@@ -88,90 +89,90 @@ const Navbar = () => {
                     </a>
                 </div>
     
-                {/* Desktop Navigation */}
-                <div className="hidden md:block">
-                    <div className="ml-8 flex items-center space-x-8">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.label}
-                                href={item.href}
-                                onClick={(e) => scrollToSection(e, item.href)}
-                                className="group relative px-1 py-2 text-sm font-medium"
-                            >
-                                <span
-                                    className={`relative z-10 transition-colors duration-300 ${
-                                        activeSection === item.href.substring(1)
-                                            ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
-                                            : "text-[#e2d3fd] group-hover:text-white"
-                                    }`}
+                {/* Navigation group */}
+                <div className="flex items-center">
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:block">
+                        <div className="ml-8 flex items-center space-x-8">
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.label}
+                                    href={item.href}
+                                    onClick={(e) => scrollToSection(e, item.href)}
+                                    className="group relative px-1 py-2 text-sm font-medium"
                                 >
-                                    {item.label}
-                                </span>
-                                <span
-                                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] transform origin-left transition-transform duration-300 ${
-                                        activeSection === item.href.substring(1)
-                                            ? "scale-x-100"
-                                            : "scale-x-0 group-hover:scale-x-100"
-                                    }`}
-                                />
-                            </a>
-                        ))}
+                                    <span
+                                        className={`relative z-10 transition-colors duration-300 ${
+                                            activeSection === item.href.substring(1)
+                                                ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
+                                                : "text-[#e2d3fd] group-hover:text-white"
+                                        }`}
+                                    >
+                                        {item.label}
+                                    </span>
+                                    <span
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] transform origin-left transition-transform duration-300 ${
+                                            activeSection === item.href.substring(1)
+                                                ? "scale-x-100"
+                                                : "scale-x-0 group-hover:scale-x-100"
+                                        }`}
+                                    />
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                </div>
     
-                {/* Mobile Menu Button */}
-                <div className="md:hidden">
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className={`relative p-2 text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${
-                            isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
-                        }`}
-                    >
-                        {isOpen ? (
-                            <X className="w-6 h-6" />
-                        ) : (
-                            <Menu className="w-6 h-6" />
-                        )}
-                    </button>
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className={`relative p-2 text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${
+                                isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
+                            }`}
+                            aria-label="Open main menu"
+                        >
+                            {isOpen ? (
+                                <X className="w-6 h-6" />
+                            ) : (
+                                <Menu className="w-6 h-6" />
+                            )}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     
         {/* Mobile Menu Overlay */}
         <div
-            className={`md:hidden h-2/5 fixed inset-0 bg-[#030014] transition-all duration-300 ease-in-out ${
+            className={`md:hidden absolute top-16 left-0 w-full bg-[#030014] transition-all duration-500 ease-in-out transform ${
                 isOpen
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-[-100%] pointer-events-none"
+                    : "opacity-0 -translate-y-full pointer-events-none"
             }`}
-            style={{ top: "64px" }}
         >
-            <div className="flex flex-col h-full">
-                <div className="px-4 py-6 space-y-4 flex-1 ">
-                    {navItems.map((item, index) => (
-                        <a
-                            key={item.label}
-                            href={item.href}
-                            onClick={(e) => scrollToSection(e, item.href)}
-                            className={`block px-4 py-3 text-lg font-medium transition-all duration-300 ease ${
-                                activeSection === item.href.substring(1)
-                                    ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
-                                    : "text-[#e2d3fd] hover:text-white"
-                            }`}
-                            style={{
-                                transitionDelay: `${index * 100}ms`,
-                                transform: isOpen ? "translateX(0)" : "translateX(50px)",
-                                opacity: isOpen ? 1 : 0,
-                            }}
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                {navItems.map((item, index) => (
+                    <a
+                        key={item.label}
+                        href={item.href}
+                        onClick={(e) => scrollToSection(e, item.href)}
+                        className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ease-in-out ${
+                            activeSection === item.href.substring(1)
+                                ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent"
+                                : "text-[#e2d3fd] hover:text-white hover:bg-white/5"
+                        }`}
+                        style={{
+                            transitionDelay: `${index * 50}ms`,
+                            transform: isOpen ? "translateX(0)" : "translateX(20px)",
+                            opacity: isOpen ? 1 : 0,
+                        }}
+                    >
+                        {item.label}
+                    </a>
+                ))}
             </div>
         </div>
     </nav>
-    
     );
 };
 

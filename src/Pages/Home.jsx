@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'
 
 // Memoized Components
 const StatusBadge = memo(() => (
-  <div className="inline-block animate-float lg:mx-20" data-aos="zoom-in" data-aos-delay="400">
+  <div className="inline-block" data-aos="zoom-in" data-aos-delay="400">
     <div className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
@@ -20,7 +20,7 @@ const StatusBadge = memo(() => (
 ));
 
 const MainTitle = memo(() => (
-  <div className="space-y-6 lg:mx-20" data-aos="fade-up" data-aos-delay="600">
+  <div className="space-y-6" data-aos="fade-up" data-aos-delay="600">
     <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
@@ -157,50 +157,40 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
       <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
-        <div className="container mx-auto px-[5%] sm:px-6 lg:px-[0%] min-h-screen">
-          {/* Added ml-8 to this flex container to shift the entire hero section slightly right */}
-          <div className="flex flex-col lg:flex-row items-center justify-center h-screen md:justify-between gap-0 sm:gap-12 lg:gap-20 ml-8">
-            {/* Left Column */}
-            <div className="w-full lg:w-1/2 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
-              data-aos="fade-right"
-              data-aos-delay="200">
-              {/* MODIFIED SECTION: Flex container for side-by-side layout on medium screens and up */}
-              <div className="flex flex-col md:flex-row md:gap-8">
-                <div className="md:w-auto space-y-4 sm:space-y-6"> {/* Column for StatusBadge and MainTitle */}
+        {/* --- FIX: Increased horizontal padding on large screens to match navbar --- */}
+        <div className="w-full mx-auto px-6 md:px-12 lg:px-20 xl:px-32 min-h-screen flex items-center pt-24 lg:pt-0">
+          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between w-full gap-12 lg:gap-20">
+            {/* Left Column - Contains all text content */}
+            <div className="w-full lg:w-1/2 text-left order-1" data-aos="fade-right" data-aos-delay="200">
+              
+              <div className="flex flex-col lg:flex-row lg:gap-12 xl:gap-20">
+                
+                {/* --- Column 1 for desktop: Badge and Main Title --- */}
+                <div className="space-y-6">
                   <StatusBadge />
                   <MainTitle />
                 </div>
-
-                <div className="md:w-auto flex-1 space-y-4 sm:space-y-6 mt-6 md:mt-0"> {/* Column for the rest of the content */}
-                  {/* Typing Effect */}
+                
+                {/* --- Column 2 for desktop: Rest of the text content --- */}
+                <div className="flex-1 space-y-6 mt-8 lg:mt-0">
                   <div className="h-8 flex items-center" data-aos="fade-up" data-aos-delay="800">
                     <span className="text-xl md:text-2xl bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent font-light">
                       {text}
                     </span>
                     <span className="w-[3px] h-6 bg-gradient-to-t from-[#6366f1] to-[#a855f7] ml-1 animate-blink"></span>
                   </div>
-
-                  {/* Description */}
-                  <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
-                    data-aos="fade-up"
-                    data-aos-delay="1000">
+                  <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light" data-aos="fade-up" data-aos-delay="1000">
                     Student at Vels University<br/>Aspiring Full Stack Developer<br/>UI/UX Enthusiast<br/>Junior Fullstack Developer
                   </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-3 justify-start" data-aos="fade-up" data-aos-delay="1200">
+                  <div className="flex flex-wrap gap-3 justify-start" data-aos-de-delay="1200">
                     {TECH_STACK.map((tech, index) => (
                       <TechStack key={index} tech={tech} />
                     ))}
                   </div>
-
-                  {/* CTA Buttons */}
                   <div className="flex flex-row gap-3 w-full justify-start" data-aos="fade-up" data-aos-delay="1400">
                     <CTAButton href="#Portofolio" text="Projects" icon={ExternalLink} />
                     <CTAButton href="#Contact" text="Contact" icon={Mail} />
                   </div>
-
-                  {/* Social Links */}
                   <div className="hidden sm:flex gap-4 justify-start" data-aos="fade-up" data-aos-delay="1600">
                     {SOCIAL_LINKS.map((social, index) => (
                       <SocialLink key={index} {...social} />
@@ -210,8 +200,8 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Column - Optimized Lottie Animation */}
-            <div className="w-full py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0"
+            {/* Right Column - Lottie Animation */}
+            <div className="w-full lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center justify-center order-2 mt-8 lg:mt-0"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
               data-aos="fade-left"
@@ -221,13 +211,11 @@ const Home = () => {
                   isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
                 }`}>
                 </div>
-
                 <div className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
                   isHovering ? "scale-105" : "scale-100"
                 }`}>
                   <DotLottieReact {...lottieOptions} />
                 </div>
-
                 <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${
                   isHovering ? "opacity-50" : "opacity-20"
                 }`}>
