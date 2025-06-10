@@ -1,23 +1,14 @@
-# Netlify configuration file for your portfolio repository.
-# This file specifies how Netlify should build and deploy your site.
+# Default Netlify configuration for a Vite project.
 
 [build]
-  # The command to build your site.
-  # It first installs dependencies using "--legacy-peer-deps" as requested,
-  # and then runs the build script from your package.json.
-  command = "npm install --legacy-peer-deps && npm run build"
+  # This command executes the "build" script from your package.json file.
+  command = "npm run build"
 
-  # The directory that contains the built site.
-  # This should match the output directory of your build command.
+  # This is the directory that contains the production-ready files
+  # after the build command has been executed.
   publish = "dist"
 
 [build.environment]
-  # Specifies the Node.js version to be used by Netlify.
-  # It's good practice to set this to a version compatible with your project.
+  # It is good practice to specify a Node.js version to ensure
+  # your build environment is consistent.
   NODE_VERSION = "18"
-
-# You can define different contexts for your builds, such as production or deploy previews.
-[context.production]
-  # Environment variables specific to the production context can be set here.
-  [context.production.environment]
-    NODE_ENV = "production"
