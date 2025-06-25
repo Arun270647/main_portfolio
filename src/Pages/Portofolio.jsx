@@ -38,6 +38,7 @@ import corizoAndroidImg from '../assets/certificates/corizo-android.png';
 import pythonOpenedgImg from '../assets/certificates/python-openedg.png';
 import novitechCourseImg from '../assets/certificates/novitech-course.png';
 import novitechInternImg from '../assets/certificates/novitech-intern.png';
+import aicteLogo from '../assets/projects/aicte-right-img.png';
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -146,7 +147,15 @@ const staticProjects = [
     Image: artHausLogo,
     containImage: true,
     containerBg: 'bg-black'
-  }
+  },
+  // {
+  //   Title: "AICTE Idea Club Webpage @ Vels University",
+  //   Description: "Created a webpage for the AICTE Idea Club @ Vels University, a club that promotes innovation and entrepreneurship.",
+  //   Link: "https://aicteidea.netlify.app/",
+  //   Image: aicteLogo,
+  //   containImage: true,
+  //   containerBg: 'bg-black'
+  // },
 ];
 
 // Static certificate data
@@ -206,11 +215,9 @@ export default function Portfolio() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
   const [swiper, setSwiper] = useState(null);
-  const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
-  const projectsToShowInitially = 3;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -224,14 +231,11 @@ export default function Portfolio() {
   };
 
   const toggleShowMore = (type) => {
-    if (type === 'projects') {
-      setShowAllProjects(prev => !prev);
-    } else {
+    if (type === 'certificates') {
       setShowAllCertificates(prev => !prev);
     }
   };
 
-  const displayedProjects = showAllProjects ? staticProjects : staticProjects.slice(0, projectsToShowInitially);
   const displayedCertificates = showAllCertificates ? staticCertificates : staticCertificates.slice(0, initialItems);
 
   useEffect(() => {
@@ -302,7 +306,7 @@ export default function Portfolio() {
             <TabPanel value={value} index={0} dir={theme.direction}>
               <div className="container mx-auto flex justify-center items-center overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
-                  {displayedProjects.map((project, index) => (
+                  {staticProjects.map((project, index) => (
                     <div
                       key={index}
                       data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
@@ -320,14 +324,6 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-              {staticProjects.length > projectsToShowInitially && (
-                <div className="mt-6 w-full flex justify-start">
-                  <ToggleButton
-                    onClick={() => toggleShowMore('projects')}
-                    isShowingMore={showAllProjects}
-                  />
-                </div>
-              )}
             </TabPanel>
           </SwiperSlide>
           <SwiperSlide>
@@ -351,14 +347,12 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-              {staticCertificates.length > initialItems && (
-                <div className="mt-6 w-full flex justify-start">
-                  <ToggleButton
-                    onClick={() => toggleShowMore('certificates')}
-                    isShowingMore={showAllCertificates}
-                  />
-                </div>
-              )}
+              <div className="mt-6 w-full flex justify-start">
+                <ToggleButton
+                  onClick={() => toggleShowMore('certificates')}
+                  isShowingMore={showAllCertificates}
+                />
+              </div>
             </TabPanel>
           </SwiperSlide>
           <SwiperSlide>
