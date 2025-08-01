@@ -30,6 +30,7 @@ import vercelIcon from '../assets/techstack/vercel.svg';
 import canvaIcon from '../assets/techstack/canva.svg';
 import marinadigiLogo from '../assets/projects/md-logo.png';
 import cpsportsLogo from '../assets/projects/cp-logo.png';
+import handcricketlogo from '../assets/projects/hc-logo.png';
 import artHausLogo from '../assets/projects/art.png';
 import fullStackImg from '../assets/certificates/full-stack.png';
 import pcapUdemyImg from '../assets/certificates/PCAP-udemy.png';
@@ -127,6 +128,14 @@ const techStacks = [
 // Static project data
 const staticProjects = [
   {
+    Title: "Hand Cricket using AI",
+    Description: "A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js",
+    Link: "https://handcricket.arunvignesh.one/",
+    Image: handcricketlogo,
+    containImage: true,
+    containerBg: 'bg-black'
+  },
+  {
     Title: "Marina Digitals",
     Description: "One of the lead web developer in the creation of the working of the website for Marina Digital, a digital marketing company",
     Link: "https://marinadigi.com",
@@ -147,15 +156,7 @@ const staticProjects = [
     Image: artHausLogo,
     containImage: true,
     containerBg: 'bg-black'
-  },
-  // {
-  //   Title: "AICTE Idea Club Webpage @ Vels University",
-  //   Description: "Created a webpage for the AICTE Idea Club @ Vels University, a club that promotes innovation and entrepreneurship.",
-  //   Link: "https://aicteidea.netlify.app/",
-  //   Image: aicteLogo,
-  //   containImage: true,
-  //   containerBg: 'bg-black'
-  // },
+  }
 ];
 
 // Static certificate data
