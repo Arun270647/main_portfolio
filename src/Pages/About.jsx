@@ -126,9 +126,9 @@ const AboutPage = () => {
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
 
     return {
-      totalProjects: 3, // Directly set to 2
+      totalProjects: 4, // Directly set to 4
       totalCertificates: 6, // Directly set to 6
-      YearExperience: experience
+      YearExperience: 1
     };
   }, []);
 
@@ -177,7 +177,7 @@ const AboutPage = () => {
     {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
-      value: "Fresher",
+      value: "1 Year",
       label: "Experience",
       description: "Continuous learning journey",
       animation: "fade-left",
