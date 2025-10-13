@@ -126,9 +126,9 @@ const AboutPage = () => {
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
 
     return {
-      totalProjects: 4, // Directly set to 4
+      totalProjects: 5, // Directly set to 4
       totalCertificates: 6, // Directly set to 6
-      YearExperience: 1
+      YearExperience: 2
     };
   }, []);
 

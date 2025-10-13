@@ -39,7 +39,7 @@ import corizoAndroidImg from '../assets/certificates/corizo-android.png';
 import pythonOpenedgImg from '../assets/certificates/python-openedg.png';
 import novitechCourseImg from '../assets/certificates/novitech-course.png';
 import novitechInternImg from '../assets/certificates/novitech-intern.png';
-import aicteLogo from '../assets/projects/aicte-right-img.png';
+import kanikaLogo from '../assets/projects/kanikatravels.jpg';
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -159,9 +159,9 @@ const staticProjects = [
   },
   {
     Title: "Kanika Travels",
-    Description: "An Exquisite mehndi artistry, elegant makeup designs, and intricate aari embroidery work that brings your fashion dreams to life.",
+    Description: "Founded by Venkat, Kanika Travels is your trusted partner for cab services across Tamil Nadu. Our mission is to make travel simple, affordable, and convenient, with a primary focus on major cities like Chennai, Coimbatore, Madurai, Tirunelveli (Nellai), and Trichy.",
     Link: "https://kanikatravels.com/",
-    Image: artHausLogo,
+    Image: kanikaLogo,
     containImage: true,
     containerBg: 'bg-black'
   }
