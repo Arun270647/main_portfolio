@@ -156,6 +156,14 @@ const staticProjects = [
     Image: artHausLogo,
     containImage: true,
     containerBg: 'bg-black'
+  },
+  {
+    Title: "Kanika Travels",
+    Description: "An Exquisite mehndi artistry, elegant makeup designs, and intricate aari embroidery work that brings your fashion dreams to life.",
+    Link: "https://kanikatravels.com/",
+    Image: artHausLogo,
+    containImage: true,
+    containerBg: 'bg-black'
   }
 ];
 

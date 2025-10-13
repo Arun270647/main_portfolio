@@ -82,7 +82,7 @@ const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Arun270647" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/arun-vignesh-v-ab4545328/" },
-  { icon: Instagram, link: "https://www.instagram.com/ekizr_/?hl=id" }
+  { icon: Instagram, link: "https://www.instagram.com/_arun._.06?igsh=MWNvNWVjaWdybXJsbg==" }
 ];
 
 const Home = () => {

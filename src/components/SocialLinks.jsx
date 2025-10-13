@@ -12,7 +12,7 @@ const socialLinks = [
     displayName: "Let's Connect",
     subText: "on LinkedIn",
     icon: Linkedin,
-    url: "https://www.linkedin.com/in/arun-vignesh-v-ab4545328/",
+    url: "www.linkedin.com/in/arun-vignesh-v",
     color: "#0A66C2",
     gradient: "from-[#0A66C2] to-[#0077B5]",
     isPrimary: true
@@ -22,7 +22,7 @@ const socialLinks = [
     displayName: "Instagram",
     subText: "@Arun",
     icon: Instagram,
-    url: "https://www.instagram.com/ekizr_/?hl=id",
+    url: "https://www.instagram.com/_arun._.06?igsh=MWNvNWVjaWdybXJsbg==",
     color: "#E4405F",
     gradient: "from-[#833AB4] via-[#E4405F] to-[#FCAF45]"
   },
