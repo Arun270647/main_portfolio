@@ -40,6 +40,7 @@ import pythonOpenedgImg from '../assets/certificates/python-openedg.png';
 import novitechCourseImg from '../assets/certificates/novitech-course.png';
 import novitechInternImg from '../assets/certificates/novitech-intern.png';
 import kanikaLogo from '../assets/projects/kanikatravels.jpg';
+import tmalogo from '../assets/projects/TMA.png';
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -127,6 +128,14 @@ const techStacks = [
 
 // Static project data
 const staticProjects = [
+  {
+    Title: "Track My Academy",
+    Description: "Streamline operations, track performance, and scale your academy with our comprehensive management platform. Everything you need in one place.",
+    Link: "https://www.trackmyacademy.com/",
+    Image: tmalogo,
+    containImage: true,
+    containerBg: 'bg-black' 
+  },
   {
     Title: "Hand Cricket using AI",
     Description: "A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js",
