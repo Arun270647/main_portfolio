@@ -52,6 +52,14 @@ const projects = [
     live: 'https://kanikatravels.com/',
     featured: false,
   },
+  {
+    id: 7,
+    title: 'ENDLESS_GAMER',
+    description: 'A retro-style endless runner game. Jump to avoid obstacles, collect points, and challenge your reflexes in this browser-based arcade game.',
+    tech: ['React', 'Vite', 'Tailwind'],
+    live: 'https://endless-gamer.vercel.app/',
+    featured: false,
+  },
 ];
 
 const ProjectCard = ({ project, index, isInView }: {
