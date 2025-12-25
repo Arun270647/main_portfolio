@@ -19,7 +19,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* ASCII Art Logo */}
           <pre className="font-terminal text-[6px] text-primary text-glow-green leading-none">
-{`
+            {`
  █████╗ ██╗   ██╗
 ██╔══██╗██║   ██║
 ███████║██║   ██║
@@ -51,16 +51,14 @@ export const Footer = () => {
             <p className="flex items-center gap-1 justify-center md:justify-end">
               © {currentYear} ARUN VIGNESH
             </p>
-            <p className="flex items-center gap-1 justify-center md:justify-end mt-1">
-              BUILT WITH <Heart className="w-3 h-3 text-destructive animate-pulse" /> & CODE
-            </p>
+
           </div>
         </div>
 
         {/* Bottom decoration */}
         <div className="mt-8 pt-6 border-t border-muted">
           <pre className="font-terminal text-[8px] text-muted-foreground/50 text-center overflow-x-auto">
-{`
+            {`
 ╔═══════════════════════════════════════════════════════════════════════════════════╗
 ║  SYSTEM.SHUTDOWN INITIATED... THANK YOU FOR VISITING. SEE YOU IN THE NEXT SESSION ║
 ╚═══════════════════════════════════════════════════════════════════════════════════╝

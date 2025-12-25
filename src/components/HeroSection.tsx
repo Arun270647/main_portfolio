@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award } from 'lucide-react';
+import { GmailModal } from './GmailModal';
 
 const GLITCH_CHARS = '▓▒░█▄▀■□●○';
 
 export const HeroSection = () => {
   const [glitchName, setGlitchName] = useState('ARUN VIGNESH');
+  const [isGmailOpen, setIsGmailOpen] = useState(false);
 
   useEffect(() => {
     const name = 'ARUN VIGNESH';
@@ -61,7 +63,7 @@ export const HeroSection = () => {
 └──────────────┘`}</pre>
       </div>
 
-      <div className="container mx-auto px-4 py-20">
+      <div className="container relative z-10 px-4">
         {/* Main content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -107,7 +109,6 @@ export const HeroSection = () => {
             {[
               { icon: Github, href: 'https://github.com/Arun270647', label: 'GITHUB' },
               { icon: Linkedin, href: 'https://linkedin.com/in/arun-vignesh-v-ab4545328', label: 'LINKEDIN' },
-              { icon: Mail, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=shankar72ind@gmail.com', label: 'EMAIL' },
             ].map((social) => (
               <motion.a
                 key={social.label}
@@ -122,6 +123,16 @@ export const HeroSection = () => {
                 <span className="hidden sm:inline">{social.label}</span>
               </motion.a>
             ))}
+
+            <motion.button
+              onClick={() => setIsGmailOpen(true)}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="retro-btn flex items-center gap-2 text-xs md:text-sm"
+            >
+              <Mail className="w-4 h-4" />
+              <span className="hidden sm:inline">EMAIL</span>
+            </motion.button>
           </motion.div>
 
           {/* Navigation cards */}
@@ -157,6 +168,12 @@ export const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      <GmailModal
+        isOpen={isGmailOpen}
+        onClose={() => setIsGmailOpen(false)}
+        recipientEmail="shankar72ind@gmail.com"
+      />
     </section>
   );
 };
