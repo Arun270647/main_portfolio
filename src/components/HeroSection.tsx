@@ -163,6 +163,32 @@ export const HeroSection = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Stats Section */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mt-12 mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+          >
+            {[
+              { label: 'PROJECTS', value: '15+', sub: '(Freelance + Personal)' },
+              { label: 'EXPERIENCE', value: '2+', sub: 'Years of Experience' },
+              { label: 'CERTIFICATIONS', value: '7+', sub: 'Professional Certs' },
+            ].map((stat, index) => (
+              <div key={index} className="terminal-window p-4 text-center">
+                <div className="font-pixel text-2xl md:text-3xl text-primary text-glow mb-1">
+                  {stat.value}
+                </div>
+                <div className="font-terminal text-sm text-foreground mb-1">
+                  {stat.label}
+                </div>
+                <div className="font-terminal text-[10px] text-muted-foreground">
+                  {stat.sub}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
