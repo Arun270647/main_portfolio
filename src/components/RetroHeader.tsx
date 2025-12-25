@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { Terminal, User, Briefcase, Mail, FileCode } from 'lucide-react';
 
 const ASCII_LOGO = `
@@ -12,15 +13,15 @@ const ASCII_LOGO = `
 `;
 
 const navItems = [
-  { label: 'ABOUT', icon: User, href: '#about' },
-  { label: 'SKILLS', icon: Terminal, href: '#skills' },
-  { label: 'PROJECTS', icon: FileCode, href: '#projects' },
-  { label: 'CONTACT', icon: Mail, href: '#contact' },
+  { label: 'ABOUT', icon: User, href: '/about' },
+  { label: 'SKILLS', icon: Terminal, href: '/skills' },
+  { label: 'PROJECTS', icon: FileCode, href: '/projects' },
+  { label: 'CONTACT', icon: Mail, href: '/contact' },
 ];
 
 export const RetroHeader = () => {
   const [time, setTime] = useState(new Date());
-  const [activeNav, setActiveNav] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -51,12 +52,14 @@ export const RetroHeader = () => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-4"
         >
-          <pre className="hidden lg:block text-[6px] leading-none text-primary font-terminal text-glow-green">
-            {ASCII_LOGO}
-          </pre>
-          <div className="lg:hidden font-pixel text-primary text-glow-green text-sm">
-            ARUN
-          </div>
+          <Link to="/">
+            <pre className="hidden lg:block text-[6px] leading-none text-primary font-terminal text-glow-green hover:opacity-80 transition-opacity cursor-pointer">
+              {ASCII_LOGO}
+            </pre>
+            <div className="lg:hidden font-pixel text-primary text-glow-green text-sm">
+              ARUN
+            </div>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -65,28 +68,30 @@ export const RetroHeader = () => {
           className="flex gap-1"
         >
           {navItems.map((item, index) => (
-            <motion.a
+            <motion.div
               key={item.label}
-              href={item.href}
-              onClick={() => setActiveNav(item.label)}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={`
-                group relative px-3 py-2 flex items-center gap-2 font-terminal text-sm
-                transition-all duration-200
-                ${activeNav === item.label 
-                  ? 'text-primary text-glow-green bg-primary/10' 
-                  : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
-                }
-              `}
             >
-              <item.icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{item.label}</span>
-              
-              {/* Hover effect */}
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform" />
-            </motion.a>
+              <Link
+                to={item.href}
+                className={`
+                  group relative px-3 py-2 flex items-center gap-2 font-terminal text-sm
+                  transition-all duration-200
+                  ${location.pathname === item.href
+                    ? 'text-primary text-glow-green bg-primary/10'
+                    : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
+                  }
+                `}
+              >
+                <item.icon className="w-4 h-4" />
+                <span className="hidden sm:inline">{item.label}</span>
+
+                {/* Hover effect */}
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+              </Link>
+            </motion.div>
           ))}
         </motion.div>
       </nav>

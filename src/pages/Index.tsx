@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import { CRTScreen } from '@/components/CRTScreen';
 import { RetroHeader } from '@/components/RetroHeader';
 import { HeroSection } from '@/components/HeroSection';
-import { AboutSection } from '@/components/AboutSection';
-import { SkillsSection } from '@/components/SkillsSection';
-import { ProjectsSection } from '@/components/ProjectsSection';
-import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import { Preloader } from '@/components/Preloader';
 import { Helmet } from 'react-helmet-async';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
       <Helmet>
@@ -20,18 +21,27 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://arunvignesh.one" />
       </Helmet>
-      
-      <CRTScreen className="min-h-screen scanlines noise-overlay crt-filter">
-        <RetroHeader />
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <ContactSection />
-        </main>
-        <Footer />
-      </CRTScreen>
+
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <Preloader key="preloader" onComplete={() => setIsLoading(false)} />
+        ) : (
+          <motion.div
+            key="main-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <CRTScreen className="min-h-screen">
+              <RetroHeader />
+              <main>
+                <HeroSection />
+              </main>
+              <Footer />
+            </CRTScreen>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
