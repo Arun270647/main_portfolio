@@ -75,7 +75,7 @@ export const ExperienceSection = () => {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section id="experience" className="py-20 relative bg-card/30" ref={ref}>
+        <section id="experience" className="py-12 relative bg-card/30" ref={ref}>
             <div className="container mx-auto px-4">
                 {/* Section header */}
                 <motion.div
