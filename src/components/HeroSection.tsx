@@ -152,10 +152,10 @@ export const HeroSection = () => {
                 >
                   <div className="pt-16 p-6 text-center">
                     <link.icon className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-2 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <div className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all">
+                    <div className="font-pixel text-sm md:text-base text-primary group-hover:text-glow transition-all">
                       {link.label}
                     </div>
-                    <div className="font-terminal text-[10px] md:text-xs text-muted-foreground mt-1">
+                    <div className="font-terminal text-xs md:text-sm text-muted-foreground mt-1">
                       {link.description}
                     </div>
                   </div>
@@ -180,10 +180,10 @@ export const HeroSection = () => {
                 <div className="font-pixel text-2xl md:text-3xl text-primary text-glow mb-1">
                   {stat.value}
                 </div>
-                <div className="font-terminal text-sm text-foreground mb-1">
+                <div className="font-terminal text-base md:text-lg text-foreground mb-1">
                   {stat.label}
                 </div>
-                <div className="font-terminal text-[10px] text-muted-foreground">
+                <div className="font-terminal text-xs md:text-sm text-muted-foreground">
                   {stat.sub}
                 </div>
               </div>
