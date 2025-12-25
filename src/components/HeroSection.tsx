@@ -150,7 +150,7 @@ export const HeroSection = () => {
                   to={link.href}
                   className="terminal-window group block hover:border-primary transition-colors"
                 >
-                  <div className="pt-12 p-6 text-center">
+                  <div className="pt-16 p-6 text-center">
                     <link.icon className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-2 text-muted-foreground group-hover:text-primary transition-colors" />
                     <div className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all">
                       {link.label}
@@ -176,7 +176,7 @@ export const HeroSection = () => {
               { label: 'EXPERIENCE', value: '2+', sub: 'Years of Experience' },
               { label: 'CERTIFICATIONS', value: '7+', sub: 'Professional Certs' },
             ].map((stat, index) => (
-              <div key={index} className="terminal-window p-4 text-center">
+              <div key={index} className="terminal-window pt-16 p-4 text-center">
                 <div className="font-pixel text-2xl md:text-3xl text-primary text-glow mb-1">
                   {stat.value}
                 </div>

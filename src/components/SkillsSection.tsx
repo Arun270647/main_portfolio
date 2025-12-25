@@ -116,7 +116,7 @@ export const SkillsSection = () => {
               transition={{ delay: catIndex * 0.15 }}
               className="terminal-window"
             >
-              <div className="pt-12 p-6 md:p-8">
+              <div className="pt-16 p-6 md:p-8">
                 <h3 className="font-pixel text-xs md:text-sm mb-6 text-primary text-glow">
                   {'> '}{category.title}
                 </h3>

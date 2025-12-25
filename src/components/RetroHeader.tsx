@@ -17,8 +17,8 @@ const navItems = [
   { label: 'ABOUT', icon: User, href: '/about' },
   { label: 'SKILLS', icon: Terminal, href: '/skills' },
   { label: 'PROJECTS', icon: FileCode, href: '/projects' },
-  { label: 'EXP', icon: Briefcase, href: '/experience' },
-  { label: 'CERTS', icon: Award, href: '/certificates' },
+  { label: 'EXPERIENCE', icon: Briefcase, href: '/experience' },
+  { label: 'CERTIFICATES', icon: Award, href: '/certificates' },
   { label: 'CONTACT', icon: Mail, href: '/contact' },
 ];
 
@@ -32,7 +32,7 @@ export const RetroHeader = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b-2 border-primary backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
       {/* Top bar with system info */}
       <div className="border-b border-muted px-4 py-1 flex justify-between items-center text-xs font-terminal text-muted-foreground">
         <div className="flex gap-4">

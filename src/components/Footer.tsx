@@ -11,7 +11,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t-2 border-primary relative overflow-hidden">
+    <footer className="py-12 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 retro-grid opacity-30" />
 
