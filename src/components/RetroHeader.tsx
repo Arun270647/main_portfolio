@@ -17,6 +17,7 @@ const navItems = [
   { label: 'ABOUT', icon: User, href: '/about' },
   { label: 'SKILLS', icon: Terminal, href: '/skills' },
   { label: 'PROJECTS', icon: FileCode, href: '/projects' },
+  { label: 'EXP', icon: Briefcase, href: '/experience' },
   { label: 'CERTS', icon: Award, href: '/certificates' },
   { label: 'CONTACT', icon: Mail, href: '/contact' },
 ];
