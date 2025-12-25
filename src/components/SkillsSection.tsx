@@ -35,8 +35,8 @@ const skillCategories = [
   },
 ];
 
-const SkillBar = ({ skill, delay, isInView }: { 
-  skill: { name: string; level: number }; 
+const SkillBar = ({ skill, delay, isInView }: {
+  skill: { name: string; level: number };
   delay: number;
   isInView: boolean;
 }) => {
@@ -63,13 +63,13 @@ const SkillBar = ({ skill, delay, isInView }: {
         {/* Segment markers */}
         <div className="absolute inset-0 flex">
           {[...Array(20)].map((_, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="flex-1 border-r border-background/30 last:border-r-0"
             />
           ))}
         </div>
-        
+
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${skill.level}%` } : {}}
@@ -114,11 +114,11 @@ export const SkillsSection = () => {
               transition={{ delay: catIndex * 0.15 }}
               className="terminal-window"
             >
-              <div className="pt-10 p-4 md:p-6">
+              <div className="pt-12 p-6 md:p-8">
                 <h3 className="font-pixel text-xs md:text-sm mb-6 text-primary text-glow">
                   {'> '}{category.title}
                 </h3>
-                
+
                 {category.skills.map((skill, skillIndex) => (
                   <SkillBar
                     key={skill.name}
@@ -140,7 +140,7 @@ export const SkillsSection = () => {
           className="mt-12 text-center"
         >
           <pre className="font-terminal text-[10px] md:text-xs text-muted-foreground inline-block">
-{`╔═══════════════════════════════════════════════════════════════╗
+            {`╔═══════════════════════════════════════════════════════════════╗
 ║  "First, solve the problem. Then, write the code."            ║
 ╚═══════════════════════════════════════════════════════════════╝`}
           </pre>

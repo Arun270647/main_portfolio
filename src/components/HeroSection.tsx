@@ -144,7 +144,7 @@ export const HeroSection = () => {
                   to={link.href}
                   className="terminal-window group block hover:border-primary transition-colors"
                 >
-                  <div className="pt-8 p-4 text-center">
+                  <div className="pt-12 p-6 text-center">
                     <link.icon className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-2 text-muted-foreground group-hover:text-primary transition-colors" />
                     <div className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all">
                       {link.label}

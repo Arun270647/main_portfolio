@@ -70,7 +70,7 @@ const ProjectCard = ({ project, index, isInView }: {
       onMouseLeave={() => setIsHovered(false)}
       className="terminal-window group cursor-pointer"
     >
-      <div className="pt-10 p-4 md:p-6 h-full flex flex-col">
+      <div className="pt-12 p-6 md:p-8 h-full flex flex-col">
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <Folder className={`w-8 h-8 md:w-10 md:h-10 ${isHovered ? 'text-primary' : 'text-muted-foreground'} transition-colors`} />

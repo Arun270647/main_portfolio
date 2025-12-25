@@ -51,7 +51,7 @@ export const AboutSection = () => {
               <pre className="ascii-art text-primary text-glow text-center text-[10px] md:text-sm mb-6 font-mono">
                 {ASCII_PORTRAIT}
               </pre>
-              
+
               <div className="font-terminal text-sm text-muted-foreground">
                 <div className="text-primary mb-3">$ cat profile.txt</div>
                 <div className="pl-4 border-l border-primary/30 space-y-2">
@@ -85,17 +85,17 @@ export const AboutSection = () => {
             <div className="font-terminal text-foreground leading-relaxed mb-8 space-y-4 text-sm md:text-base">
               <p>
                 <span className="text-primary mr-2">{'>'}</span>
-                Greetings! I'm a passionate developer who transforms caffeine into code 
+                Greetings! I'm a passionate developer who transforms caffeine into code
                 and ideas into interactive experiences.
               </p>
               <p>
                 <span className="text-primary mr-2">{'>'}</span>
-                With deep expertise in both frontend aesthetics and backend logic, 
+                With deep expertise in both frontend aesthetics and backend logic,
                 I craft full-stack solutions that are memorable.
               </p>
               <p>
                 <span className="text-primary mr-2">{'>'}</span>
-                When not debugging, you'll find me exploring new technologies 
+                When not debugging, you'll find me exploring new technologies
                 or contemplating the meaning of semicolons.
               </p>
             </div>
@@ -111,7 +111,7 @@ export const AboutSection = () => {
                   whileHover={{ scale: 1.05 }}
                   className="terminal-window group"
                 >
-                  <div className="pt-8 p-3 md:p-4 text-center">
+                  <div className="pt-10 p-4 md:p-6 text-center">
                     <stat.icon className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-2 text-muted-foreground group-hover:text-primary transition-colors" />
                     <div className="font-pixel text-sm md:text-lg text-primary text-glow">
                       {stat.value}
