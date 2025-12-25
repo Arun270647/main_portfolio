@@ -52,7 +52,7 @@ export const ContactSection = () => {
             transition={{ delay: 0.2 }}
           >
             <div className="terminal-window mb-8">
-              <div className="pt-10 p-4 md:p-6 font-terminal">
+              <div className="pt-12 p-8 md:p-12 font-terminal">
                 <div className="text-primary mb-4 text-sm">$ cat contact_info.txt</div>
                 <div className="space-y-4 text-sm">
                   <div className="flex items-center gap-3">
@@ -112,7 +112,7 @@ export const ContactSection = () => {
             transition={{ delay: 0.4 }}
           >
             <form onSubmit={handleSubmit} className="terminal-window">
-              <div className="pt-10 p-4 md:p-6">
+              <div className="pt-12 p-8 md:p-12">
                 <div className="font-terminal text-primary mb-6 text-sm">
                   {'>'} TRANSMISSION_FORM
                 </div>
