@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award } from 'lucide-react';
-import { GmailModal } from './GmailModal';
 
 const GLITCH_CHARS = '▓▒░█▄▀■□●○';
 
 export const HeroSection = () => {
   const [glitchName, setGlitchName] = useState('ARUN VIGNESH');
-  const [isGmailOpen, setIsGmailOpen] = useState(false);
 
   useEffect(() => {
     const name = 'ARUN VIGNESH';
@@ -60,6 +58,7 @@ export const HeroSection = () => {
         <pre className="leading-tight">{`┌──────────────┐
 │ 13.0827° N   │
 │ 80.2707° E   │
+│ CHENNAI, IN  │
 └──────────────┘`}</pre>
       </div>
 
@@ -124,15 +123,13 @@ export const HeroSection = () => {
               </motion.a>
             ))}
 
-            <motion.button
-              onClick={() => setIsGmailOpen(true)}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <Link
+              to="/contact"
               className="retro-btn flex items-center gap-2 text-xs md:text-sm"
             >
               <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">EMAIL</span>
-            </motion.button>
+            </Link>
           </motion.div>
 
           {/* Navigation cards */}
@@ -168,12 +165,6 @@ export const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      <GmailModal
-        isOpen={isGmailOpen}
-        onClose={() => setIsGmailOpen(false)}
-        recipientEmail="shankar72ind@gmail.com"
-      />
     </section>
   );
 };
