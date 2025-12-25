@@ -83,9 +83,7 @@ export const HeroSection = () => {
             transition={{ delay: 0.3 }}
           >
             <span className="text-muted-foreground">{'<'}</span>
-            <span className="text-foreground">DEVELOPER</span>
-            <span className="text-primary">/</span>
-            <span className="text-foreground">DESIGNER</span>
+            <span className="text-foreground">WEB FULL STACK DEVELOPER</span>
             <span className="text-muted-foreground">{'>'}</span>
           </motion.div>
 
