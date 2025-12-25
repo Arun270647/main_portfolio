@@ -107,7 +107,7 @@ export const HeroSection = () => {
             {[
               { icon: Github, href: 'https://github.com/Arun270647', label: 'GITHUB' },
               { icon: Linkedin, href: 'https://linkedin.com/in/arun-vignesh-v-ab4545328', label: 'LINKEDIN' },
-              { icon: Mail, href: 'mailto:arun.vignesh.v.work@gmail.com', label: 'EMAIL' },
+              { icon: Mail, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=shankar72ind@gmail.com', label: 'EMAIL' },
             ].map((social) => (
               <motion.a
                 key={social.label}
