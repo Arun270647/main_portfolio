@@ -99,7 +99,7 @@ export const ExperienceSection = () => {
                             transition={{ delay: index * 0.1 }}
                             className="terminal-window group"
                         >
-                            <div className="pt-10 p-6 md:p-8">
+                            <div className="pt-16 p-6 md:p-8">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4 border-b border-border/50 pb-4">
                                     <div>
                                         <h3 className="font-pixel text-sm md:text-lg text-primary text-glow mb-1">
