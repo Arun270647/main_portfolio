@@ -78,9 +78,9 @@ const ProjectCard = ({ project, index, isInView }: {
       onMouseLeave={() => setIsHovered(false)}
       className="terminal-window group cursor-pointer"
     >
-      <div className="pt-20 p-6 md:p-8 h-full flex flex-col">
+      <div className="pt-28 p-6 md:p-8 h-full flex flex-col">
         {/* Header */}
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex items-start justify-between mb-6">
           <Folder className={`w-8 h-8 md:w-10 md:h-10 ${isHovered ? 'text-primary' : 'text-muted-foreground'} transition-colors`} />
           <div className="flex gap-3">
             {project.live && (
@@ -104,7 +104,7 @@ const ProjectCard = ({ project, index, isInView }: {
         </h3>
 
         {/* Description */}
-        <p className="font-terminal text-xs md:text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">
+        <p className="font-terminal text-xs md:text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">
           {project.description}
         </p>
 
