@@ -31,7 +31,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center retro-grid overflow-hidden pt-24">
+    <section className="relative min-h-screen flex items-center justify-center retro-grid overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
       {/* Decorative scan lines in background */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
         {[...Array(30)].map((_, i) => (
