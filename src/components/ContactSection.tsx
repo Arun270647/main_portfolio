@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Send, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Clock, CheckCircle, Phone } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const ContactSection = () => {
@@ -58,8 +58,15 @@ export const ContactSection = () => {
                   <div className="flex items-center gap-3">
                     <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                     <span className="text-muted-foreground">EMAIL:</span>
-                    <a href="mailto:hello@arunvignesh.one" className="text-foreground hover:text-primary transition-colors">
-                      hello@arunvignesh.one
+                    <a href="mailto:shankar72ind@gmail.com" className="text-foreground hover:text-primary transition-colors">
+                      shankar72ind@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                    <span className="text-muted-foreground">PHONE:</span>
+                    <a href="tel:+918438996701" className="text-foreground hover:text-primary transition-colors">
+                      +91 8438996701
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
