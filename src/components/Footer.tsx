@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
+import { Github, Linkedin, Instagram, Heart } from 'lucide-react';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/arunvignesh', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/arunvignesh', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com/arunvignesh', label: 'Twitter' },
+  { icon: Instagram, href: 'https://instagram.com/arunvignesh', label: 'Instagram' },
 ];
 
 export const Footer = () => {

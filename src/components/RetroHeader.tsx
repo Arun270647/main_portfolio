@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, User, Briefcase, Mail, FileCode, Award } from 'lucide-react';
+import { Terminal, User, Briefcase, Mail, FileCode, Award, Home } from 'lucide-react';
 
 const ASCII_LOGO = `
  █████╗ ██████╗ ██╗   ██╗███╗   ██╗
@@ -13,6 +13,7 @@ const ASCII_LOGO = `
 `;
 
 const navItems = [
+  { label: 'HOME', icon: Home, href: '/' },
   { label: 'ABOUT', icon: User, href: '/about' },
   { label: 'SKILLS', icon: Terminal, href: '/skills' },
   { label: 'PROJECTS', icon: FileCode, href: '/projects' },

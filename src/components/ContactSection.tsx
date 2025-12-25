@@ -14,14 +14,14 @@ export const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setSubmitted(true);
     toast.success('Message transmitted successfully!');
-    
+
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', message: '' });
@@ -93,7 +93,7 @@ export const ContactSection = () => {
 
             {/* ASCII decoration */}
             <pre className="mt-8 font-terminal text-[8px] md:text-xs text-primary/20 hidden md:block">
-{`     ___________
+              {`     ___________
     |  _______  |
     | |       | |
     | | READY | |
@@ -142,7 +142,7 @@ export const ContactSection = () => {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-muted border border-border focus:border-primary px-4 py-3 font-terminal text-foreground text-sm outline-none transition-colors"
+                        className="w-full bg-muted border border-border focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors"
                         placeholder="Enter your name..."
                       />
                     </div>
@@ -156,7 +156,7 @@ export const ContactSection = () => {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-muted border border-border focus:border-primary px-4 py-3 font-terminal text-foreground text-sm outline-none transition-colors"
+                        className="w-full bg-muted border border-border focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -170,7 +170,7 @@ export const ContactSection = () => {
                         rows={4}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-muted border border-border focus:border-primary px-4 py-3 font-terminal text-foreground text-sm outline-none transition-colors resize-none"
+                        className="w-full bg-muted border border-border focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors resize-none"
                         placeholder="Type your message..."
                       />
                     </div>
