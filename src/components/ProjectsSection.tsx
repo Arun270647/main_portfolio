@@ -6,59 +6,56 @@ import { Github, ExternalLink, Folder, Star } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'RETRO_ARCADE',
-    description: 'A collection of classic arcade games rebuilt with modern web tech. Features pixel-perfect recreations and online leaderboards.',
-    tech: ['React', 'Canvas', 'WebSocket', 'Node.js'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    title: 'TRACK_MY_ACADEMY',
+    description: 'Streamline operations, track performance, and scale your academy with our comprehensive management platform. Everything you need in one place.',
+    tech: ['React', 'Node.js', 'Firebase', 'Tailwind'],
+    live: 'https://www.trackmyacademy.com/',
     featured: true,
   },
   {
     id: 2,
-    title: 'CODE_TERMINAL',
-    description: 'A browser-based code editor with terminal emulation. Supports multiple languages and collaborative editing.',
-    tech: ['TypeScript', 'Monaco', 'Docker', 'WebRTC'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    title: 'HAND_CRICKET_AI',
+    description: 'A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js',
+    tech: ['TensorFlow.js', 'MediaPipe', 'React', 'Canvas'],
+    live: 'https://handcricket.arunvignesh.one/',
     featured: true,
   },
   {
     id: 3,
-    title: 'PIXEL_VAULT',
-    description: 'NFT marketplace with retro aesthetics. Full-stack application with blockchain integration.',
-    tech: ['Next.js', 'Solidity', 'IPFS', 'Ethers.js'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    title: 'MARINA_DIGITALS',
+    description: 'One of the lead web developer in the creation of the working of the website for Marina Digital, a digital marketing company.',
+    tech: ['React', 'Tailwind', 'Vite', 'Node.js'],
+    live: 'https://marinadigi.com',
     featured: true,
   },
   {
     id: 4,
-    title: 'SYNTH_WAVE',
-    description: 'Web-based synthesizer with vintage sound emulation. Create music with 80s-style synth sounds.',
-    tech: ['Web Audio', 'React', 'Tone.js'],
-    github: 'https://github.com',
+    title: 'CP_SPORTS_ACADEMY',
+    description: 'Assisted in creating the website for CP Sports Academy, a sports academy for children in Chennai.',
+    tech: ['React', 'Material UI', 'Firebase'],
+    live: 'https://www.cpsports.in',
     featured: false,
   },
   {
     id: 5,
-    title: 'DATA_GRID',
-    description: 'Real-time data visualization dashboard with retro terminal aesthetics.',
-    tech: ['D3.js', 'Socket.io', 'Express'],
-    github: 'https://github.com',
+    title: 'SELVAS_ART_HAUS',
+    description: 'Exquisite mehndi artistry, elegant makeup designs, and intricate aari embroidery work that brings fashion dreams to life.',
+    tech: ['React', 'Tailwind', 'Netlify'],
+    live: 'https://selvasarthaus.netlify.app/',
     featured: false,
   },
   {
     id: 6,
-    title: 'BOOT_LOADER',
-    description: 'Custom portfolio template with BIOS-style boot sequence animations.',
-    tech: ['React', 'Framer', 'Tailwind'],
-    github: 'https://github.com',
+    title: 'KANIKA_TRAVELS',
+    description: 'Your trusted partner for cab services across Tamil Nadu. Making travel simple, affordable, and convenient across major cities.',
+    tech: ['React', 'Vite', 'Tailwind'],
+    live: 'https://kanikatravels.com/',
     featured: false,
   },
 ];
 
-const ProjectCard = ({ project, index, isInView }: { 
-  project: typeof projects[0]; 
+const ProjectCard = ({ project, index, isInView }: {
+  project: typeof projects[0];
   index: number;
   isInView: boolean;
 }) => {
@@ -78,17 +75,6 @@ const ProjectCard = ({ project, index, isInView }: {
         <div className="flex items-start justify-between mb-4">
           <Folder className={`w-8 h-8 md:w-10 md:h-10 ${isHovered ? 'text-primary' : 'text-muted-foreground'} transition-colors`} />
           <div className="flex gap-3">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Github className="w-4 h-4 md:w-5 md:h-5" />
-              </a>
-            )}
             {project.live && (
               <a
                 href={project.live}
@@ -188,7 +174,7 @@ export const ProjectsSection = () => {
           className="mt-12 text-center"
         >
           <a
-            href="https://github.com/arunvignesh"
+            href="https://github.com/Arun270647"
             target="_blank"
             rel="noopener noreferrer"
             className="retro-btn inline-flex items-center gap-2 font-terminal text-sm"

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, User, Briefcase, Mail, FileCode } from 'lucide-react';
+import { Terminal, User, Briefcase, Mail, FileCode, Award } from 'lucide-react';
 
 const ASCII_LOGO = `
  █████╗ ██████╗ ██╗   ██╗███╗   ██╗
@@ -16,6 +16,7 @@ const navItems = [
   { label: 'ABOUT', icon: User, href: '/about' },
   { label: 'SKILLS', icon: Terminal, href: '/skills' },
   { label: 'PROJECTS', icon: FileCode, href: '/projects' },
+  { label: 'CERTS', icon: Award, href: '/certificates' },
   { label: 'CONTACT', icon: Mail, href: '/contact' },
 ];
 
@@ -77,7 +78,7 @@ export const RetroHeader = () => {
               <Link
                 to={item.href}
                 className={`
-                  group relative px-3 py-2 flex items-center gap-2 font-terminal text-sm
+                  group relative px-2 md:px-3 py-2 flex items-center gap-1 md:gap-2 font-terminal text-xs md:text-sm
                   transition-all duration-200
                   ${location.pathname === item.href
                     ? 'text-primary text-glow-green bg-primary/10'

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, User, Terminal, FileCode, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award } from 'lucide-react';
 
 const GLITCH_CHARS = '▓▒░█▄▀■□●○';
 
@@ -26,6 +26,7 @@ export const HeroSection = () => {
     { label: 'ABOUT', icon: User, href: '/about', description: 'Learn about me' },
     { label: 'SKILLS', icon: Terminal, href: '/skills', description: 'My tech stack' },
     { label: 'PROJECTS', icon: FileCode, href: '/projects', description: 'View my work' },
+    { label: 'CERTS', icon: Award, href: '/certificates', description: 'Certifications' },
     { label: 'CONTACT', icon: Send, href: '/contact', description: 'Get in touch' },
   ];
 
@@ -106,9 +107,9 @@ export const HeroSection = () => {
             transition={{ delay: 0.7 }}
           >
             {[
-              { icon: Github, href: 'https://github.com/arunvignesh', label: 'GITHUB' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/arunvignesh', label: 'LINKEDIN' },
-              { icon: Mail, href: 'mailto:hello@arunvignesh.one', label: 'EMAIL' },
+              { icon: Github, href: 'https://github.com/Arun270647', label: 'GITHUB' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/arun-vignesh-v-ab4545328', label: 'LINKEDIN' },
+              { icon: Mail, href: 'mailto:arun.vignesh.v.work@gmail.com', label: 'EMAIL' },
             ].map((social) => (
               <motion.a
                 key={social.label}
@@ -127,7 +128,7 @@ export const HeroSection = () => {
 
           {/* Navigation cards */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}

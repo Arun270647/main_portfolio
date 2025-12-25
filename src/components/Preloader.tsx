@@ -61,7 +61,7 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="pt-10 p-4 md:p-6 font-terminal text-sm md:text-base min-h-[280px]">
+                        <div className="pt-10 p-4 md:p-6 font-terminal text-sm md:text-base min-h-[280px] mt-4">
                             {BOOT_SEQUENCE.slice(0, bootIndex).map((line, i) => (
                                 <motion.div
                                     key={i}
