@@ -94,8 +94,8 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Building digital experiences with clean code and creative design.
-            Passionate about crafting interfaces that feel alive.
+            Full Stack Web Developer & BCA student. Passionate about exploring technology,
+            challenging myself through development, and constantly learning new tools to create meaningful digital experiences.
           </motion.p>
 
           {/* Social links */}

@@ -85,18 +85,15 @@ export const AboutSection = () => {
             <div className="font-terminal text-foreground leading-relaxed mb-8 space-y-4 text-sm md:text-base">
               <p>
                 <span className="text-primary mr-2">{'>'}</span>
-                Greetings! I'm a passionate developer who transforms caffeine into code
-                and ideas into interactive experiences.
+                I’m Arun Vignesh, a Full Stack Web Developer and BCA student, passionate about exploring the depths of technology.
               </p>
               <p>
                 <span className="text-primary mr-2">{'>'}</span>
-                With deep expertise in both frontend aesthetics and backend logic,
-                I craft full-stack solutions that are memorable.
+                I love challenging myself by building real-world applications and continuously pushing my technical limits.
               </p>
               <p>
                 <span className="text-primary mr-2">{'>'}</span>
-                When not debugging, you'll find me exploring new technologies
-                or contemplating the meaning of semicolons.
+                With a strong curiosity and hands-on mindset, I’m always eager to learn new tools, frameworks, and ideas to grow as a developer.
               </p>
             </div>
 
