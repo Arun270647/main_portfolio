@@ -6,11 +6,13 @@ const skillCategories = [
   {
     title: 'FRONTEND',
     skills: [
+      { name: 'HTML', level: 98 },
+      { name: 'CSS', level: 95 },
       { name: 'React', level: 95 },
       { name: 'TypeScript', level: 90 },
-      { name: 'Next.js', level: 85 },
+      { name: 'Next.js', level: 92 },
       { name: 'Tailwind', level: 92 },
-      { name: 'Vue.js', level: 75 },
+      { name: 'Bootstrap', level: 88 },
     ],
   },
   {
@@ -20,17 +22,17 @@ const skillCategories = [
       { name: 'Python', level: 82 },
       { name: 'PostgreSQL', level: 85 },
       { name: 'MongoDB', level: 80 },
-      { name: 'GraphQL', level: 78 },
     ],
   },
   {
     title: 'TOOLS',
     skills: [
+      { name: 'GitHub', level: 95 },
       { name: 'Git', level: 92 },
-      { name: 'Docker', level: 75 },
-      { name: 'AWS', level: 70 },
-      { name: 'Figma', level: 85 },
-      { name: 'Linux', level: 80 },
+      { name: 'Canva', level: 90 },
+      { name: 'Vercel', level: 88 },
+      { name: 'Render', level: 86 },
+      { name: 'Google Cloud', level: 85 },
     ],
   },
 ];
