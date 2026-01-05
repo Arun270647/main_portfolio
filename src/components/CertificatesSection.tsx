@@ -9,7 +9,7 @@ const certificates = [
         title: 'Full Stack Web Development',
         issuer: 'Rare Minds',
         date: 'April 2025',
-        credentialLink: 'https://www.linkedin.com/in/arun-vignesh-v-ab4545328/details/certifications/1744177098980/single-media-viewer/?type=IMAGE&profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8',
+        credentialLink: 'https://www.linkedin.com/in/arun-vignesh-v/details/certifications/1744177098980/single-media-viewer/?type=IMAGE&profileId=ACoAAFKpZ-gBAeoLDApgiBr2NWSFj2u83vntGL8',
     },
     {
         id: 2,
@@ -44,14 +44,14 @@ const certificates = [
         title: 'Web Development Course',
         issuer: 'Novitech',
         date: 'May 2024',
-        credentialLink: 'https://www.linkedin.com/in/arun-vignesh-v-ab4545328/details/certifications/',
+        credentialLink: 'https://www.linkedin.com/in/arun-vignesh-v/details/certifications/',
     },
     {
         id: 7,
         title: 'Web Development Internship',
         issuer: 'Novitech',
         date: 'May 2024',
-        credentialLink: 'https://www.linkedin.com/in/arun-vignesh-v-ab4545328/details/certifications/',
+        credentialLink: 'https://www.linkedin.com/in/arun-vignesh-v/details/certifications/',
     },
 ];
 

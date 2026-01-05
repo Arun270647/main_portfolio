@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, Heart } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/arunvignesh', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/arunvignesh', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com/arunvignesh', label: 'Instagram' },
+  { icon: Github, href: 'https://github.com/Arun270647', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/arun-vignesh-v/', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://www.instagram.com/_arun._.06/', label: 'Instagram' },
 ];
 
 export const Footer = () => {
