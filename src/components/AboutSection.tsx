@@ -108,7 +108,7 @@ export const AboutSection = () => {
                   whileHover={{ scale: 1.05 }}
                   className="terminal-window group"
                 >
-                  <div className="pt-16 p-4 md:p-6 text-center">
+                  <div className="pt-12 pb-6 px-6 text-center">
                     <stat.icon className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-2 text-muted-foreground group-hover:text-primary transition-colors" />
                     <div className="font-pixel text-sm md:text-lg text-primary text-glow">
                       {stat.value}
