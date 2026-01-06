@@ -11,7 +11,7 @@ export const Layout = ({ children }: LayoutProps) => {
     return (
         <CRTScreen className="min-h-screen">
             <RetroHeader />
-            <main className="pt-24">
+            <main className="pt-20">
                 {children}
             </main>
             <Footer />

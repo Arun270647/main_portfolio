@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award } from 'lucide-react';
 
@@ -20,6 +20,75 @@ export const HeroSection = () => {
       }
     }, 100);
     return () => clearInterval(glitchInterval);
+  }, []);
+
+  const [showAdvice, setShowAdvice] = useState(false);
+  const [currentAdvice, setCurrentAdvice] = useState('');
+
+  const ADVICES = [
+    "My code works, I don’t know why. My code breaks, I don’t know why.",
+    "I didn’t break the code. I just exposed its weakness.",
+    "If the code runs, submission deadline is near.",
+    "Debugging: removing the bugs you added while fixing previous bugs.",
+    "Every error teaches something — mostly patience and anger.",
+    "My program works perfectly… in my imagination.",
+    "Coding at 2 AM turns bad ideas into confident ones.",
+    "I don’t need sleep, I need this code to pass.",
+    "If it compiles without errors, be very suspicious.",
+    "One more small change before submission = disaster.",
+    "The syllabus is temporary, backlogs are forever.",
+    "My logic is correct, the output is wrong.",
+    "When nothing works, restart the laptop for emotional support.",
+    "Code runs faster when the teacher is watching.",
+    "I trust my code until I see the output.",
+    "Programming exams test how well you can panic calmly.",
+    "If the output matches once, immediately submit.",
+    "Bugs appear exactly when confidence increases.",
+    "I wrote this code yesterday. Today it’s black magic.",
+    "Real programmers measure time in deadlines, not hours."
+  ];
+
+  const [location, setLocation] = useState<{
+    lat: string;
+    lng: string;
+    text: string;
+  }>({
+    lat: '13.0827° N',
+    lng: '80.2707° E',
+    text: 'CHENNAI, IN'
+  });
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        const latDir = latitude >= 0 ? 'N' : 'S';
+        const lngDir = longitude >= 0 ? 'E' : 'W';
+        const latStr = `${Math.abs(latitude).toFixed(4)}° ${latDir}`;
+        const lngStr = `${Math.abs(longitude).toFixed(4)}° ${lngDir}`;
+
+        try {
+          const response = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
+          const data = await response.json();
+          const city = data.city || data.locality || 'UNKNOWN';
+          const country = data.countryCode || 'LOC';
+          const locationText = `${city.toUpperCase()}, ${country}`;
+
+          setLocation({
+            lat: latStr,
+            lng: lngStr,
+            text: locationText.substring(0, 12) // Truncate to fit
+          });
+        } catch (error) {
+          setLocation(prev => ({ ...prev, lat: latStr, lng: lngStr, text: 'DETECTED' }));
+        }
+      }, (error) => {
+        console.error("Geolocation error:", error);
+      });
+    }
   }, []);
 
   const navLinks = [
@@ -56,9 +125,9 @@ export const HeroSection = () => {
 
       <div className="absolute bottom-12 right-4 md:right-8 text-muted-foreground/40 font-terminal text-[10px] md:text-xs text-right">
         <pre className="leading-tight">{`┌──────────────┐
-│ 13.0827° N   │
-│ 80.2707° E   │
-│ CHENNAI, IN  │
+│ ${location.lat.padEnd(12)} │
+│ ${location.lng.padEnd(12)} │
+│ ${location.text.padEnd(12)} │
 └──────────────┘`}</pre>
       </div>
 
@@ -97,6 +166,23 @@ export const HeroSection = () => {
             Full Stack Web Developer & BCA student. Passionate about exploring technology,
             challenging myself through development, and constantly learning new tools to create meaningful digital experiences.
           </motion.p>
+
+          {/* Advice Button */}
+          <motion.button
+            onClick={() => {
+              const randomAdvice = ADVICES[Math.floor(Math.random() * ADVICES.length)];
+              setCurrentAdvice(randomAdvice);
+              setShowAdvice(true);
+            }}
+            className="retro-btn mb-12 text-xs md:text-sm px-6 py-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Click for a piece of advice
+          </motion.button>
 
           {/* Social links */}
           <motion.div
@@ -191,6 +277,65 @@ export const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
+      {/* Advice Modal */}
+      <AnimatePresence>
+        {showAdvice && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAdvice(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="terminal-window max-w-lg w-full relative z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-card/50">
+                <div className="flex items-center gap-2">
+                  <Terminal className="w-4 h-4 text-primary" />
+                  <span className="font-pixel text-xs text-primary">ADVICE.EXE</span>
+                </div>
+                <button
+                  onClick={() => setShowAdvice(false)}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <span className="font-mono">[X]</span>
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-8 text-center">
+                <div className="mb-6">
+                  <span className="font-terminal text-primary text-xl md:text-2xl leading-relaxed text-glow">
+                    "{currentAdvice}"
+                  </span>
+                </div>
+                <button
+                  onClick={() => {
+                    const randomAdvice = ADVICES[Math.floor(Math.random() * ADVICES.length)];
+                    setCurrentAdvice(randomAdvice);
+                  }}
+                  className="retro-btn text-xs px-4 py-1 mr-4"
+                >
+                  ANOTHER ONE
+                </button>
+                <button
+                  onClick={() => setShowAdvice(false)}
+                  className="text-muted-foreground hover:text-primary font-terminal text-xs transition-colors"
+                >
+                  CLOSE
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

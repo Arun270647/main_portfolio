@@ -97,9 +97,14 @@ export const ExperienceSection = () => {
                             initial={{ opacity: 0, x: -20 }}
                             animate={isInView ? { opacity: 1, x: 0 } : {}}
                             transition={{ delay: index * 0.1 }}
-                            className="terminal-window group"
+                            className="terminal-window group flex flex-col before:hidden"
                         >
-                            <div className="pt-16 p-6 md:p-8">
+                            {/* Window Header */}
+                            <div className="px-4 py-2 text-xs font-terminal bg-border text-muted-foreground border-b border-border tracking-[0.25em]">
+                                ● ○ ○
+                            </div>
+
+                            <div className="p-6 md:p-8">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4 border-b border-border/50 pb-4">
                                     <div>
                                         <h3 className="font-pixel text-sm md:text-lg text-primary text-glow mb-1">

@@ -9,9 +9,7 @@ const Experience = () => {
                 <title>Experience | Arun Vignesh</title>
                 <meta name="description" content="My professional experience and career journey" />
             </Helmet>
-            <div className="pt-20">
-                <ExperienceSection />
-            </div>
+            <ExperienceSection />
         </Layout>
     );
 };

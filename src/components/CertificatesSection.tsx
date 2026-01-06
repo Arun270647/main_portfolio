@@ -72,9 +72,14 @@ const CertificateCard = ({ cert, index, isInView }: {
             transition={{ delay: index * 0.1 }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="terminal-window group cursor-pointer block"
+            className="terminal-window group cursor-pointer block flex flex-col before:hidden"
         >
-            <div className="pt-16 p-6 md:p-8 h-full flex flex-col">
+            {/* Window Header */}
+            <div className="px-4 py-2 text-xs font-terminal bg-border text-muted-foreground border-b border-border tracking-[0.25em]">
+                ● ○ ○
+            </div>
+
+            <div className="p-6 md:p-8 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                     <Award className={`w-8 h-8 md:w-10 md:h-10 ${isHovered ? 'text-primary' : 'text-muted-foreground'} transition-colors`} />
@@ -95,7 +100,7 @@ const CertificateCard = ({ cert, index, isInView }: {
                 </div>
 
                 {/* Date */}
-                <div className="flex items-center gap-2 mt-auto">
+                <div className="flex items-center gap-2 mt-4">
                     <Calendar className="w-3 h-3 text-muted-foreground" />
                     <span className="font-terminal text-xs text-muted-foreground">
                         {cert.date}
@@ -119,7 +124,7 @@ export const CertificatesSection = () => {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section id="certificates" className="py-20 relative bg-card/30" ref={ref}>
+        <section id="certificates" className="py-12 relative bg-card/30" ref={ref}>
             <div className="container mx-auto px-4">
                 {/* Section header */}
                 <motion.div

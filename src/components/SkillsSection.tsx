@@ -91,7 +91,7 @@ export const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-20 relative bg-card/30" ref={ref}>
+    <section id="skills" className="py-12 relative bg-card/30" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section header */}
         <motion.div
@@ -114,9 +114,14 @@ export const SkillsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: catIndex * 0.15 }}
-              className="terminal-window"
+              className="terminal-window flex flex-col before:hidden"
             >
-              <div className="pt-16 p-6 md:p-8">
+              {/* Window Header */}
+              <div className="px-4 py-2 text-xs font-terminal bg-border text-muted-foreground border-b border-border tracking-[0.25em]">
+                ● ○ ○
+              </div>
+
+              <div className="p-6 md:p-8">
                 <h3 className="font-pixel text-xs md:text-sm mb-6 text-primary text-glow">
                   {'> '}{category.title}
                 </h3>

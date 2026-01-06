@@ -76,9 +76,14 @@ const ProjectCard = ({ project, index, isInView }: {
       transition={{ delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="terminal-window group cursor-pointer"
+      className="terminal-window group cursor-pointer flex flex-col before:hidden"
     >
-      <div className="pt-28 p-6 md:p-8 h-full flex flex-col">
+      {/* Window Header */}
+      <div className="px-4 py-2 text-xs font-terminal bg-border text-muted-foreground border-b border-border tracking-[0.25em]">
+        ● ○ ○
+      </div>
+
+      <div className="p-6 md:p-8 h-full flex flex-col">
         {/* Header */}
         <div className="flex items-start justify-between mb-6">
           <Folder className={`w-8 h-8 md:w-10 md:h-10 ${isHovered ? 'text-primary' : 'text-muted-foreground'} transition-colors`} />
@@ -137,7 +142,7 @@ export const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-20 relative" ref={ref}>
+    <section id="projects" className="py-12 relative" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section header */}
         <motion.div

@@ -1,16 +1,42 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Code, Cpu, Database, Globe } from 'lucide-react';
 
-const ASCII_PORTRAIT = `
+const ASCII_FRAMES = [
+  `
    ╔═══════════════╗
-   ║   ■       ■   ║
-   ║       ▲       ║
-   ║   ╲_______╱   ║
-   ║               ║
+   ║   (>_<)       ║
+   ║   /| |\\  BUG? ║
+   ║  SEARCHING... ║
+   ║   [||||]  40% ║
    ╚═══════════════╝
-`;
+  `,
+  `
+   ╔═══════════════╗
+   ║   (O_O)  !!   ║
+   ║   /| |\\  ERR  ║
+   ║  NULL PTR !!  ║
+   ║   PANIC MODE  ║
+   ╚═══════════════╝
+  `,
+  `
+   ╔═══════════════╗
+   ║   (T_T)       ║
+   ║   /| |\\  WHY  ║
+   ║  STACK OVF    ║
+   ║   SEND HELP   ║
+   ╚═══════════════╝
+  `,
+  `
+   ╔═══════════════╗
+   ║   (^_^)  OK   ║
+   ║   /| |\\  FIXD ║
+   ║  IT WORKS!!   ║
+   ║   PUSHING...  ║
+   ╚═══════════════╝
+  `
+];
 
 const stats = [
   { icon: Code, value: '50+', label: 'Projects' },
@@ -22,9 +48,17 @@ const stats = [
 export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [frameIndex, setFrameIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFrameIndex((prev) => (prev + 1) % ASCII_FRAMES.length);
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="about" className="py-20 relative" ref={ref}>
+    <section id="about" className="py-12 relative" ref={ref}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
@@ -48,9 +82,11 @@ export const AboutSection = () => {
             className="terminal-window"
           >
             <div className="pt-16 p-6 md:p-8">
-              <pre className="ascii-art text-primary text-glow text-center text-[10px] md:text-sm mb-6 font-mono">
-                {ASCII_PORTRAIT}
-              </pre>
+              <div className="relative h-[120px] mb-6 flex items-center justify-center">
+                <pre className="ascii-art text-primary text-glow text-center text-[10px] md:text-sm font-mono whitespace-pre leading-none transition-all duration-300">
+                  {ASCII_FRAMES[frameIndex]}
+                </pre>
+              </div>
 
               <div className="font-terminal text-sm text-muted-foreground">
                 <div className="text-primary mb-3">$ cat profile.txt</div>

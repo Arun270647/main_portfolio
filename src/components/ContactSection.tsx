@@ -29,7 +29,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-card/30" ref={ref}>
+    <section id="contact" className="py-12 relative bg-card/30" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section header */}
         <motion.div
