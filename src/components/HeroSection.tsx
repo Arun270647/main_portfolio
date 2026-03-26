@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import resumePdf from '@/resume/Arun Resume.pdf';
 
 const GLITCH_CHARS = '▓▒░█▄▀■□●○';
 
@@ -24,6 +26,7 @@ export const HeroSection = () => {
 
   const [showAdvice, setShowAdvice] = useState(false);
   const [currentAdvice, setCurrentAdvice] = useState('');
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const ADVICES = [
     "My code works, I don’t know why. My code breaks, I don’t know why.",
@@ -216,6 +219,18 @@ export const HeroSection = () => {
               <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">EMAIL</span>
             </Link>
+
+            <Dialog open={resumeOpen} onOpenChange={setResumeOpen}>
+              <DialogTrigger asChild>
+                <button className="retro-btn flex items-center gap-2 text-xs md:text-sm">
+                  <FileCode className="w-4 h-4" />
+                  <span className="hidden sm:inline">VIEW RESUME/CV</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-5xl w-[95vw] h-[90vh] p-0 gap-0 overflow-hidden">
+                <iframe src={`${resumePdf}#zoom=65`} title="Resume" className="w-full h-full block" />
+              </DialogContent>
+            </Dialog>
           </motion.div>
 
           {/* Navigation cards */}

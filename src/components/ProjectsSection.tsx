@@ -5,6 +5,14 @@ import { Github, ExternalLink, Folder, Star } from 'lucide-react';
 
 const projects = [
   {
+    id: 8,
+    title: 'KYRA_ELITE',
+    description: 'Kyra Elite is a modern e-commerce platform built for a premium clothing and accessories brand, focused on delivering a fast, responsive, and visually appealing shopping experience. It features a clean UI, smooth navigation, and optimized performance, along with an admin dashboard for efficient product management.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    live: 'https://kyraelite.com',
+    featured: true,
+  },
+  {
     id: 1,
     title: 'TRACK_MY_ACADEMY',
     description: 'Streamline operations, track performance, and scale your academy with our comprehensive management platform. Everything you need in one place.',

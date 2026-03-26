@@ -104,6 +104,15 @@
     -moz-osx-font-smoothing: auto;
   }
 
+  html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   /* CRT Screen Filter - light mode adjustments */
   .crt-filter {
     filter: grayscale(100%) contrast(1.05);
@@ -112,6 +121,14 @@
 
 /* CRT Effects */
 @layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Scanlines - lighter for white bg */
   .scanlines {
     position: relative;
