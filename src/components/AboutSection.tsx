@@ -39,8 +39,8 @@ const ASCII_FRAMES = [
 ];
 
 const stats = [
-  { icon: Code, value: '50+', label: 'Projects' },
-  { icon: Globe, value: '3+', label: 'Years' },
+  { icon: Code, value: '15+', label: 'Projects' },
+  { icon: Globe, value: '2+', label: 'Years' },
   { icon: Cpu, value: '∞', label: 'Coffee' },
   { icon: Database, value: '99%', label: 'Uptime' },
 ];
