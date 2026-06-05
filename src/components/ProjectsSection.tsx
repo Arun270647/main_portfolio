@@ -5,6 +5,14 @@ import { Github, ExternalLink, Folder, Star } from 'lucide-react';
 
 const projects = [
   {
+    id: 9,
+    title: 'AQUA_ARCH_INTERNATIONAL',
+    description: 'A professional corporate website for Aqua Arch International, presenting the company’s services and global presence through a clean, modern, and fully responsive design.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    live: 'https://aquaarchinternational.vercel.app/',
+    featured: true,
+  },
+  {
     id: 8,
     title: 'KYRA_ELITE',
     description: 'Kyra Elite is a modern e-commerce platform built for a premium clothing and accessories brand, focused on delivering a fast, responsive, and visually appealing shopping experience. It features a clean UI, smooth navigation, and optimized performance, along with an admin dashboard for efficient product management.',
