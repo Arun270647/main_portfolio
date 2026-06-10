@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Quote, ChevronLeft, ChevronRight, Star, Linkedin } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, Star, ExternalLink } from 'lucide-react';
 
 const testimonials = [
   {
@@ -12,7 +12,7 @@ const testimonials = [
     image: '/testimonials/person1.jpg', // Placeholder
     text: 'Arun is an exceptional developer with a keen eye for detail. His work on our academy management platform exceeded all expectations. The code quality and architecture are top-notch.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/rahul-dhileep-kumar',
+    website: 'https://www.trackmyacademy.com/',
     date: 'January 2026',
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     image: '/testimonials/person2.jpg', // Placeholder
     text: 'Working with Arun was a fantastic experience. He transformed our vision into a stunning, high-performance website. His expertise in React and modern web technologies is evident in every pixel.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/ashwin-saravanan',
+    website: 'https://marinadigi.com',
     date: 'December 2025',
   },
   {
@@ -34,7 +34,7 @@ const testimonials = [
     image: '/testimonials/person3.jpg', // Placeholder
     text: 'Arun delivered our e-commerce platform ahead of schedule with excellent attention to UX and performance. The admin dashboard he built has streamlined our entire workflow.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/karthick-raghav',
+    website: 'https://kyraelite.com',
     date: 'November 2025',
   },
   {
@@ -45,7 +45,7 @@ const testimonials = [
     image: '/testimonials/person4.jpg', // Placeholder
     text: 'Arun created a beautiful portfolio website that perfectly captures the essence of our art business. His professionalism and technical skills made the entire process smooth and enjoyable.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/selva-rajeshwari',
+    website: 'https://selvasarthaus.netlify.app/',
     date: 'October 2025',
   },
   {
@@ -56,7 +56,7 @@ const testimonials = [
     image: '/testimonials/person5.jpg', // Placeholder
     text: 'Arun brought our "Made for Hugs" brand to life with a warm and inviting website. His understanding of our vision and ability to translate it into a beautiful digital experience was remarkable.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/joe-jasper',
+    website: 'https://fufies.in',
     date: 'September 2025',
   },
   {
@@ -67,7 +67,7 @@ const testimonials = [
     image: '/testimonials/person6.jpg', // Placeholder
     text: 'Professional, efficient, and highly skilled. Arun delivered a corporate website that perfectly represents our business. His attention to detail and modern design approach impressed our entire team.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/sadiq-aquaarch',
+    website: 'https://abchdnfhd.vercel.app/',
     date: 'August 2025',
   },
   {
@@ -78,7 +78,7 @@ const testimonials = [
     image: '/testimonials/person7.jpg', // Placeholder
     text: 'Honestly, the portfolio turned out way better than I imagined. You understood exactly what I wanted and transformed it into something that feels uniquely me. The design is clean, modern, and super engaging. Every section flows perfectly, and it showcases my work in the best possible way. Couldn\'t have asked for a better portfolio. Huge thanks for bringing my vision to life. I really loved the design and the color palette which you have chosen and I love the quality of your work.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/prince-ashwin',
+    website: 'https://ashwin-portfolio-opal.vercel.app/',
     date: 'July 2025',
   },
   {
@@ -89,7 +89,7 @@ const testimonials = [
     image: '/testimonials/person8.jpg', // Placeholder
     text: 'Working with Arun on our sports academy website was excellent. He created a user-friendly platform that helps us manage our students and showcase our programs effectively.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/arichandran',
+    website: 'https://www.cpsports.in',
     date: 'June 2025',
   },
 ];
@@ -129,13 +129,13 @@ const TestimonialCard = ({ testimonial, isActive }: { testimonial: typeof testim
             <p className="font-terminal text-xs text-muted-foreground">{testimonial.company}</p>
           </div>
           <a
-            href={testimonial.linkedin}
+            href={testimonial.website}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label={`View ${testimonial.name} on LinkedIn`}
+            aria-label={`Visit ${testimonial.company} website`}
           >
-            <Linkedin className="w-5 h-5" />
+            <ExternalLink className="w-5 h-5" />
           </a>
         </div>
 
