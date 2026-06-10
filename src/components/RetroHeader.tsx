@@ -20,6 +20,7 @@ const navItems = [
   { label: 'PROJECTS', icon: FileCode, href: '/projects' },
   { label: 'EXPERIENCE', icon: Briefcase, href: '/experience' },
   { label: 'CERTIFICATES', icon: Award, href: '/certificates' },
+  { label: 'BLOG', icon: FileCode, href: '/blog' },
   { label: 'CONTACT', icon: Mail, href: '/contact' },
 ];
 
