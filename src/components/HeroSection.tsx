@@ -145,6 +145,9 @@ export const HeroSection = () => {
           <motion.h1
             className="font-pixel text-xl md:text-3xl lg:text-4xl text-primary text-glow mb-4"
             data-text={glitchName}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             {glitchName}
           </motion.h1>
@@ -183,6 +186,7 @@ export const HeroSection = () => {
             transition={{ delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Get random developer advice"
           >
             Click for a piece of advice
           </motion.button>
@@ -195,8 +199,8 @@ export const HeroSection = () => {
             transition={{ delay: 0.7 }}
           >
             {[
-              { icon: Github, href: 'https://github.com/Arun270647', label: 'GITHUB' },
-              { icon: Linkedin, href: 'https://www.linkedin.com/in/arun-vignesh-v/', label: 'LINKEDIN' },
+              { icon: Github, href: 'https://github.com/Arun270647', label: 'GITHUB', ariaLabel: 'Visit GitHub profile' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/arun-vignesh-v/', label: 'LINKEDIN', ariaLabel: 'Visit LinkedIn profile' },
             ].map((social) => (
               <motion.a
                 key={social.label}
@@ -206,8 +210,9 @@ export const HeroSection = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="retro-btn flex items-center gap-2 text-xs md:text-sm"
+                aria-label={social.ariaLabel}
               >
-                <social.icon className="w-4 h-4" />
+                <social.icon className="w-4 h-4" aria-hidden="true" />
                 <span className="hidden sm:inline">{social.label}</span>
               </motion.a>
             ))}
@@ -215,15 +220,16 @@ export const HeroSection = () => {
             <Link
               to="/contact"
               className="retro-btn flex items-center gap-2 text-xs md:text-sm"
+              aria-label="Go to contact page"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4" aria-hidden="true" />
               <span className="hidden sm:inline">EMAIL</span>
             </Link>
 
             <Dialog open={resumeOpen} onOpenChange={setResumeOpen}>
               <DialogTrigger asChild>
-                <button className="retro-btn flex items-center gap-2 text-xs md:text-sm">
-                  <FileCode className="w-4 h-4" />
+                <button className="retro-btn flex items-center gap-2 text-xs md:text-sm" aria-label="View resume">
+                  <FileCode className="w-4 h-4" aria-hidden="true" />
                   <span className="hidden sm:inline">VIEW RESUME/CV</span>
                 </button>
               </DialogTrigger>
@@ -236,8 +242,9 @@ export const HeroSection = () => {
                       download="Arun_Vignesh_Resume.pdf"
                       className="retro-btn flex items-center gap-2 text-xs font-terminal bg-background/95 backdrop-blur-sm"
                       onClick={(e) => e.stopPropagation()}
+                      aria-label="Download resume as PDF"
                     >
-                      <Download className="w-4 h-4" />
+                      <Download className="w-4 h-4" aria-hidden="true" />
                       PDF
                     </a>
                   </div>
@@ -350,12 +357,14 @@ export const HeroSection = () => {
                     setCurrentAdvice(randomAdvice);
                   }}
                   className="retro-btn text-xs px-4 py-1 mr-4"
+                  aria-label="Get another advice"
                 >
                   ANOTHER ONE
                 </button>
                 <button
                   onClick={() => setShowAdvice(false)}
                   className="text-muted-foreground hover:text-primary font-terminal text-xs transition-colors"
+                  aria-label="Close advice modal"
                 >
                   CLOSE
                 </button>

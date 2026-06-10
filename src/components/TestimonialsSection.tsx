@@ -124,7 +124,7 @@ const TestimonialCard = ({ testimonial, isActive }: { testimonial: typeof testim
             {testimonial.name.split(' ').map(n => n[0]).join('')}
           </div>
           <div className="flex-1">
-            <h4 className="font-pixel text-sm text-primary">{testimonial.name}</h4>
+            <h4 className="font-pixel text-sm text-primary" role="heading" aria-level="4">{testimonial.name}</h4>
             <p className="font-terminal text-xs text-muted-foreground">{testimonial.role}</p>
             <p className="font-terminal text-xs text-muted-foreground">{testimonial.company}</p>
           </div>
@@ -171,7 +171,7 @@ export const TestimonialsSection = () => {
           className="flex items-center gap-4 mb-12"
         >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-          <h2 className="font-pixel text-base md:text-xl text-primary text-glow">
+          <h2 className="font-pixel text-base md:text-xl text-primary text-glow" role="heading" aria-level="2">
             {'// CLIENT_TESTIMONIALS'}
           </h2>
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

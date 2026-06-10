@@ -63,7 +63,7 @@ const projects = [
     title: 'HAND_CRICKET_AI',
     description: 'A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js',
     tech: ['TensorFlow.js', 'MediaPipe', 'React', 'Canvas'],
-    live: 'https://handcricket.arunvignesh.one/',
+    live: 'https://handcricket.arunvignesh.my/',
     github: 'https://github.com/Arun270647/Hand-Cricket-AI',
     featured: true,
   },
@@ -159,7 +159,7 @@ const ProjectCard = ({ project, index, isInView }: {
         </div>
 
         {/* Title */}
-        <h3 className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all mb-3 flex items-center gap-2">
+        <h3 className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all mb-3 flex items-center gap-2" role="heading" aria-level="3">
           {project.title}
           {project.featured && <Star className="w-3 h-3 md:w-4 md:h-4 text-accent" />}
         </h3>
@@ -207,7 +207,7 @@ export const ProjectsSection = () => {
           className="flex items-center gap-4 mb-12"
         >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-          <h2 className="font-pixel text-base md:text-xl text-primary text-glow">
+          <h2 className="font-pixel text-base md:text-xl text-primary text-glow" role="heading" aria-level="2">
             {'// PROJECT_ARCHIVE'}
           </h2>
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

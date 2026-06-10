@@ -31,7 +31,10 @@ const NotFound = () => {
     <>
       <Helmet>
         <title>404 - Page Not Found | Arun Vignesh</title>
+        <meta name="description" content="The page you're looking for doesn't exist. Navigate back to the homepage or explore other sections." />
         <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="404 - Page Not Found" />
+        <meta property="og:description" content="This page doesn't exist." />
       </Helmet>
 
       <CRTScreen className="min-h-screen flex items-center justify-center relative overflow-hidden">

@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { Preloader } from '@/components/Preloader';
 import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
+import { organizationSchema, websiteSchema, profilePageSchema } from '@/utils/structuredData';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +21,21 @@ const Index = () => {
         <meta property="og:title" content="Arun Vignesh | Full-Stack Developer" />
         <meta property="og:description" content="Building digital experiences with clean code and creative design." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://arunvignesh.one" />
+        <meta property="og:url" content="https://arunvignesh.my" />
+        <meta property="og:site_name" content="Arun Vignesh Portfolio" />
+        <meta name="twitter:title" content="Arun Vignesh | Full-Stack Developer" />
+        <meta name="twitter:description" content="Building digital experiences with clean code and creative design." />
+        <link rel="canonical" href="https://arunvignesh.my" />
+
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(profilePageSchema)}
+        </script>
       </Helmet>
 
       <AnimatePresence mode="wait">

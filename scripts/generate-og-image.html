@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate OG Image</title>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="630"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Background
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, 1200, 630);
+
+        // Grid pattern
+        ctx.strokeStyle = '#00ff4120';
+        ctx.lineWidth = 1;
+        for (let i = 0; i < 1200; i += 40) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, 630);
+            ctx.stroke();
+        }
+        for (let i = 0; i < 630; i += 40) {
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(1200, i);
+            ctx.stroke();
+        }
+
+        // Border
+        ctx.strokeStyle = '#00ff41';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(20, 20, 1160, 590);
+
+        // Main text
+        ctx.fillStyle = '#00ff41';
+        ctx.font = 'bold 80px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('ARUN VIGNESH', 600, 270);
+
+        // Subtitle
+        ctx.fillStyle = '#888888';
+        ctx.font = '36px monospace';
+        ctx.fillText('FULL-STACK WEB DEVELOPER', 600, 340);
+
+        // Bottom text
+        ctx.fillStyle = '#00ff4180';
+        ctx.font = '24px monospace';
+        ctx.fillText('React • TypeScript • Node.js • AI/ML', 600, 400);
+
+        // Domain
+        ctx.fillStyle = '#00ff41';
+        ctx.font = 'bold 28px monospace';
+        ctx.fillText('arunvignesh.one', 600, 520);
+
+        // Download link
+        const link = document.createElement('a');
+        link.download = 'og-image.png';
+        link.href = canvas.toDataURL('image/png');
+        link.textContent = 'Click here to download og-image.png';
+        link.style.cssText = 'display: block; margin: 20px; padding: 20px; background: #00ff41; color: black; text-decoration: none; font-family: monospace; font-size: 18px; text-align: center;';
+        document.body.insertBefore(link, canvas);
+
+        // Auto download
+        link.click();
+    </script>
+</body>
+</html>
