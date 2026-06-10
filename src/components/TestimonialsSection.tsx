@@ -6,47 +6,91 @@ import { Quote, ChevronLeft, ChevronRight, Star, Linkedin } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: 'Shankar Narayanan',
-    role: 'CTO, Tech Solutions',
-    company: 'Tech Solutions Pvt Ltd',
+    name: 'Rahul Dhileep Kumar',
+    role: 'Founder & CEO',
+    company: 'Track My Academy',
     image: '/testimonials/person1.jpg', // Placeholder
     text: 'Arun is an exceptional developer with a keen eye for detail. His work on our academy management platform exceeded all expectations. The code quality and architecture are top-notch.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/example1',
+    linkedin: 'https://www.linkedin.com/in/rahul-dhileep-kumar',
     date: 'January 2026',
   },
   {
     id: 2,
-    name: 'Priya Ramesh',
-    role: 'Founder, Marina Digitals',
+    name: 'Ashwin Saravanan',
+    role: 'Founder',
     company: 'Marina Digitals',
     image: '/testimonials/person2.jpg', // Placeholder
     text: 'Working with Arun was a fantastic experience. He transformed our vision into a stunning, high-performance website. His expertise in React and modern web technologies is evident in every pixel.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/example2',
+    linkedin: 'https://www.linkedin.com/in/ashwin-saravanan',
     date: 'December 2025',
   },
   {
     id: 3,
-    name: 'Raj Kumar',
-    role: 'Product Manager, Kyra Elite',
+    name: 'Karthick Raghav',
+    role: 'Product Owner',
     company: 'Kyra Elite',
     image: '/testimonials/person3.jpg', // Placeholder
     text: 'Arun delivered our e-commerce platform ahead of schedule with excellent attention to UX and performance. The admin dashboard he built has streamlined our entire workflow.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/example3',
+    linkedin: 'https://www.linkedin.com/in/karthick-raghav',
     date: 'November 2025',
   },
   {
     id: 4,
-    name: 'Anitha Selvam',
-    role: 'Director, Selvas Art Haus',
+    name: 'Selva Rajeshwari',
+    role: 'Founder & Creative Director',
     company: 'Selvas Art Haus',
     image: '/testimonials/person4.jpg', // Placeholder
     text: 'Arun created a beautiful portfolio website that perfectly captures the essence of our art business. His professionalism and technical skills made the entire process smooth and enjoyable.',
     rating: 5,
-    linkedin: 'https://www.linkedin.com/in/example4',
+    linkedin: 'https://www.linkedin.com/in/selva-rajeshwari',
     date: 'October 2025',
+  },
+  {
+    id: 5,
+    name: 'Joe Jasper',
+    role: 'Founder',
+    company: 'Fufies',
+    image: '/testimonials/person5.jpg', // Placeholder
+    text: 'Arun brought our "Made for Hugs" brand to life with a warm and inviting website. His understanding of our vision and ability to translate it into a beautiful digital experience was remarkable.',
+    rating: 5,
+    linkedin: 'https://www.linkedin.com/in/joe-jasper',
+    date: 'September 2025',
+  },
+  {
+    id: 6,
+    name: 'Mr. Sadiq',
+    role: 'Managing Director',
+    company: 'Aqua Arch International',
+    image: '/testimonials/person6.jpg', // Placeholder
+    text: 'Professional, efficient, and highly skilled. Arun delivered a corporate website that perfectly represents our business. His attention to detail and modern design approach impressed our entire team.',
+    rating: 5,
+    linkedin: 'https://www.linkedin.com/in/sadiq-aquaarch',
+    date: 'August 2025',
+  },
+  {
+    id: 7,
+    name: 'Prince Ashwin',
+    role: 'Content Creator & Filmmaker',
+    company: 'Ashwin Portfolio',
+    image: '/testimonials/person7.jpg', // Placeholder
+    text: 'Arun understood my creative vision perfectly. He built a stunning portfolio that showcases my work as a filmmaker with cinematic elegance. The site captures exactly what I wanted - "Not Just Content. Cinema."',
+    rating: 5,
+    linkedin: 'https://www.linkedin.com/in/prince-ashwin',
+    date: 'July 2025',
+  },
+  {
+    id: 8,
+    name: 'Mr. Arichandran',
+    role: 'Director',
+    company: 'CP Sports Academy',
+    image: '/testimonials/person8.jpg', // Placeholder
+    text: 'Working with Arun on our sports academy website was excellent. He created a user-friendly platform that helps us manage our students and showcase our programs effectively.',
+    rating: 5,
+    linkedin: 'https://www.linkedin.com/in/arichandran',
+    date: 'June 2025',
   },
 ];
 
@@ -197,7 +241,7 @@ export const TestimonialsSection = () => {
           className="mt-12 grid grid-cols-3 gap-4 max-w-2xl mx-auto"
         >
           <div className="text-center p-4 border border-border bg-card/30">
-            <p className="font-pixel text-2xl md:text-3xl text-primary">{testimonials.length}+</p>
+            <p className="font-pixel text-2xl md:text-3xl text-primary">{testimonials.length}</p>
             <p className="font-terminal text-xs text-muted-foreground mt-1">Happy Clients</p>
           </div>
           <div className="text-center p-4 border border-border bg-card/30">
