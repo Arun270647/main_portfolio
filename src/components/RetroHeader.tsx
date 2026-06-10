@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Terminal, User, Briefcase, Mail, FileCode, Award, Home } from 'lucide-react';
+import { Terminal, User, Briefcase, Mail, FileCode, Award, Home, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 const ASCII_LOGO = `
  █████╗ ██████╗ ██╗   ██╗███╗   ██╗
@@ -25,8 +26,11 @@ const navItems = [
 export const RetroHeader = () => {
   const [time, setTime] = useState(new Date());
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -39,12 +43,26 @@ export const RetroHeader = () => {
           <span>▸ SYSTEM.PORTFOLIO v2.0.25</span>
           <span className="text-primary">● ONLINE</span>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           <span>MEM: 640KB</span>
           <span>CPU: 100%</span>
           <span className="text-primary">
             {time.toLocaleTimeString('en-US', { hour12: false })}
           </span>
+          {/* Theme Toggle */}
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="ml-2 p-1 hover:text-primary transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-3.5 h-3.5" />
+              ) : (
+                <Moon className="w-3.5 h-3.5" />
+              )}
+            </button>
+          )}
         </div>
       </div>
 

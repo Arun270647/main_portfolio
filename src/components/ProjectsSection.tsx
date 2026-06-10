@@ -10,6 +10,7 @@ const projects = [
     description: 'Streamline operations, track performance, and scale your academy with our comprehensive management platform. Everything you need in one place.',
     tech: ['React', 'Node.js', 'Firebase', 'Tailwind'],
     live: 'https://www.trackmyacademy.com/',
+    github: 'https://github.com/Arun270647/TrackMyAcademy',
     featured: true,
   },
   {
@@ -18,6 +19,7 @@ const projects = [
     description: 'One of the lead web developer in the creation of the working of the website for Marina Digital, a digital marketing company.',
     tech: ['React', 'Tailwind', 'Vite', 'Node.js'],
     live: 'https://marinadigi.com',
+    github: 'https://github.com/Arun270647/Marina-Digitals',
     featured: true,
   },
   {
@@ -26,6 +28,7 @@ const projects = [
     description: 'FUFIES - Made for Hugs. A comfort-focused brand offering premium plush products designed for warmth, connection, and cozy moments.',
     tech: ['React', 'Tailwind', 'Vite'],
     live: 'https://fufies.in',
+    github: 'https://github.com/Arun270647/fufies',
     featured: true,
   },
   {
@@ -34,6 +37,7 @@ const projects = [
     description: 'Kyra Elite is a modern e-commerce platform built for a premium clothing and accessories brand, focused on delivering a fast, responsive, and visually appealing shopping experience. It features a clean UI, smooth navigation, and optimized performance, along with an admin dashboard for efficient product management.',
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
     live: 'https://kyraelite.com',
+    github: 'https://github.com/Arun270647/kyra-elite',
     featured: true,
   },
   {
@@ -42,6 +46,7 @@ const projects = [
     description: 'Professional business website for Aqua Arch International, showcasing their services and expertise with a modern, clean interface.',
     tech: ['React', 'Tailwind', 'Vite'],
     live: 'https://abchdnfhd.vercel.app/',
+    github: 'https://github.com/Arun270647/aqua-arch',
     featured: true,
   },
   {
@@ -50,6 +55,7 @@ const projects = [
     description: 'Not Just Content. Cinema. A stunning portfolio and creative showcase for Prince Ashwin, a content creator and filmmaker emphasizing cinematic quality and artistic storytelling.',
     tech: ['React', 'Tailwind', 'Vite'],
     live: 'https://ashwin-portfolio-opal.vercel.app/',
+    github: 'https://github.com/Arun270647/ashwin-portfolio',
     featured: true,
   },
   {
@@ -58,6 +64,7 @@ const projects = [
     description: 'A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js',
     tech: ['TensorFlow.js', 'MediaPipe', 'React', 'Canvas'],
     live: 'https://handcricket.arunvignesh.one/',
+    github: 'https://github.com/Arun270647/Hand-Cricket-AI',
     featured: true,
   },
   {
@@ -66,6 +73,7 @@ const projects = [
     description: 'Assisted in creating the website for CP Sports Academy, a sports academy for children in Chennai.',
     tech: ['React', 'Material UI', 'Firebase'],
     live: 'https://www.cpsports.in',
+    github: 'https://github.com/Arun270647/cp-sports',
     featured: false,
   },
   {
@@ -74,6 +82,7 @@ const projects = [
     description: 'Exquisite mehndi artistry, elegant makeup designs, and intricate aari embroidery work that brings fashion dreams to life.',
     tech: ['React', 'Tailwind', 'Netlify'],
     live: 'https://selvasarthaus.netlify.app/',
+    github: 'https://github.com/Arun270647/selvas-art-haus',
     featured: false,
   },
   {
@@ -82,6 +91,7 @@ const projects = [
     description: 'Your trusted partner for cab services across Tamil Nadu. Making travel simple, affordable, and convenient across major cities.',
     tech: ['React', 'Vite', 'Tailwind'],
     live: 'https://kanikatravels.com/',
+    github: 'https://github.com/Arun270647/kanika-travels',
     featured: false,
   },
   {
@@ -90,6 +100,7 @@ const projects = [
     description: 'A retro-style endless runner game. Jump to avoid obstacles, collect points, and challenge your reflexes in this browser-based arcade game.',
     tech: ['React', 'Vite', 'Tailwind'],
     live: 'https://endless-gamer.vercel.app/',
+    github: 'https://github.com/Arun270647/endless-gamer',
     featured: false,
   },
 ];
@@ -120,6 +131,18 @@ const ProjectCard = ({ project, index, isInView }: {
         <div className="flex items-start justify-between mb-6">
           <Folder className={`w-8 h-8 md:w-10 md:h-10 ${isHovered ? 'text-primary' : 'text-muted-foreground'} transition-colors`} />
           <div className="flex gap-3">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                onClick={(e) => e.stopPropagation()}
+                aria-label="View on GitHub"
+              >
+                <Github className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+            )}
             {project.live && (
               <a
                 href={project.live}
@@ -127,6 +150,7 @@ const ProjectCard = ({ project, index, isInView }: {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 onClick={(e) => e.stopPropagation()}
+                aria-label="View live site"
               >
                 <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
               </a>

@@ -1,45 +1,69 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import {
+  SiReact,
+  SiJavascript,
+  SiTailwindcss,
+  SiVite,
+  SiTypescript,
+  SiMui,
+  SiNodedotjs,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiTensorflow,
+  SiNetlify
+} from 'react-icons/si';
+import { IconType } from 'react-icons';
+
+interface Skill {
+  name: string;
+  level: number;
+  icon: IconType;
+  color?: string;
+}
 
 const skillCategories = [
   {
     title: 'FRONTEND',
     skills: [
-      { name: 'React', level: 92 },
-      { name: 'JavaScript', level: 90 },
-      { name: 'Tailwind CSS', level: 88 },
-      { name: 'Vite', level: 85 },
-      { name: 'TypeScript', level: 78 },
-      { name: 'Material UI', level: 72 },
-    ],
+      { name: 'React', level: 92, icon: SiReact, color: '#61DAFB' },
+      { name: 'JavaScript', level: 90, icon: SiJavascript, color: '#F7DF1E' },
+      { name: 'Tailwind CSS', level: 88, icon: SiTailwindcss, color: '#06B6D4' },
+      { name: 'Vite', level: 85, icon: SiVite, color: '#646CFF' },
+      { name: 'TypeScript', level: 78, icon: SiTypescript, color: '#3178C6' },
+      { name: 'Material UI', level: 72, icon: SiMui, color: '#007FFF' },
+    ] as Skill[],
   },
   {
     title: 'BACKEND',
     skills: [
-      { name: 'Node.js', level: 82 },
-      { name: 'Firebase', level: 80 },
-      { name: 'REST APIs', level: 78 },
-    ],
+      { name: 'Node.js', level: 82, icon: SiNodedotjs, color: '#339933' },
+      { name: 'Firebase', level: 80, icon: SiFirebase, color: '#FFCA28' },
+      { name: 'REST APIs', level: 78, icon: SiNodedotjs, color: '#339933' },
+    ] as Skill[],
   },
   {
     title: 'TOOLS & AI',
     skills: [
-      { name: 'Git & GitHub', level: 90 },
-      { name: 'Vercel', level: 86 },
-      { name: 'TensorFlow.js', level: 75 },
-      { name: 'MediaPipe', level: 74 },
-      { name: 'Netlify', level: 72 },
-    ],
+      { name: 'Git & GitHub', level: 90, icon: SiGithub, color: '#181717' },
+      { name: 'Vercel', level: 86, icon: SiVercel, color: '#000000' },
+      { name: 'TensorFlow.js', level: 75, icon: SiTensorflow, color: '#FF6F00' },
+      { name: 'MediaPipe', level: 74, icon: SiTensorflow, color: '#4285F4' },
+      { name: 'Netlify', level: 72, icon: SiNetlify, color: '#00C7B7' },
+    ] as Skill[],
   },
 ];
 
 const SkillBar = ({ skill, delay, isInView }: {
-  skill: { name: string; level: number };
+  skill: Skill;
   delay: number;
   isInView: boolean;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const IconComponent = skill.icon;
 
   return (
     <motion.div
@@ -50,10 +74,16 @@ const SkillBar = ({ skill, delay, isInView }: {
       onMouseLeave={() => setIsHovered(false)}
       className="mb-4"
     >
-      <div className="flex justify-between mb-1 font-terminal text-sm">
-        <span className={isHovered ? 'text-primary' : 'text-foreground'}>
-          {skill.name}
-        </span>
+      <div className="flex justify-between items-center mb-1 font-terminal text-sm">
+        <div className="flex items-center gap-2">
+          <IconComponent
+            className={`w-4 h-4 transition-colors ${isHovered ? 'text-primary' : 'text-muted-foreground'}`}
+            style={isHovered && skill.color ? { color: skill.color } : {}}
+          />
+          <span className={isHovered ? 'text-primary' : 'text-foreground'}>
+            {skill.name}
+          </span>
+        </div>
         <span className="text-muted-foreground">
           [{skill.level}%]
         </span>

@@ -1,31 +1,81 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Send, Mail, MapPin, Clock, CheckCircle, Phone } from 'lucide-react';
+import { Send, Mail, MapPin, Clock, CheckCircle, Phone, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 export const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      toast.error('Please fix the errors in the form');
+      return;
+    }
+
     setIsSubmitting(true);
+    setErrors({});
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // EmailJS configuration - Replace these with your actual values
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_portfolio';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_portfolio';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
 
-    setIsSubmitting(false);
-    setSubmitted(true);
-    toast.success('Message transmitted successfully!');
+      if (formRef.current) {
+        await emailjs.sendForm(
+          serviceId,
+          templateId,
+          formRef.current,
+          publicKey
+        );
 
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+        setSubmitted(true);
+        toast.success('Message transmitted successfully!');
+
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', message: '' });
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast.error('Failed to send message. Please try again or email directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -118,7 +168,7 @@ export const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} className="terminal-window">
+            <form ref={formRef} onSubmit={handleSubmit} className="terminal-window">
               <div className="pt-12 p-8 md:p-12">
                 <div className="font-terminal text-primary mb-6 text-sm">
                   {'>'} TRANSMISSION_FORM
@@ -146,12 +196,19 @@ export const ContactSection = () => {
                       </label>
                       <input
                         type="text"
+                        name="from_name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-muted border border-border focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors"
+                        className={`w-full bg-muted border ${errors.name ? 'border-red-500' : 'border-border'} focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors`}
                         placeholder="Enter your name..."
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -160,12 +217,19 @@ export const ContactSection = () => {
                       </label>
                       <input
                         type="email"
+                        name="from_email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-muted border border-border focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors"
+                        className={`w-full bg-muted border ${errors.email ? 'border-red-500' : 'border-border'} focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors`}
                         placeholder="your@email.com"
                       />
+                      {errors.email && (
+                        <p className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -173,13 +237,20 @@ export const ContactSection = () => {
                         MESSAGE_BODY:
                       </label>
                       <textarea
+                        name="message"
                         required
                         rows={4}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-muted border border-border focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors resize-none"
+                        className={`w-full bg-muted border ${errors.message ? 'border-red-500' : 'border-border'} focus:border-primary px-6 py-5 font-terminal text-foreground text-sm outline-none transition-colors resize-none`}
                         placeholder="Type your message..."
                       />
+                      {errors.message && (
+                        <p className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          {errors.message}
+                        </p>
+                      )}
                     </div>
 
                     <button
