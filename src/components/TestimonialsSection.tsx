@@ -21,7 +21,7 @@ const testimonials = [
     role: 'Founder',
     company: 'Marina Digitals',
     image: '/testimonials/person2.jpg', // Placeholder
-    text: 'Working with Arun was a fantastic experience. He transformed our vision into a stunning, high-performance website. His expertise in React and modern web technologies is evident in every pixel.',
+    text: 'An exceptional website built with creativity, strategy, and professionalism. You have successfully transformed our vision into a strong personal brand presence, delivering a website that is visually impressive, user-friendly, and impactful. Highly recommended for anyone looking to elevate their digital identity.',
     rating: 5,
     website: 'https://marinadigi.com',
     date: 'December 2025',
