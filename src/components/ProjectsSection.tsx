@@ -5,14 +5,6 @@ import { Github, ExternalLink, Folder, Star } from 'lucide-react';
 
 const projects = [
   {
-    id: 8,
-    title: 'KYRA_ELITE',
-    description: 'Kyra Elite is a modern e-commerce platform built for a premium clothing and accessories brand, focused on delivering a fast, responsive, and visually appealing shopping experience. It features a clean UI, smooth navigation, and optimized performance, along with an admin dashboard for efficient product management.',
-    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    live: 'https://kyraelite.com',
-    featured: true,
-  },
-  {
     id: 1,
     title: 'TRACK_MY_ACADEMY',
     description: 'Streamline operations, track performance, and scale your academy with our comprehensive management platform. Everything you need in one place.',
@@ -22,14 +14,6 @@ const projects = [
   },
   {
     id: 2,
-    title: 'HAND_CRICKET_AI',
-    description: 'A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js',
-    tech: ['TensorFlow.js', 'MediaPipe', 'React', 'Canvas'],
-    live: 'https://handcricket.arunvignesh.one/',
-    featured: true,
-  },
-  {
-    id: 3,
     title: 'MARINA_DIGITALS',
     description: 'One of the lead web developer in the creation of the working of the website for Marina Digital, a digital marketing company.',
     tech: ['React', 'Tailwind', 'Vite', 'Node.js'],
@@ -37,7 +21,47 @@ const projects = [
     featured: true,
   },
   {
+    id: 3,
+    title: 'FUFIES',
+    description: 'FUFIES - Made for Hugs. A comfort-focused brand offering premium plush products designed for warmth, connection, and cozy moments.',
+    tech: ['React', 'Tailwind', 'Vite'],
+    live: 'https://fufies.in',
+    featured: true,
+  },
+  {
     id: 4,
+    title: 'KYRA_ELITE',
+    description: 'Kyra Elite is a modern e-commerce platform built for a premium clothing and accessories brand, focused on delivering a fast, responsive, and visually appealing shopping experience. It features a clean UI, smooth navigation, and optimized performance, along with an admin dashboard for efficient product management.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    live: 'https://kyraelite.com',
+    featured: true,
+  },
+  {
+    id: 5,
+    title: 'AQUA_ARCH_INTERNATIONAL',
+    description: 'Professional business website for Aqua Arch International, showcasing their services and expertise with a modern, clean interface.',
+    tech: ['React', 'Tailwind', 'Vite'],
+    live: 'https://abchdnfhd.vercel.app/',
+    featured: true,
+  },
+  {
+    id: 6,
+    title: 'ASHWIN_PORTFOLIO',
+    description: 'Not Just Content. Cinema. A stunning portfolio and creative showcase for Prince Ashwin, a content creator and filmmaker emphasizing cinematic quality and artistic storytelling.',
+    tech: ['React', 'Tailwind', 'Vite'],
+    live: 'https://ashwin-portfolio-opal.vercel.app/',
+    featured: true,
+  },
+  {
+    id: 7,
+    title: 'HAND_CRICKET_AI',
+    description: 'A browser-based AI-powered Hand Cricket game using real-time gesture recognition with MediaPipe and TensorFlow.js',
+    tech: ['TensorFlow.js', 'MediaPipe', 'React', 'Canvas'],
+    live: 'https://handcricket.arunvignesh.one/',
+    featured: true,
+  },
+  {
+    id: 8,
     title: 'CP_SPORTS_ACADEMY',
     description: 'Assisted in creating the website for CP Sports Academy, a sports academy for children in Chennai.',
     tech: ['React', 'Material UI', 'Firebase'],
@@ -45,7 +69,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 5,
+    id: 9,
     title: 'SELVAS_ART_HAUS',
     description: 'Exquisite mehndi artistry, elegant makeup designs, and intricate aari embroidery work that brings fashion dreams to life.',
     tech: ['React', 'Tailwind', 'Netlify'],
@@ -53,7 +77,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 6,
+    id: 10,
     title: 'KANIKA_TRAVELS',
     description: 'Your trusted partner for cab services across Tamil Nadu. Making travel simple, affordable, and convenient across major cities.',
     tech: ['React', 'Vite', 'Tailwind'],
@@ -61,7 +85,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 7,
+    id: 11,
     title: 'ENDLESS_GAMER',
     description: 'A retro-style endless runner game. Jump to avoid obstacles, collect points, and challenge your reflexes in this browser-based arcade game.',
     tech: ['React', 'Vite', 'Tailwind'],
