@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, User, Terminal, FileCode, Send, Award, Download } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import resumePdf from '@/resume/Arun Resume.pdf';
 
@@ -228,7 +228,20 @@ export const HeroSection = () => {
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-5xl w-[95vw] h-[90vh] p-0 gap-0 overflow-hidden">
-                <iframe src={`${resumePdf}#zoom=65`} title="Resume" className="w-full h-full block" />
+                <div className="relative w-full h-full">
+                  <iframe src={`${resumePdf}#zoom=65`} title="Resume" className="w-full h-full block" />
+                  <div className="absolute top-4 right-4 flex gap-2 z-10">
+                    <a
+                      href={resumePdf}
+                      download="Arun_Vignesh_Resume.pdf"
+                      className="retro-btn flex items-center gap-2 text-xs font-terminal bg-background/95 backdrop-blur-sm"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Download className="w-4 h-4" />
+                      PDF
+                    </a>
+                  </div>
+                </div>
               </DialogContent>
             </Dialog>
           </motion.div>

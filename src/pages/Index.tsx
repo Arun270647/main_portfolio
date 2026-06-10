@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CRTScreen } from '@/components/CRTScreen';
 import { RetroHeader } from '@/components/RetroHeader';
 import { HeroSection } from '@/components/HeroSection';
+import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { Footer } from '@/components/Footer';
 import { Preloader } from '@/components/Preloader';
 import { Helmet } from 'react-helmet-async';
@@ -36,6 +37,7 @@ const Index = () => {
               <RetroHeader />
               <main>
                 <HeroSection />
+                <TestimonialsSection />
               </main>
               <Footer />
             </CRTScreen>
