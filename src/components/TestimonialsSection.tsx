@@ -76,7 +76,7 @@ const testimonials = [
     role: 'Content Creator & Filmmaker',
     company: 'Ashwin Portfolio',
     image: '/testimonials/person7.jpg', // Placeholder
-    text: 'Arun understood my creative vision perfectly. He built a stunning portfolio that showcases my work as a filmmaker with cinematic elegance. The site captures exactly what I wanted - "Not Just Content. Cinema."',
+    text: 'Honestly, the portfolio turned out way better than I imagined. You understood exactly what I wanted and transformed it into something that feels uniquely me. The design is clean, modern, and super engaging. Every section flows perfectly, and it showcases my work in the best possible way. Couldn\'t have asked for a better portfolio. Huge thanks for bringing my vision to life. I really loved the design and the color palette which you have chosen and I love the quality of your work.',
     rating: 5,
     linkedin: 'https://www.linkedin.com/in/prince-ashwin',
     date: 'July 2025',
