@@ -4,9 +4,9 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Arun Vignesh",
-  "url": "https://arunvignesh.my",
-  "logo": "https://arunvignesh.my/favicon.png",
-  "image": "https://arunvignesh.my/og-image.svg",
+  "url": "https://www.arunvignesh.my",
+  "logo": "https://www.arunvignesh.my/favicon.png",
+  "image": "https://www.arunvignesh.my/og-image.svg",
   "description": "Full-Stack Web Developer specializing in React, TypeScript, Node.js, and modern web technologies",
   "email": "shankar72ind@gmail.com",
   "jobTitle": "Full-Stack Web Developer",
@@ -43,7 +43,7 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Arun Vignesh Portfolio",
-  "url": "https://arunvignesh.my",
+  "url": "https://www.arunvignesh.my",
   "description": "Portfolio website of Arun Vignesh - Full-Stack Web Developer",
   "publisher": {
     "@type": "Person",
@@ -51,7 +51,7 @@ export const websiteSchema = {
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://arunvignesh.my/blog?search={search_term_string}",
+    "target": "https://www.arunvignesh.my/blog?search={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
@@ -82,7 +82,7 @@ export const webPageSchema = (props: {
   "inLanguage": "en-US",
   "isPartOf": {
     "@type": "WebSite",
-    "url": "https://arunvignesh.my"
+    "url": "https://www.arunvignesh.my"
   },
   "author": {
     "@type": "Person",
@@ -100,8 +100,8 @@ export const profilePageSchema = {
     "name": "Arun Vignesh",
     "alternateName": "Arun Vignesh V",
     "description": "Full-Stack Web Developer & BCA student passionate about building digital experiences",
-    "image": "https://arunvignesh.my/og-image.svg",
-    "url": "https://arunvignesh.my",
+    "image": "https://www.arunvignesh.my/og-image.svg",
+    "url": "https://www.arunvignesh.my",
     "sameAs": [
       "https://github.com/Arun270647",
       "https://www.linkedin.com/in/arun-vignesh-v/"
@@ -158,14 +158,14 @@ export const blogPostSchema = (post: {
   "author": {
     "@type": "Person",
     "name": "Arun Vignesh",
-    "url": "https://arunvignesh.my"
+    "url": "https://www.arunvignesh.my"
   },
   "publisher": {
     "@type": "Person",
     "name": "Arun Vignesh",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://arunvignesh.my/favicon.png"
+      "url": "https://www.arunvignesh.my/favicon.png"
     }
   },
   "mainEntityOfPage": {

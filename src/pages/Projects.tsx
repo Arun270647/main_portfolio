@@ -31,12 +31,12 @@ const Projects = () => {
                 <title>Projects | Arun Vignesh</title>
                 <meta name="description" content="15+ projects including Track My Academy, Marina Digitals, Kyra Elite e-commerce platform & Hand Cricket AI. View live demos & source code on GitHub." />
                 <meta name="keywords" content="Web Projects, React Projects, Portfolio, Track My Academy, Marina Digitals, Kyra Elite, E-commerce, GitHub Projects" />
-                <link rel="canonical" href="https://arunvignesh.my/projects" />
+                <link rel="canonical" href="https://www.arunvignesh.my/projects" />
 
                 <meta property="og:title" content="Projects | Arun Vignesh" />
                 <meta property="og:description" content="Portfolio of web applications, games, and creative projects." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://arunvignesh.my/projects" />
+                <meta property="og:url" content="https://www.arunvignesh.my/projects" />
                 <meta property="og:site_name" content="Arun Vignesh Portfolio" />
                 <meta name="twitter:title" content="Projects | Arun Vignesh" />
                 <meta name="twitter:description" content="Portfolio of web applications, games, and creative projects." />
@@ -45,13 +45,13 @@ const Projects = () => {
                     {JSON.stringify(webPageSchema({
                         name: "Projects - Arun Vignesh",
                         description: "Portfolio of web applications, games, and creative projects",
-                        url: "https://arunvignesh.my/projects"
+                        url: "https://www.arunvignesh.my/projects"
                     }))}
                 </script>
                 <script type="application/ld+json">
                     {JSON.stringify(breadcrumbSchema([
-                        { name: "Home", url: "https://arunvignesh.my" },
-                        { name: "Projects", url: "https://arunvignesh.my/projects" }
+                        { name: "Home", url: "https://www.arunvignesh.my" },
+                        { name: "Projects", url: "https://www.arunvignesh.my/projects" }
                     ]))}
                 </script>
                 <script type="application/ld+json">
