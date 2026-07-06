@@ -174,3 +174,36 @@ export const blogPostSchema = (post: {
   },
   ...(post.keywords && { "keywords": post.keywords.join(", ") })
 });
+
+export const articleSchema = (article: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+  keywords?: string[];
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.description,
+  "url": article.url,
+  "datePublished": article.datePublished,
+  "dateModified": article.dateModified || article.datePublished,
+  ...(article.image && { "image": article.image }),
+  "author": {
+    "@type": "Person",
+    "name": "Arun Vignesh",
+    "url": "https://www.arunvignesh.my"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Arun Vignesh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": article.url
+  },
+  ...(article.keywords && { "keywords": article.keywords.join(", ") })
+});

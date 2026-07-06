@@ -1,0 +1,7 @@
+# Redirect non-www to www
+https://arunvignesh.my/* https://www.arunvignesh.my/:splat 301!
+http://arunvignesh.my/* https://www.arunvignesh.my/:splat 301!
+http://www.arunvignesh.my/* https://www.arunvignesh.my/:splat 301!
+
+# SPA fallback - serve index.html for all routes
+/*    /index.html   200

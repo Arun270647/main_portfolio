@@ -7,9 +7,9 @@ const Skills = () => {
     return (
         <>
             <Helmet>
-                <title>Skills | Arun Vignesh</title>
-                <meta name="description" content="Technical expertise in React, TypeScript, Node.js, Firebase, Tailwind CSS, and AI/ML. Full-stack development skills with focus on modern web technologies." />
-                <meta name="keywords" content="React, TypeScript, Node.js, Firebase, Tailwind CSS, JavaScript, HTML, CSS, Git, Web Development Skills, Frontend, Backend" />
+                <title>Technical Skills | React, TypeScript, Node.js Expert | Arun Vignesh</title>
+                <meta name="description" content="Comprehensive technical expertise in React, TypeScript, Node.js, Firebase, Tailwind CSS, AI/ML, and TensorFlow.js. Full-stack development skills covering frontend, backend, databases, and modern web technologies. Experienced in building scalable web applications and e-commerce platforms." />
+                <meta name="keywords" content="React Developer Skills, TypeScript Expert, Node.js Developer, Firebase Integration, Tailwind CSS, JavaScript ES6+, HTML5 CSS3, Git GitHub, Full-Stack Skills, Frontend Development, Backend Development, REST API, GraphQL, MongoDB, PostgreSQL, AI ML Developer" />
                 <link rel="canonical" href="https://www.arunvignesh.my/skills" />
 
                 <meta property="og:title" content="Skills | Arun Vignesh" />
@@ -35,7 +35,7 @@ const Skills = () => {
                 </script>
             </Helmet>
 
-            <Layout breadcrumbs={[{ label: 'Skills' }]}>
+            <Layout breadcrumbs={[{ label: 'Skills' }]} currentPage="skills">
                 <SkillsSection />
             </Layout>
         </>

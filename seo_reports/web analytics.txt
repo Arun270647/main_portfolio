@@ -1,0 +1,3 @@
+web analytics
+mobile:https://pagespeed.web.dev/analysis/https-arunvignesh-my/oi6h11xk3e?utm_source=search_console&form_factor=mobile&hl=en
+desktop:https://pagespeed.web.dev/analysis/https-arunvignesh-my/oi6h11xk3e?utm_source=search_console&form_factor=desktop&hl=en

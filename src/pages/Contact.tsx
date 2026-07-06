@@ -7,9 +7,9 @@ const Contact = () => {
     return (
         <>
             <Helmet>
-                <title>Contact | Arun Vignesh</title>
-                <meta name="description" content="Hire Arun Vignesh for freelance web development projects. Available for React, Node.js, and full-stack collaborations. Based in Chennai, India." />
-                <meta name="keywords" content="Contact, Hire Developer, Freelance Web Developer, React Developer for Hire, Chennai Developer, Web Development Services" />
+                <title>Contact & Hire | Freelance Full-Stack Developer Chennai | Arun Vignesh</title>
+                <meta name="description" content="Hire Arun Vignesh for professional freelance web development projects. Available for React, TypeScript, Node.js, and full-stack development collaborations. Experienced in building e-commerce platforms, web applications, and custom solutions. Based in Chennai, India. Contact via email or social media for project inquiries and opportunities." />
+                <meta name="keywords" content="Hire Web Developer, Contact Developer, Freelance Full-Stack Developer Chennai, Hire React Developer India, Web Development Services Chennai, Freelance TypeScript Developer, Node.js Developer for Hire, E-commerce Developer Chennai, Project Collaboration, Web Development Freelancer, Contact Arun Vignesh" />
                 <link rel="canonical" href="https://www.arunvignesh.my/contact" />
 
                 <meta property="og:title" content="Contact | Arun Vignesh" />
@@ -35,7 +35,7 @@ const Contact = () => {
                 </script>
             </Helmet>
 
-            <Layout breadcrumbs={[{ label: 'Contact' }]}>
+            <Layout breadcrumbs={[{ label: 'Contact' }]} currentPage="contact">
                 <ContactSection />
             </Layout>
         </>

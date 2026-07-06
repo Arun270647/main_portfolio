@@ -5,7 +5,7 @@ import { webPageSchema, breadcrumbSchema } from '@/utils/structuredData';
 
 const Experience = () => {
     return (
-        <Layout breadcrumbs={[{ label: 'Experience' }]}>
+        <Layout breadcrumbs={[{ label: 'Experience' }]} currentPage="experience">
             <Helmet>
                 <title>Experience | Arun Vignesh</title>
                 <meta name="description" content="2+ years professional experience in full-stack development. Track record of successful client projects across e-commerce, SaaS, and web applications." />

@@ -3,6 +3,7 @@ import { CRTScreen } from '@/components/CRTScreen';
 import { RetroHeader } from '@/components/RetroHeader';
 import { Footer } from '@/components/Footer';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import { RelatedPages } from '@/components/RelatedPages';
 
 interface BreadcrumbItem {
     label: string;
@@ -12,9 +13,11 @@ interface BreadcrumbItem {
 interface LayoutProps {
     children: ReactNode;
     breadcrumbs?: BreadcrumbItem[];
+    showRelatedPages?: boolean;
+    currentPage?: string;
 }
 
-export const Layout = ({ children, breadcrumbs }: LayoutProps) => {
+export const Layout = ({ children, breadcrumbs, showRelatedPages = true, currentPage }: LayoutProps) => {
     return (
         <CRTScreen className="min-h-screen">
             <RetroHeader />
@@ -25,6 +28,9 @@ export const Layout = ({ children, breadcrumbs }: LayoutProps) => {
                     </div>
                 )}
                 {children}
+                {showRelatedPages && currentPage && (
+                    <RelatedPages currentPage={currentPage} />
+                )}
             </main>
             <Footer />
         </CRTScreen>

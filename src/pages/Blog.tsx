@@ -35,7 +35,7 @@ const Blog = () => {
         </script>
       </Helmet>
 
-      <Layout breadcrumbs={[{ label: 'Blog' }]}>
+      <Layout breadcrumbs={[{ label: 'Blog' }]} currentPage="blog">
         <BlogSection />
       </Layout>
     </>

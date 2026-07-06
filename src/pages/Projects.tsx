@@ -28,9 +28,9 @@ const Projects = () => {
     return (
         <>
             <Helmet>
-                <title>Projects | Arun Vignesh</title>
-                <meta name="description" content="15+ projects including Track My Academy, Marina Digitals, Kyra Elite e-commerce platform & Hand Cricket AI. View live demos & source code on GitHub." />
-                <meta name="keywords" content="Web Projects, React Projects, Portfolio, Track My Academy, Marina Digitals, Kyra Elite, E-commerce, GitHub Projects" />
+                <title>Web Development Projects Portfolio | React & Node.js | Arun Vignesh</title>
+                <meta name="description" content="Explore 15+ professional web development projects by Arun Vignesh including Track My Academy (education management), Marina Digitals (marketing website), Kyra Elite & Fufies (e-commerce platforms), Hand Cricket AI (ML game). View live demos, case studies & source code on GitHub. Full-stack React, TypeScript, Node.js applications." />
+                <meta name="keywords" content="Web Development Projects, React Projects Portfolio, Full-Stack Applications, E-commerce Development, Education Management System, AI ML Projects, Hand Cricket Game, TypeScript Projects, Node.js Applications, Firebase Projects, GitHub Portfolio, Live Project Demos, Web App Development Chennai" />
                 <link rel="canonical" href="https://www.arunvignesh.my/projects" />
 
                 <meta property="og:title" content="Projects | Arun Vignesh" />
@@ -59,7 +59,7 @@ const Projects = () => {
                 </script>
             </Helmet>
 
-            <Layout breadcrumbs={[{ label: 'Projects' }]}>
+            <Layout breadcrumbs={[{ label: 'Projects' }]} currentPage="projects">
                 <ProjectsSection />
             </Layout>
         </>
