@@ -100,6 +100,14 @@ const dedupeHead = (html) => {
 const outputPathFor = (route) => join(DIST, ...route.split('/').filter(Boolean), 'index.html');
 
 const main = () => startServer().then(async (server) => {
+  // Vercel serves dist/404.html with a real 404 status for any path that has no
+  // static file, so unknown URLs stop being soft 404s. Written from the untouched
+  // SPA shell (before "/" is overwritten below); the app then renders NotFound.
+  const shell = readFileSync(join(DIST, 'index.html'), 'utf8').replace(
+    /<meta name="robots"[^>]*>/,
+    '<meta name="robots" content="noindex, nofollow" />',
+  );
+  writeFileSync(join(DIST, '404.html'), shell);
   const { port } = server.address();
   const base = `http://127.0.0.1:${port}`;
   const browser = await launchBrowser();
