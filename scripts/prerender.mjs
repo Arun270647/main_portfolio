@@ -125,7 +125,10 @@ const main = () => startServer().then(async (server) => {
           (href) => {
             const canonical = document.querySelector('link[rel="canonical"][data-rh="true"]');
             const hasContent = (document.getElementById('root')?.textContent ?? '').trim().length > 0;
-            return canonical?.getAttribute('href') === href && hasContent;
+            // Wait for real page content, not an intro screen: the homepage shows a
+            // Preloader first, and snapshotting it leaves crawlers no links or text.
+            const hasInternalLinks = document.querySelector('#root a[href^="/"]') !== null;
+            return canonical?.getAttribute('href') === href && hasContent && hasInternalLinks;
           },
           {},
           expected,

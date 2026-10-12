@@ -255,6 +255,26 @@ const BlogPost = () => {
             />
           </div>
 
+          {/* More posts: crawlable links between case studies */}
+          <nav aria-label="More case studies" className="mb-8">
+            <h2 className="font-pixel text-sm text-primary mb-4">MORE CASE STUDIES</h2>
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {blogPosts
+                .filter((p) => p.slug !== post.slug)
+                .map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      to={`/blog/${p.slug}`}
+                      className="block h-full border border-border p-4 hover:border-primary transition-colors"
+                    >
+                      <span className="block font-terminal text-sm text-primary mb-1">{p.title}</span>
+                      <span className="block font-terminal text-xs text-muted-foreground">{p.excerpt}</span>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </nav>
+
           {/* Navigation */}
           <div className="flex justify-center">
             <Link
