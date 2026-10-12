@@ -6,9 +6,8 @@ export const organizationSchema = {
   "name": "Arun Vignesh",
   "url": "https://www.arunvignesh.my",
   "logo": "https://www.arunvignesh.my/favicon.png",
-  "image": "https://www.arunvignesh.my/og-image.svg",
+  "image": "https://www.arunvignesh.my/og-image.png",
   "description": "Full-Stack Web Developer specializing in React, TypeScript, Node.js, and modern web technologies",
-  "email": "shankar72ind@gmail.com",
   "jobTitle": "Full-Stack Web Developer",
   "address": {
     "@type": "PostalAddress",
@@ -100,7 +99,7 @@ export const profilePageSchema = {
     "name": "Arun Vignesh",
     "alternateName": "Arun Vignesh V",
     "description": "Full-Stack Web Developer & BCA student passionate about building digital experiences",
-    "image": "https://www.arunvignesh.my/og-image.svg",
+    "image": "https://www.arunvignesh.my/og-image.png",
     "url": "https://www.arunvignesh.my",
     "sameAs": [
       "https://github.com/Arun270647",
