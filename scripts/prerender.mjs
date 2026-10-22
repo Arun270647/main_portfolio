@@ -22,7 +22,7 @@ const ROOT = resolve(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 const SITE_ORIGIN = 'https://www.arunvignesh.my';
 
-const STATIC_ROUTES = ['/', '/about', '/skills', '/projects', '/certificates', '/experience', '/contact', '/blog'];
+const STATIC_ROUTES = ['/', '/about', '/skills', '/projects', '/certificates', '/experience', '/contact', '/blog', '/obs'];
 
 /** Derive blog slugs from the `blogPosts` array in src/pages/BlogPost.tsx. */
 const blogSlugs = () => {
