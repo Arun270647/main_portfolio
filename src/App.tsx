@@ -19,6 +19,7 @@ const Experience = lazy(() => import('./pages/Experience'));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Obs = lazy(() => import("./pages/Obs"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component for lazy routes
@@ -49,6 +50,7 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/obs" element={<Obs />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
