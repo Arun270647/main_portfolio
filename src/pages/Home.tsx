@@ -4,12 +4,13 @@ import { Blobs } from '../components/Blobs';
 import { Marquee } from '../components/Marquee';
 import { Reveal } from '../components/Reveal';
 import { AdviceButton } from '../components/AdviceModal';
-import { ProjectCard } from '../components/ProjectCard';
+import { ProjectCarousel } from '../components/ProjectCarousel';
 import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { person, website, profilePage } from '../utils/structuredData';
-import { projects, roles, links, stats, testimonials } from '../data/portfolio';
+import { projects, links, stats, testimonials } from '../data/portfolio';
 import { TestimonialCard } from '../components/TestimonialCard';
+import { SacredTimeline } from '../components/SacredTimeline';
 
 const sticker = (bg: string): React.CSSProperties => ({ position: 'absolute', background: bg, color: 'var(--ink)', fontFamily: 'var(--display)', fontSize: 15, padding: '12px 18px', borderRadius: 999, boxShadow: '0 5px 0 var(--ink)' });
 // Stickers on the workspace photo shrink on phones so they don't cover it.
@@ -17,9 +18,10 @@ const frameSticker: React.CSSProperties = { fontSize: 'clamp(11px, 2.8vw, 15px)'
 const pillRow = ['var(--must)', 'var(--gum)', 'var(--mint)', 'var(--tang)', 'var(--must)'];
 
 export default function Home() {
-  const featured = projects.filter(p => p.featured).slice(0, 4);
+  const featured = projects.filter(p => p.featured);
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    // overflow: clip (not hidden) so the sacred timeline's sticky stage can pin
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="Arun Vignesh | Full-Stack Developer, Chennai"
         description="Full-stack web developer and BCA student in Chennai building fast React apps for academies, e-commerce brands and agencies. 15 live projects, open for freelance and full-time."
@@ -130,7 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WORK strip */}
+      {/* WORK carousel */}
       <section id="work" style={{ position: 'relative', zIndex: 1, padding: '40px 0 110px' }}>
         <Reveal style={{ padding: '0 20px', maxWidth: 1100, margin: '0 auto 40px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
           <div>
@@ -138,31 +140,13 @@ export default function Home() {
           </div>
           <Link to="/projects" style={{ fontWeight: 700, fontSize: 16, color: 'var(--cream)', textDecoration: 'none', borderBottom: '3px solid var(--tang)' }}>all {projects.length} projects →</Link>
         </Reveal>
-        <div className="strip">
-          {featured.map((p, i) => (
-            <Reveal key={p.id} kind="up" delay={i * 80}>
-              <ProjectCard p={p} index={i} />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal kind="up">
+          <ProjectCarousel projects={featured} />
+        </Reveal>
       </section>
 
-      {/* XP pills */}
-      <section id="xp" style={{ position: 'relative', zIndex: 1, padding: '20px 20px 120px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap', marginBottom: 40 }}>
-          <h2 className="display h2-gum" style={{ margin: 0, fontSize: 'clamp(40px, 6vw, 88px)', lineHeight: .95 }}>the receipts</h2>
-          <Link to="/experience" style={{ fontWeight: 700, fontSize: 16, color: 'var(--cream)', textDecoration: 'none', borderBottom: '3px solid var(--mint)' }}>full timeline →</Link>
-        </Reveal>
-        <div style={{ display: 'grid', gap: 14 }}>
-          {roles.slice(0, 6).map((r, i) => (
-            <Reveal key={r.role + r.company} kind="left" delay={i * 60} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', padding: '20px 28px', borderRadius: 999, background: 'var(--cream)', color: 'var(--ink)', transform: `rotate(${[-1, .8, -.6, 1.2, -1, .7][i]}deg)`, marginLeft: `${[0, 4, 1, 6, 2, 3][i]}%` }}>
-              <span className="display" style={{ fontSize: 'clamp(18px, 2.2vw, 26px)', textTransform: 'none' }}>{r.role}</span>
-              <span style={{ fontWeight: 700 }}>{r.company}</span>
-              <span className="mono" style={{ fontSize: 13, letterSpacing: 0, textTransform: 'none' }}>{r.period}</span>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      {/* XP: scroll-driven sacred timeline */}
+      <SacredTimeline />
 
       {/* KIND WORDS */}
       <section id="kind-words" style={{ position: 'relative', zIndex: 1, padding: '0 20px 120px', maxWidth: 1100, margin: '0 auto' }}>

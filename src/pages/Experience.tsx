@@ -13,7 +13,8 @@ const rots = ['1deg', '-1deg', '.8deg', '-.7deg', '1.2deg', '-1.2deg'];
 
 export default function Experience() {
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    // overflow: clip (not hidden): hidden turns this div into the scroll container and the sticky year badges stop sticking
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="Experience | Arun Vignesh, Intern to CTO in 18 Months"
         description="Six roles across TrackMy Tech, Track My Academy, Marina Digital, Corizo and Novitech: AI/ML intern to senior web developer to product manager to CTO, Sep 2024 to now."
@@ -42,7 +43,7 @@ export default function Experience() {
           const bg = colors[i];
           const dark = bg === 'var(--ink-2)';
           const badge = (
-            <div style={{ textAlign: left ? 'right' : 'left', alignSelf: 'start', position: 'sticky', top: 120, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: left ? 'flex-end' : 'flex-start' }}>
+            <div className="sticky-wide" style={{ textAlign: left ? 'right' : 'left', alignSelf: 'start', top: 120, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: left ? 'flex-end' : 'flex-start' }}>
               <div className="display bob" style={{ display: 'inline-block', background: bg, color: dark ? 'var(--cream)' : 'var(--ink)', border: dark ? '3px solid var(--cream)' : 0, fontSize: 'clamp(28px, 4vw, 54px)', padding: '8px 22px', borderRadius: 999, boxShadow: `0 6px 0 ${dark ? 'var(--mint)' : bg === 'var(--cream)' ? 'var(--tang)' : 'var(--cream)'}`, '--r': `${left ? -3 : 3}deg`, '--d': `${i * .6}s`, animationDuration: '5s' }}>{r.year}</div>
               {r.badge && <div className="display" style={{ background: 'var(--tang)', color: 'var(--ink)', fontSize: 13, padding: '8px 14px', borderRadius: 999, boxShadow: '0 4px 0 var(--cream)', transform: 'rotate(-6deg)' }}>{r.badge}</div>}
               {r.current && <div className="mono" style={{ width: '100%', fontSize: 12, color: bg, display: 'flex', gap: 8, alignItems: 'center', justifyContent: left ? 'flex-end' : 'flex-start' }}><span className="blink" style={{ width: 8, height: 8, borderRadius: '50%', background: bg }} />current</div>}

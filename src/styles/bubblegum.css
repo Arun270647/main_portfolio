@@ -96,9 +96,18 @@ img { display: block; max-width: 100%; }
 .footer-btn.dark { background: var(--ink); color: var(--cream); box-shadow: 0 6px 0 var(--tang); }
 .footer-btn.dark:hover { color: var(--cream); }
 
-.strip { display: flex; gap: 26px; overflow-x: auto; padding: 20px max(20px, calc((100vw - 1100px) / 2)) 40px; scroll-snap-type: x mandatory; scrollbar-width: none; }
-.strip::-webkit-scrollbar { display: none; }
-.strip > * { flex: none; width: min(84vw, 420px); scroll-snap-align: start; }
+/* Home project carousel (components/ProjectCarousel.tsx). Every slide sits in the same grid cell,
+   so the stage is as tall as the tallest card and the cards stretch to match; the component poses
+   each slide with translate/scale/rotate by its distance from the front one. */
+.pc-stage { display: grid; overflow: hidden; padding: 30px 0 50px; touch-action: pan-y; user-select: none; }
+.pc-slide { grid-area: 1 / 1; justify-self: center; position: relative; display: flex; width: min(84vw, 420px); transition: translate .7s cubic-bezier(.3, 1.3, .4, 1), scale .7s cubic-bezier(.3, 1.3, .4, 1), rotate .7s cubic-bezier(.3, 1.3, .4, 1), opacity .4s ease; }
+.pc-card { display: flex; flex: 1; }
+.pc-pick { position: absolute; inset: 0; background: none; border: 0; border-radius: 30px; cursor: pointer; }
+
+/* Sticky only beside a second column (About story heading, Experience year badges). Stacked on
+   phones it would sit on top of the content scrolling past. Set `top` inline. Needs every ancestor
+   to avoid overflow: hidden (use clip), or the sticky element attaches to that box and never sticks. */
+@media (min-width: 861px) { .sticky-wide { position: sticky; } }
 
 /* Home hero: name + intro left, photo right; stacks on narrow screens. */
 .hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(30px, 3vw, 44px); align-items: center; }
@@ -111,6 +120,39 @@ img { display: block; max-width: 100%; }
 .ws-title { font-size: clamp(34px, 3.4cqi, 88px); }
 .ws-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(30px, 3vw, 44px); align-items: center; margin-top: 40px; }
 @media (max-width: 860px) { .ws-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Home sacred timeline (components/SacredTimeline.tsx).
+   Pinning: .tl-pin is one viewport tall plus 40vh per role, and .tl-stage sticks inside it. The
+   component turns scroll progress into --fill (px of line drawn) and toggles .on on each column
+   the line has reached, which lights the dot, grows the stem and pops the card.
+   Layout: one column per role, rows = top cards / line / bottom cards; each column subgrids the
+   rows so every node lands on the line. Columns are placed explicitly (gridColumn on each li)
+   because the line pseudo-elements fill row 2 and auto-placement would push them off the grid.
+   Cards (270px) are wider than a column and centred on their node; the 64px side padding gives
+   the end cards room, and alternating sides keeps neighbours apart. */
+.tl-pin { position: relative; z-index: 1; height: calc(100vh + var(--n) * 40vh); }
+.tl-stage { position: sticky; top: 0; height: 100vh; height: 100svh; max-width: 1400px; margin: 0 auto; padding: 90px clamp(20px, 3vw, 48px) 20px; display: flex; flex-direction: column; justify-content: center; }
+.tl-view { overflow: hidden; padding: 18px 0 30px; }
+.tl { list-style: none; margin: 0; padding: 0 64px; min-width: 1000px; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); grid-template-rows: auto auto auto; will-change: transform; }
+.tl::before, .tl::after { content: ''; grid-row: 2; grid-column: 1 / -1; margin-inline: -64px; align-self: center; border-radius: 999px; }
+.tl::before { height: 4px; background: rgba(255, 243, 224, .12); } /* the track still to come */
+.tl::after { height: 8px; background: linear-gradient(90deg, transparent, var(--tang) 6%, var(--gum) 36%, var(--must) 64%, var(--mint) 94%, transparent); box-shadow: 0 0 22px rgba(255, 138, 216, .45); clip-path: inset(-30px calc(100% - var(--fill, 0px)) -30px 0); }
+.tl-col { grid-row: 1 / 4; display: grid; grid-template-rows: subgrid; grid-template-columns: minmax(0, 1fr); }
+.tl-card { justify-self: start; margin-left: calc(50% - 135px); position: relative; width: 270px; background: var(--cream); color: var(--ink); border-radius: 22px; padding: 16px 18px 18px; box-shadow: 0 8px 0 var(--c); opacity: 0; scale: .5; translate: 0 var(--from); transition: opacity .3s ease, scale .55s var(--spring), translate .55s var(--spring); }
+.tl-col.on .tl-card { opacity: 1; scale: 1; translate: 0 0; transition-delay: .12s; }
+.tl-node { grid-row: 2; justify-self: center; position: relative; width: 26px; height: 70px; display: grid; place-items: center; }
+.tl-node::before { content: ''; position: absolute; left: 50%; width: 3px; height: 50%; translate: -50% 0; background: var(--c); opacity: .7; scale: 1 0; transition: scale .2s ease; }
+.tl-node[data-side="up"]::before { top: 0; transform-origin: bottom; }
+.tl-node[data-side="down"]::before { bottom: 0; transform-origin: top; }
+.tl-col.on .tl-node::before { scale: 1 1; }
+.tl-dot { position: relative; width: 26px; height: 26px; border-radius: 50%; background: var(--ink-2); border: 5px solid var(--ink); box-shadow: 0 0 0 3px rgba(255, 243, 224, .25); transition: background .3s, box-shadow .3s; }
+.tl-col.on .tl-dot { background: var(--c); box-shadow: 0 0 0 3px var(--c), 0 0 18px var(--c); animation: pop .5s var(--spring); }
+/* Reduced motion: no pinning; the component shows everything and the track scrolls by hand. */
+@media (prefers-reduced-motion: reduce) {
+  .tl-pin { height: auto; }
+  .tl-stage { position: static; height: auto; }
+  .tl-view { overflow-x: auto; }
+}
 
 /* ---- blog post body ---- */
 .post-body { font-size: 19px; line-height: 1.7; margin-top: 36px; }

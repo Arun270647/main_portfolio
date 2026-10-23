@@ -18,7 +18,8 @@ const pillColors = ['var(--must)', 'var(--cream)', 'var(--gum)', 'var(--mint)', 
 
 export default function About() {
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    // overflow: clip (not hidden): hidden turns this div into the scroll container and the sticky heading stops sticking
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="About Arun Vignesh | Full-Stack Developer, CTO, BCA Student"
         description="Full-stack web developer and BCA student from Chennai. Intern to CTO at TrackMy Tech in 18 months, senior software associate at Marina Digital, 15 shipped projects, 7 certifications."
@@ -29,13 +30,16 @@ export default function About() {
       <Nav shadow="var(--must)" />
 
       <main id="main">
-      <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
-        <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--must)', border: '2px solid var(--must)', borderRadius: 999, padding: '8px 16px' }}>about — the long version</div>
-        <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(56px, 12vw, 180px)' }}>
-          <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>hi, I'm</span>
-          <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>Arun</span>
-        </h1>
-        <div className="popin" style={{ position: 'relative', width: 'min(100%, 380px)', aspectRatio: '1', margin: '60px auto 0', '--d': '.5s' }}>
+      {/* Same layout as the Home hero: name left, photo right (.hero classes in bubblegum.css) */}
+      <section className="hero" style={{ position: 'relative', zIndex: 1, padding: 'clamp(30px, 5vw, 70px) clamp(20px, 3vw, 48px) 30px', maxWidth: 1400, margin: '0 auto' }}>
+        <div className="hero-copy">
+          {/* "hi, I'm" is narrower than Home's "Vignesh", so a bigger size fills the column the same way */}
+          <h1 className="display hero-name" style={{ margin: 0, lineHeight: .88, fontSize: '24cqi' }}>
+            <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>hi, I'm</span>
+            <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>Arun</span>
+          </h1>
+        </div>
+        <div className="popin" style={{ position: 'relative', width: 'min(90%, 460px)', aspectRatio: '1', margin: '0 auto', '--d': '.5s' }}>
           <div className="blobby" style={{ position: 'absolute', inset: 0, background: 'var(--must)', transform: 'rotate(-8deg)' }} />
           <div className="blobby" style={{ position: 'absolute', inset: 14, overflow: 'hidden', background: 'var(--ink-2)', '--d': '1s' }}>
             <img src="/me-goofy.jpg" alt="Arun, goofy" width={760} height={760} fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -47,7 +51,7 @@ export default function About() {
 
       {/* story bubbles */}
       <section style={{ position: 'relative', zIndex: 1, padding: '90px 20px 60px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 50, alignItems: 'start' }}>
-        <Reveal kind="left" style={{ position: 'sticky', top: 110 }}>
+        <Reveal kind="left" className="sticky-wide" style={{ top: 110 }}>
           <h2 className="display h2-cream" style={{ margin: 0, fontSize: 'clamp(36px, 5vw, 72px)', lineHeight: .95 }}>student by day, shipper by 2 AM.</h2>
         </Reveal>
         <div style={{ display: 'grid', gap: 18, fontSize: 'clamp(17px, 1.4vw, 20px)', lineHeight: 1.5, fontWeight: 500 }}>
