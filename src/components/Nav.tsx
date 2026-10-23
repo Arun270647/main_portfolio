@@ -5,6 +5,7 @@ const items = [
   { to: '/about', label: 'about', hover: 'must' },
   { to: '/projects', label: 'work', hover: 'gum' },
   { to: '/experience', label: 'xp', hover: 'mint' },
+  { to: '/blog', label: 'blog', hover: 'gum' },
 ];
 
 /** Sticky cream pill nav. shadow = page accent (tang on home, must on about, gum on projects, mint on xp). */
@@ -17,7 +18,7 @@ export function Nav({ shadow = 'var(--tang)' }: { shadow?: string }) {
       </Link>
       <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
         {items.map(i => (
-          <Link key={i.to} to={i.to} data-hover={i.hover} aria-current={pathname === i.to ? 'page' : undefined} className={`nav-link${pathname === i.to ? ' active' : ''}`}>{i.label}</Link>
+          <Link key={i.to} to={i.to} data-hover={i.hover} aria-current={(pathname === i.to || (i.to === '/blog' && pathname.startsWith('/blog/'))) ? 'page' : undefined} className={`nav-link${pathname === i.to ? ' active' : ''}`}>{i.label}</Link>
         ))}
         <a href={links.email} className="nav-cta">say hi</a>
       </div>

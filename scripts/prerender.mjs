@@ -12,7 +12,7 @@
  * image without Chrome's shared libs) it falls back to `@sparticuz/chromium`.
  */
 import { createServer } from 'node:http';
-import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, readdirSync } from 'node:fs';
 import { join, dirname, extname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -26,7 +26,23 @@ const STATIC_ROUTES = ['/', '/about', '/projects', '/experience', '/obs'];
 /** noindex utility pages: no canonical tag and no site nav, so only wait for content. */
 const UTILITY_ROUTES = new Set(['/obs']);
 
-const routes = STATIC_ROUTES;
+/** Published blog posts (date <= build time) from src/content/blog/*.md. */
+const BLOG_DIR = join(ROOT, 'src', 'content', 'blog');
+const blogRoutes = () => {
+  if (!existsSync(BLOG_DIR)) return [];
+  return readdirSync(BLOG_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => readFileSync(join(BLOG_DIR, f), 'utf8'))
+    .map((raw) => {
+      const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
+      const get = (k) => fm.match(new RegExp('^' + k + ':\\s*(.+)$', 'm'))?.[1]?.trim();
+      return { slug: get('slug'), date: get('date') };
+    })
+    .filter((p) => p.slug && p.date && new Date(p.date) <= new Date())
+    .map((p) => `/blog/${p.slug}`);
+};
+
+const routes = [...STATIC_ROUTES, '/blog', ...blogRoutes()];
 
 const MIME = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
