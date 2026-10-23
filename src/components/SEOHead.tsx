@@ -1,32 +1,34 @@
 import { Helmet } from 'react-helmet-async';
 
-interface SEOHeadProps {
+const ORIGIN = 'https://www.arunvignesh.my';
+
+type Props = {
   title: string;
   description: string;
-  canonical: string;
-  ogType?: string;
-  children?: React.ReactNode;
-}
+  /** Route path, e.g. "/about". "/" for the homepage. */
+  path: string;
+  noindex?: boolean;
+  /** JSON-LD objects to emit, one <script> each. */
+  schema?: object[];
+};
 
-export const SEOHead = ({ title, description, canonical, ogType = 'website', children }: SEOHeadProps) => {
+/** Per-page title, description, canonical, social tags and JSON-LD. */
+export function SEOHead({ title, description, path, noindex = false, schema = [] }: Props) {
+  const canonical = path === '/' ? ORIGIN : `${ORIGIN}${path}`;
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
-
-      {/* Open Graph */}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content="Arun Vignesh Portfolio" />
-
-      {/* Twitter Card */}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-
-      {children}
+      {schema.map((s, i) => (
+        <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>
+      ))}
     </Helmet>
   );
-};
+}

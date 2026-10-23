@@ -1,93 +1,71 @@
-import { Layout } from '@/components/Layout';
-import { ProjectsSection } from '@/components/ProjectsSection';
-import { Helmet } from 'react-helmet-async';
-import { webPageSchema, breadcrumbSchema, portfolioSchema } from '@/utils/structuredData';
+import { useSearchParams } from 'react-router-dom';
+import { Nav } from '../components/Nav';
+import { Blobs } from '../components/Blobs';
+import { Marquee } from '../components/Marquee';
+import { Reveal } from '../components/Reveal';
+import { ProjectCard } from '../components/ProjectCard';
+import { Footer } from '../components/Footer';
+import { SEOHead } from '../components/SEOHead';
+import { projectList, breadcrumb } from '../utils/structuredData';
+import { projects, links } from '../data/portfolio';
 
-const Projects = () => {
-    const featuredProjects = [
-        {
-            name: "ADSYS Infotech Solutions",
-            description: "Professional IT solutions provider offering comprehensive technology services and innovative digital solutions for businesses",
-            url: "https://adsysinfo.com",
-            technologies: ["React", "Tailwind", "Vite"]
-        },
-        {
-            name: "SaysEdu",
-            description: "Education consulting and creative communications platform delivering strategic messaging solutions for educational institutions",
-            url: "https://saysedu.in",
-            technologies: ["React", "Tailwind", "Vite"]
-        },
-        {
-            name: "Spark Information Tech",
-            description: "Digital product engineering firm focused on creating innovative technology solutions",
-            url: "https://sparkinformationtech.com",
-            technologies: ["React", "TypeScript", "Tailwind"]
-        },
-        {
-            name: "Madipakkam Physiotherapy & Health Care",
-            description: "Premier physiotherapy and healthcare center with 25+ years of clinical excellence offering personalized rehabilitation",
-            url: "https://madipakkamphysioandhc.com",
-            technologies: ["React", "Tailwind", "Vite"]
-        },
-        {
-            name: "Track My Academy",
-            description: "Comprehensive academy management platform with React, Node.js, and Firebase",
-            url: "https://www.trackmyacademy.com/",
-            technologies: ["React", "Node.js", "Firebase", "Tailwind"]
-        },
-        {
-            name: "Marina Digitals",
-            description: "Digital marketing agency website with modern design",
-            url: "https://marinadigi.com",
-            technologies: ["React", "Tailwind", "Vite"]
-        },
-        {
-            name: "Kyra Elite",
-            description: "Premium e-commerce platform with admin dashboard",
-            url: "https://kyraelite.com",
-            technologies: ["React", "TypeScript", "Tailwind CSS"]
-        }
-    ];
+type Filter = 'all' | 'client' | 'play';
+const filters: [Filter, string, string, string][] = [
+  ['all', `all · ${projects.length}`, 'var(--must)', '-1.5deg'],
+  ['client', `client work · ${projects.filter(p => p.category === 'client').length}`, 'var(--gum)', '1.2deg'],
+  ['play', `games & AI · ${projects.filter(p => p.category === 'play').length}`, 'var(--mint)', '-.8deg'],
+];
 
-    return (
-        <>
-            <Helmet>
-                <title>Web Development Projects Portfolio | React & Node.js | Arun Vignesh</title>
-                <meta name="description" content="Explore 15+ professional web development projects by Arun Vignesh including Track My Academy (education management), Marina Digitals (marketing website), Kyra Elite & Fufies (e-commerce platforms), Hand Cricket AI (ML game). View live demos, case studies & source code on GitHub. Full-stack React, TypeScript, Node.js applications." />
-                <meta name="keywords" content="Web Development Projects, React Projects Portfolio, Full-Stack Applications, E-commerce Development, Education Management System, AI ML Projects, Hand Cricket Game, TypeScript Projects, Node.js Applications, Firebase Projects, GitHub Portfolio, Live Project Demos, Web App Development Chennai" />
-                <link rel="canonical" href="https://www.arunvignesh.my/projects" />
+export default function Projects() {
+  // Filter lives in the URL (?filter=play) so it is shareable and survives reload.
+  const [params, setParams] = useSearchParams();
+  const raw = params.get('filter');
+  const filter: Filter = raw === 'client' || raw === 'play' ? raw : 'all';
+  const setFilter = (f: Filter) => setParams(f === 'all' ? {} : { filter: f }, { replace: true });
+  const shown = projects.filter(p => filter === 'all' || p.category === filter);
+  return (
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+      <SEOHead
+        title="Projects by Arun Vignesh | 11 Live React Apps"
+        description="Track My Academy, Kyra Elite, Hand Cricket AI, Marina Digitals, Fufies and more: 11 shipped React, TypeScript and Firebase projects with live links and source."
+        path="/projects"
+        schema={[projectList, breadcrumb([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])]}
+      />
+      <Blobs a="var(--gum)" b="var(--must)" />
+      <Nav shadow="var(--gum)" />
 
-                <meta property="og:title" content="Projects | Arun Vignesh" />
-                <meta property="og:description" content="Portfolio of web applications, games, and creative projects." />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.arunvignesh.my/projects" />
-                <meta property="og:site_name" content="Arun Vignesh Portfolio" />
-                <meta name="twitter:title" content="Projects | Arun Vignesh" />
-                <meta name="twitter:description" content="Portfolio of web applications, games, and creative projects." />
+      <main id="main">
+      <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
+        <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--gum)', border: '2px solid var(--gum)', borderRadius: 999, padding: '8px 16px' }}>work — {projects.length} things that went live</div>
+        <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(52px, 11vw, 170px)' }}>
+          <span className="drop chrome-must" style={{ display: 'block', '--d': '.1s', textShadow: '4px 4px 0 var(--ink), 8px 8px 0 var(--gum), 12px 12px 0 var(--ink)' }}>shipped</span>
+          <span className="drop chrome-cream" style={{ display: 'block', '--d': '.28s', textShadow: '4px 4px 0 var(--ink), 8px 8px 0 var(--mint), 12px 12px 0 var(--ink)' }}>&amp; live</span>
+        </h1>
+        <div className="drop" style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap', marginTop: 44, fontWeight: 700, fontSize: 15, '--d': '.6s' }}>
+          {filters.map(([key, label, color, rot]) => {
+            const on = filter === key;
+            return (
+              <button key={key} onClick={() => setFilter(key)} aria-pressed={on} style={{ padding: '12px 20px', borderRadius: 999, border: `2px solid ${on ? color : 'var(--cream)'}`, color: on ? 'var(--ink)' : 'var(--cream)', background: on ? color : 'transparent', boxShadow: on ? '0 5px 0 var(--cream)' : 'none', cursor: 'pointer', fontWeight: 700, transform: `rotate(${rot})`, transition: 'transform .2s var(--spring)' }}>{label}</button>
+            );
+          })}
+        </div>
+      </section>
 
-                <script type="application/ld+json">
-                    {JSON.stringify(webPageSchema({
-                        name: "Projects - Arun Vignesh",
-                        description: "Portfolio of web applications, games, and creative projects",
-                        url: "https://www.arunvignesh.my/projects"
-                    }))}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify(breadcrumbSchema([
-                        { name: "Home", url: "https://www.arunvignesh.my" },
-                        { name: "Projects", url: "https://www.arunvignesh.my/projects" }
-                    ]))}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify(portfolioSchema(featuredProjects))}
-                </script>
-            </Helmet>
+      <section style={{ position: 'relative', zIndex: 1, padding: '40px 20px 100px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 28 }}>
+        {shown.map((p, i) => (
+          <Reveal key={p.id} kind="pop" delay={(i % 3) * 90} style={{ display: 'flex' }}>
+            <ProjectCard p={p} index={projects.indexOf(p)} style={{ flex: 1 }} />
+          </Reveal>
+        ))}
+      </section>
 
-            <Layout breadcrumbs={[{ label: 'Projects' }]} currentPage="projects">
-                <ProjectsSection />
-            </Layout>
-        </>
-    );
-};
+      <Marquee text='8 happy clients ● 5.0 avg rating ● "way better than I imagined" ● "ahead of schedule" ● "transformed our vision" ●' bg="var(--mint)" speed={24} size="clamp(18px, 2.6vw, 30px)" margin="0 0 70px" />
 
-export default Projects;
+      </main>
+      <Footer title="yours next?" buttons={[
+        { label: 'start a project →', href: links.email, bg: 'dark' },
+        { label: 'all repos on github', href: links.github, bg: 'var(--must)', external: true },
+      ]} />
+    </div>
+  );
+}

@@ -1,12 +1,8 @@
-import { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { Check, Copy } from "lucide-react";
-import { CRTScreen } from "@/components/CRTScreen";
+import { useState } from 'react';
+import { Nav } from '../components/Nav';
+import { SEOHead } from '../components/SEOHead';
 
-type Snippet = {
-  title: string;
-  code: string;
-};
+type Snippet = { title: string; code: string };
 
 const snippets: Snippet[] = [
   {
@@ -240,54 +236,38 @@ print("Final Hypothesis:", hypothesis)`,
   },
 ];
 
-const CopyButton = ({ code }: { code: string }) => {
+function CopyButton({ code }: { code: string }) {
   const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
+  const copy = async () => {
     await navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
   return (
-    <button
-      onClick={handleCopy}
-      className="retro-btn flex items-center gap-2 font-terminal text-xs"
-      aria-label="Copy code"
-    >
-      {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-      {copied ? "COPIED" : "COPY"}
+    <button onClick={copy} aria-label="Copy code" style={{ padding: '10px 16px', borderRadius: 999, border: 0, cursor: 'pointer', background: copied ? 'var(--mint)' : 'var(--must)', color: 'var(--ink)', fontWeight: 700, fontSize: 13, boxShadow: '0 4px 0 var(--cream)' }}>
+      {copied ? 'copied ✓' : 'copy'}
     </button>
   );
-};
+}
 
-const Obs = () => (
-  <>
-    <Helmet>
-      <title>OBS | Arun Vignesh</title>
-      <meta name="robots" content="noindex, nofollow" />
-    </Helmet>
-
-    <CRTScreen className="min-h-screen relative">
-      <div className="container mx-auto px-4 py-12 max-w-4xl space-y-8">
-        <h1 className="font-terminal text-primary text-2xl md:text-3xl text-glow">OBS</h1>
-
-        {snippets.map((snippet, index) => (
-          <section key={snippet.title} className="terminal-window">
-            <div className="flex items-center justify-between gap-4 p-4 border-b border-border">
-              <h2 className="font-terminal text-primary text-sm md:text-base">
-                {index + 1}) {snippet.title}
-              </h2>
-              <CopyButton code={snippet.code} />
+/** Utility page of copyable snippets. noindex; not linked from the nav. */
+export default function Obs() {
+  return (
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
+      <SEOHead title="OBS | Arun Vignesh" description="Code snippets." path="/obs" noindex />
+      <Nav shadow="var(--mint)" />
+      <main id="main" style={{ position: 'relative', zIndex: 1, padding: '60px 20px 120px', maxWidth: 900, margin: '0 auto', display: 'grid', gap: 28 }}>
+        <h1 className="display chrome-mint" style={{ margin: 0, fontSize: 'clamp(48px, 9vw, 120px)' }}>obs</h1>
+        {snippets.map((s, i) => (
+          <section key={s.title} style={{ background: 'var(--cream)', color: 'var(--ink)', borderRadius: 28, boxShadow: '0 10px 0 var(--mint)', overflow: 'hidden' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, padding: '18px 24px', borderBottom: '2px solid var(--ink)' }}>
+              <h2 className="display" style={{ margin: 0, fontSize: 20, textTransform: 'none' }}>{i + 1}) {s.title}</h2>
+              <CopyButton code={s.code} />
             </div>
-            <pre className="p-4 overflow-x-auto font-mono text-xs md:text-sm text-foreground whitespace-pre">
-              <code>{snippet.code}</code>
-            </pre>
+            <pre style={{ margin: 0, padding: 24, overflowX: 'auto', fontFamily: 'var(--mono)', fontSize: 13, lineHeight: 1.5 }}><code>{s.code}</code></pre>
           </section>
         ))}
-      </div>
-    </CRTScreen>
-  </>
-);
-
-export default Obs;
+      </main>
+    </div>
+  );
+}

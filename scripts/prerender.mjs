@@ -5,9 +5,8 @@
  * react-helmet-async to inject the page's <title>/<meta>/<link rel="canonical">,
  * and writes the fully rendered document to `dist/<route>/index.html`.
  *
- * Vercel serves static files before applying the SPA rewrite in vercel.json, so
- * crawlers hitting /about, /blog/<slug>, ... get route-specific HTML, while
- * unknown routes still fall back to /index.html.
+ * Vercel serves static files first, so crawlers hitting /about, /projects, ...
+ * get route-specific HTML; unknown paths get dist/404.html with a 404 status.
  *
  * Locally this uses the Chrome bundled with `puppeteer`. On Vercel (Linux build
  * image without Chrome's shared libs) it falls back to `@sparticuz/chromium`.
@@ -22,20 +21,12 @@ const ROOT = resolve(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 const SITE_ORIGIN = 'https://www.arunvignesh.my';
 
-const STATIC_ROUTES = ['/', '/about', '/skills', '/projects', '/certificates', '/experience', '/contact', '/blog', '/obs'];
+const STATIC_ROUTES = ['/', '/about', '/projects', '/experience', '/obs'];
 
 /** noindex utility pages: no canonical tag and no site nav, so only wait for content. */
 const UTILITY_ROUTES = new Set(['/obs']);
 
-/** Derive blog slugs from the `blogPosts` array in src/pages/BlogPost.tsx. */
-const blogSlugs = () => {
-  const source = readFileSync(join(ROOT, 'src/pages/BlogPost.tsx'), 'utf8');
-  const slugs = [...source.matchAll(/^\s*slug:\s*['"]([^'"]+)['"]/gm)].map((m) => m[1]);
-  if (slugs.length === 0) throw new Error('prerender: no blog slugs found in src/pages/BlogPost.tsx');
-  return slugs;
-};
-
-const routes = [...STATIC_ROUTES, ...blogSlugs().map((slug) => `/blog/${slug}`)];
+const routes = STATIC_ROUTES;
 
 const MIME = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
@@ -129,8 +120,6 @@ const main = () => startServer().then(async (server) => {
             const hasContent = (document.getElementById('root')?.textContent ?? '').trim().length > 0;
             if (utility) return hasContent && document.querySelector('meta[name="robots"][data-rh="true"]') !== null;
             const canonical = document.querySelector('link[rel="canonical"][data-rh="true"]');
-            // Wait for real page content, not an intro screen: the homepage shows a
-            // Preloader first, and snapshotting it leaves crawlers no links or text.
             const hasInternalLinks = document.querySelector('#root a[href^="/"]') !== null;
             return canonical?.getAttribute('href') === href && hasContent && hasInternalLinks;
           },
