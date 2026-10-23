@@ -16,10 +16,10 @@ export default function Experience() {
     // overflow: clip (not hidden): hidden turns this div into the scroll container and the sticky year badges stop sticking
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
-        title="Experience | Arun Vignesh, Intern to CTO in 18 Months"
-        description="Six roles across TrackMy Tech, Track My Academy, Marina Digital, Corizo and Novitech: AI/ML intern to senior web developer to product manager to CTO, Sep 2024 to now."
+        title="Experience | Arun Vignesh, Full-Stack Developer and CTO"
+        description="Six roles since Sep 2024 across TrackMy Tech, Track My Academy, Marina Digital, Corizo and Novitech: AI/ML research, web development, product management, and now CTO at TrackMy Tech."
         path="/experience"
-        schema={[person, webPage('Experience of Arun Vignesh', 'Six roles, intern to CTO, Sep 2024 to now.', '/experience'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }])]}
+        schema={[person, webPage('Experience of Arun Vignesh', 'Six roles since Sep 2024, newest first.', '/experience'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }])]}
       />
       <Blobs a="var(--mint)" b="var(--tang)" />
       <Nav shadow="var(--mint)" />
@@ -28,11 +28,10 @@ export default function Experience() {
       <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
         <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--mint)', border: '2px solid var(--mint)', borderRadius: 999, padding: '8px 16px' }}>experience — sep 2024 → now</div>
         <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(48px, 9.5vw, 150px)' }}>
-          <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>intern to</span>
-          <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>CTO</span>
-          <span className="drop" style={{ display: 'block', '--d': '.45s', color: 'var(--must)', fontSize: '.55em', textShadow: '3px 3px 0 var(--ink), 6px 6px 0 var(--tang)' }}>in 18 months</span>
+          <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>where I've</span>
+          <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>worked</span>
         </h1>
-        <p className="drop" style={{ margin: '34px auto 0', maxWidth: 560, fontSize: 'clamp(17px, 1.6vw, 22px)', lineHeight: 1.45, fontWeight: 500, '--d': '.65s' }}>Six roles, four companies, eighteen very caffeinated months. Newest first.</p>
+        <p className="drop" style={{ margin: '34px auto 0', maxWidth: 560, fontSize: 'clamp(17px, 1.6vw, 22px)', lineHeight: 1.45, fontWeight: 500, '--d': '.65s' }}>Six roles since Sep 2024: internships, client builds, product work and engineering leadership. Newest first.</p>
       </section>
 
       {/* timeline */}

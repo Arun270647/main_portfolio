@@ -25,7 +25,7 @@ export default function Projects() {
   const setFilter = (f: Filter) => setParams(f === 'all' ? {} : { filter: f }, { replace: true });
   const shown = projects.filter(p => filter === 'all' || p.category === filter);
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title={`Projects by Arun Vignesh | ${projects.length} Live React Apps`}
         description={`Track My Academy, Kyra Elite, Hand Cricket AI, Marina Digitals, Adsysinfo, Fufies and more: ${projects.length} shipped React, TypeScript and Firebase projects with live links, plus ${testimonials.length} client reviews.`}

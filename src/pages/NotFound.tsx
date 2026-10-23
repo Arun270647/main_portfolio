@@ -12,7 +12,7 @@ const where = [
 
 export default function NotFound() {
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead title="Lost? | Arun Vignesh" description="That page does not exist." path="/404" noindex />
       <Blobs a="var(--gum)" b="var(--tang)" />
       <Nav shadow="var(--gum)" />

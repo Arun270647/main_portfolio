@@ -104,6 +104,14 @@ img { display: block; max-width: 100%; }
 .pc-card { display: flex; flex: 1; }
 .pc-pick { position: absolute; inset: 0; background: none; border: 0; border-radius: 30px; cursor: pointer; }
 
+/* Site header (components/Nav.tsx): the full-width header sticks and the pill floats inside it.
+   Once scrolled, a frosted band fades in behind the pill and fades out below it, so content passing
+   underneath never shows in the gaps above and beside the pill. Page wrappers use overflow: clip,
+   not hidden: hidden would make the wrapper the scroll container and the header would stop sticking. */
+.site-header { position: sticky; top: 0; z-index: 50; padding-top: 14px; }
+.site-header::before { content: ''; position: absolute; inset: 0 0 -30px; z-index: -1; pointer-events: none; background: rgba(18, 10, 20, .78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent); mask-image: linear-gradient(to bottom, #000 65%, transparent); opacity: 0; transition: opacity .3s ease; }
+.site-header.scrolled::before { opacity: 1; }
+
 /* Sticky only beside a second column (About story heading, Experience year badges). Stacked on
    phones it would sit on top of the content scrolling past. Set `top` inline. Needs every ancestor
    to avoid overflow: hidden (use clip), or the sticky element attaches to that box and never sticks. */

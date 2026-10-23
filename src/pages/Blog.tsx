@@ -14,7 +14,7 @@ const tilts = ['-1.2deg', '1deg', '-.6deg', '1.4deg'];
 export default function Blog() {
   const posts = publishedPosts();
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="Blog by Arun Vignesh | Build Stories from a Student CTO"
         description="Build stories, product lessons and behind-the-scenes notes from Arun Vignesh, CTO at TrackMy Tech: Track My Academy, client websites, internships and AI tools."

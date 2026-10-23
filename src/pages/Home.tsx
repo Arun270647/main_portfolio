@@ -40,7 +40,7 @@ export default function Home() {
             <span className="drop chrome-must" style={{ display: 'block', '--d': '.28s' }}>Vignesh</span>
           </h1>
           <p className="drop" style={{ margin: '34px 0 0', maxWidth: 620, fontSize: 'clamp(18px, 1.7vw, 24px)', lineHeight: 1.4, fontWeight: 500, '--d': '.55s' }}>
-            Full-stack dev + BCA student in Chennai. Intern to CTO in 18 months. I turn briefs into fast, shiny React apps for academies, e-com brands, clinics and filmmakers. Sometimes I teach a webcam to play cricket.
+            Full-stack dev + BCA student in Chennai, leading tech at TrackMy Tech. I turn briefs into fast, shiny React apps for academies, e-com brands, clinics and filmmakers. Sometimes I teach a webcam to play cricket.
           </p>
           <div className="drop" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 34, '--d': '.7s' }}>
             <Link to="/projects" className="btn tang">see the work</Link>
@@ -57,9 +57,7 @@ export default function Home() {
           </div>
           <div className="bob" style={{ ...sticker('var(--must)'), left: -40, top: 30, '--r': '-10deg' }}>{stats.projects} projects</div>
           <div className="bob" style={{ ...sticker('var(--mint)'), right: -50, top: 110, '--r': '8deg', '--d': '.7s' }}>2+ yrs</div>
-          <div className="bob" style={{ ...sticker('var(--gum)'), left: -10, bottom: 30, '--r': '5deg', '--d': '1.3s' }}>chennai, IN</div>
-          <div className="spin mono" aria-hidden style={{ position: 'absolute', right: -20, bottom: -20, width: 96, height: 96, borderRadius: '50%', background: 'var(--cream)', color: 'var(--ink)', display: 'grid', placeItems: 'center', fontSize: 10, textAlign: 'center', lineHeight: 1.1, letterSpacing: '.08em' }}>✦ hire ✦<br />me ✦<br />pls ✦</div>
-        </div>
+          <div className="bob" style={{ ...sticker('var(--gum)'), left: -10, bottom: 30, '--r': '5deg', '--d': '1.3s' }}>chennai, IN</div>        </div>
       </section>
 
       <Marquee text="React ● Node ● Firebase ● TypeScript ● Tailwind ● TensorFlow.js ● MediaPipe ● Vite ●" bg="var(--must)" margin="60px 0 0" />

@@ -26,7 +26,7 @@ export default function BlogPost() {
     mainEntityOfPage: `${ORIGIN}${path}`,
   };
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title={`${post.title} | Arun Vignesh`}
         description={post.excerpt}

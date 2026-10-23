@@ -22,7 +22,7 @@ export default function About() {
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="About Arun Vignesh | Full-Stack Developer, CTO, BCA Student"
-        description="Full-stack web developer and BCA student from Chennai. Intern to CTO at TrackMy Tech in 18 months, senior software associate at Marina Digital, 15 shipped projects, 7 certifications."
+        description="Full-stack web developer and BCA student from Chennai. CTO at TrackMy Tech, senior software associate at Marina Digital, 15 shipped projects, 7 certifications."
         path="/about"
         schema={[person, webPage('About Arun Vignesh', 'Story, skills and what Arun is doing now.', '/about'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
       />
@@ -56,7 +56,7 @@ export default function About() {
         </Reveal>
         <div style={{ display: 'grid', gap: 18, fontSize: 'clamp(17px, 1.4vw, 20px)', lineHeight: 1.5, fontWeight: 500 }}>
           <Reveal as="p" kind="pop" style={{ margin: 0, padding: '26px 28px', background: 'var(--cream)', color: 'var(--ink)', borderRadius: '28px 28px 28px 6px', boxShadow: '0 10px 0 var(--gum)', transform: 'rotate(-1deg)' }}>I'm Arun Vignesh — a Full-Stack Web Developer and BCA student from Chennai. I got into this by being too curious to leave anything alone, and I stayed because shipping things people actually use is addictive.</Reveal>
-          <Reveal as="p" kind="pop" delay={80} style={{ margin: 0, padding: '26px 28px', background: 'var(--mint)', color: 'var(--ink)', borderRadius: '28px 28px 6px 28px', boxShadow: '0 10px 0 var(--cream)', transform: 'rotate(1deg)' }}>Since late 2024 I've gone intern → senior web dev → product manager → CTO at Track My Academy / TrackMy Tech, while shipping client builds at Marina Digital and freelance for Kyra Elite, Fufies and more. {stats.projects} projects, 2+ years, zero lorem ipsum.</Reveal>
+          <Reveal as="p" kind="pop" delay={80} style={{ margin: 0, padding: '26px 28px', background: 'var(--mint)', color: 'var(--ink)', borderRadius: '28px 28px 6px 28px', boxShadow: '0 10px 0 var(--cream)', transform: 'rotate(1deg)' }}>These days I'm CTO at TrackMy Tech and a senior software associate at Marina Digital, and I still take on freelance builds for brands like Kyra Elite and Fufies. {stats.projects} projects, 2+ years, zero lorem ipsum.</Reveal>
           <Reveal as="p" kind="pop" delay={160} style={{ margin: 0, padding: '26px 28px', background: 'var(--gum)', color: 'var(--ink)', borderRadius: '28px 28px 28px 6px', boxShadow: '0 10px 0 var(--must)', transform: 'rotate(-.6deg)' }}>On the side I poke at AI in the browser — my Hand Cricket game reads your fingers through the webcam with MediaPipe + TensorFlow.js. Equal parts research and nonsense.</Reveal>
         </div>
       </section>
