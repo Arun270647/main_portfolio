@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Outfit:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#120a14;color:#fff3e0;font-family:'Outfit',system-ui,sans-serif;overflow-x:hidden}
+a{color:#ffd23f}a:hover{color:#ff8ad8}
+*{box-sizing:border-box}
+@keyframes drop{0%{opacity:0;transform:translateY(-140px) scale(1.2)}55%{opacity:1;transform:translateY(18px) scale(.94)}75%{transform:translateY(-8px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-18px) rotate(calc(var(--r,0deg) - 5deg))}}
+@keyframes squish{0%,100%{transform:scale(1,1) rotate(var(--r,0deg))}50%{transform:scale(1.08,.92) rotate(var(--r,0deg))}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes blob{0%,100%{border-radius:60% 40% 55% 45%/50% 60% 40% 50%}50%{border-radius:40% 60% 45% 55%/60% 40% 60% 40%}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.1);opacity:1}100%{transform:scale(1)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div data-screen-label="Home" style="position:relative;min-height:100vh;background:#120a14;overflow:hidden">
+
+<!-- blobs bg -->
+<div style="position:fixed;top:-10%;left:-8%;width:46vw;height:46vw;background:#ff6b1a;opacity:.18;filter:blur(60px);animation:blob 9s ease-in-out infinite;pointer-events:none;z-index:0"></div>
+<div style="position:fixed;bottom:-14%;right:-10%;width:50vw;height:50vw;background:#ff8ad8;opacity:.16;filter:blur(70px);animation:blob 11s ease-in-out infinite reverse;pointer-events:none;z-index:0"></div>
+
+<!-- nav -->
+<nav style="position:sticky;top:14px;z-index:50;margin:14px auto 0;width:min(96%,1100px);display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 22px;background:#fff3e0;color:#120a14;border-radius:999px;box-shadow:0 8px 0 #ff6b1a">
+  <a href="Bubblegum Home.dc.html" style="font-family:'Bowlby One',sans-serif;font-size:24px;color:#120a14;text-decoration:none;letter-spacing:-.02em">arun<span style="color:#ff6b1a">!</span></a>
+  <div style="display:flex;gap:4px;flex-wrap:wrap;font-weight:700;font-size:15px">
+    <a href="Bubblegum About.dc.html" style="padding:10px 16px;border-radius:999px;color:#120a14;text-decoration:none;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="background:#ffd23f;transform:scale(1.1) rotate(-3deg)">about</a>
+    <a href="Bubblegum Projects.dc.html" style="padding:10px 16px;border-radius:999px;color:#120a14;text-decoration:none;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="background:#ff8ad8;transform:scale(1.1) rotate(3deg)">work</a>
+    <a href="Bubblegum Experience.dc.html" style="padding:10px 16px;border-radius:999px;color:#120a14;text-decoration:none;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="background:#5df2c8;transform:scale(1.1) rotate(-3deg)">xp</a>
+    <a href="mailto:shankar72ind@gmail.com" style="padding:10px 18px;border-radius:999px;color:#fff3e0;background:#120a14;text-decoration:none;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="background:#ff6b1a;color:#120a14;transform:scale(1.1) rotate(2deg)">say hi</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" style="position:relative;z-index:1;text-align:center;padding:clamp(50px,9vw,120px) 20px 30px;max-width:1300px;margin:0 auto">
+  <div style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:#5df2c8;border:2px solid #5df2c8;border-radius:999px;padding:8px 16px;animation:drop .9s cubic-bezier(.2,1.4,.4,1) both"><span style="width:9px;height:9px;border-radius:50%;background:#5df2c8;animation:blink 1.3s infinite"></span>open for freelance + full-time</div>
+  <h1 style="margin:24px 0 0;font-family:'Bowlby One',sans-serif;font-weight:400;line-height:.88;letter-spacing:-.01em;font-size:clamp(64px,13vw,210px);text-transform:uppercase">
+    <span style="display:block;color:#ff8ad8;text-shadow:4px 4px 0 #120a14,8px 8px 0 #ff6b1a,12px 12px 0 #120a14;animation:drop 1s cubic-bezier(.2,1.4,.4,1) .1s both">Arun</span>
+    <span style="display:block;color:#ffd23f;text-shadow:4px 4px 0 #120a14,8px 8px 0 #5df2c8,12px 12px 0 #120a14;animation:drop 1s cubic-bezier(.2,1.4,.4,1) .28s both">Vignesh</span>
+  </h1>
+  <p style="margin:34px auto 0;max-width:620px;font-size:clamp(18px,1.7vw,24px);line-height:1.4;font-weight:500;animation:drop .9s cubic-bezier(.2,1.4,.4,1) .55s both">Full-stack dev + BCA student in Chennai. I turn briefs into fast, shiny React apps for academies, e-com brands and filmmakers. Sometimes I teach a webcam to play cricket.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px;animation:drop .9s cubic-bezier(.2,1.4,.4,1) .7s both">
+    <a href="#work" style="font-family:'Bowlby One',sans-serif;font-size:18px;padding:18px 30px;border-radius:999px;background:#ff6b1a;color:#120a14;text-decoration:none;box-shadow:0 7px 0 #fff3e0;transition:all .18s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:translateY(-4px) rotate(-2deg);box-shadow:0 11px 0 #ff8ad8">see the work</a>
+    <button onClick="{{ openAdvice }}" style="font-family:'Bowlby One',sans-serif;font-size:18px;padding:18px 30px;border-radius:999px;background:#fff3e0;color:#120a14;border:0;cursor:pointer;box-shadow:0 7px 0 #ff8ad8;transition:all .18s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:translateY(-4px) rotate(2deg);box-shadow:0 11px 0 #ffd23f;background:#ffd23f">gimme advice</button>
+  </div>
+
+  <!-- photo + bouncing stickers -->
+  <div style="position:relative;width:min(100%,420px);aspect-ratio:1;margin:70px auto 0;animation:pop 1s cubic-bezier(.2,1.5,.4,1) .5s both">
+    <div style="position:absolute;inset:0;background:#ff6b1a;animation:blob 8s ease-in-out infinite;border-radius:60% 40% 55% 45%/50% 60% 40% 50%;transform:rotate(8deg)"></div>
+    <div style="position:absolute;inset:14px;overflow:hidden;animation:blob 8s ease-in-out infinite 1s;border-radius:60% 40% 55% 45%/50% 60% 40% 50%;background:#1f1222">
+      <image-slot id="hero-photo-b" shape="rect" placeholder="Drop your photo"></image-slot>
+    </div>
+    <div style="position:absolute;left:-40px;top:30px;--r:-10deg;animation:bob 4s ease-in-out infinite;background:#ffd23f;color:#120a14;font-family:'Bowlby One',sans-serif;font-size:15px;padding:12px 18px;border-radius:999px;box-shadow:0 5px 0 #120a14">15+ projects</div>
+    <div style="position:absolute;right:-50px;top:110px;--r:8deg;animation:bob 5s ease-in-out infinite .7s;background:#5df2c8;color:#120a14;font-family:'Bowlby One',sans-serif;font-size:15px;padding:12px 18px;border-radius:999px;box-shadow:0 5px 0 #120a14">2+ yrs</div>
+    <div style="position:absolute;left:-10px;bottom:30px;--r:5deg;animation:bob 4.5s ease-in-out infinite 1.3s;background:#ff8ad8;color:#120a14;font-family:'Bowlby One',sans-serif;font-size:15px;padding:12px 18px;border-radius:999px;box-shadow:0 5px 0 #120a14">chennai, IN</div>
+    <div style="position:absolute;right:-20px;bottom:-20px;width:96px;height:96px;border-radius:50%;background:#fff3e0;color:#120a14;display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;text-align:center;line-height:1.1;animation:spin 16s linear infinite;letter-spacing:.08em">✦ hire ✦<br>me ✦<br>pls ✦</div>
+  </div>
+</section>
+
+<!-- marquee -->
+<div style="position:relative;z-index:1;margin:60px 0 0;overflow:hidden;background:#ffd23f;color:#120a14;padding:14px 0;transform:rotate(1.2deg) scale(1.03)">
+  <div style="display:flex;width:max-content;animation:marquee 20s linear infinite;font-family:'Bowlby One',sans-serif;font-size:clamp(22px,3.2vw,40px);text-transform:uppercase;white-space:nowrap">
+    <span style="padding:0 20px">React ● Node ● Firebase ● TypeScript ● Tailwind ● TensorFlow.js ● MediaPipe ● Vite ●&nbsp;</span>
+    <span style="padding:0 20px">React ● Node ● Firebase ● TypeScript ● Tailwind ● TensorFlow.js ● MediaPipe ● Vite ●&nbsp;</span>
+  </div>
+</div>
+
+<!-- ABOUT: trading card -->
+<section id="about" style="position:relative;z-index:1;padding:110px 20px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:50px;align-items:center">
+  <div data-reveal="pop" style="position:relative;background:#fff3e0;color:#120a14;border-radius:28px;padding:22px;box-shadow:0 14px 0 #ff8ad8;transform:rotate(-4deg);transition:transform .3s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) scale(1.03)">
+    <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em"><span>player card</span><span>#001</span></div>
+    <div style="margin:14px 0;aspect-ratio:1;border-radius:18px;background:repeating-linear-gradient(45deg,#ffe7c2 0 12px,#fff3e0 12px 24px);display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.1em">[ goofy portrait ]</div>
+    <div style="font-family:'Bowlby One',sans-serif;font-size:28px;line-height:1">Arun V.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:14px;font-size:15px;font-weight:500">
+      <span>curiosity</span><b style="color:#ff6b1a">99</b>
+      <span>shipping speed</span><b style="color:#ff6b1a">92</b>
+      <span>sleep</span><b style="color:#ff6b1a">12</b>
+      <span>coffee</span><b style="color:#ff6b1a">∞</b>
+    </div>
+  </div>
+  <div>
+    <div data-reveal="up" style="font-family:'Space Mono',monospace;color:#ff8ad8;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px">01 — about</div>
+    <h2 data-reveal="up" style="margin:0 0 26px;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:clamp(40px,6vw,88px);line-height:.95;text-transform:uppercase;color:#fff3e0;text-shadow:5px 5px 0 #ff6b1a">hands-on,<br>heads-down.</h2>
+    <p data-reveal="up" style="margin:0 0 16px;font-size:clamp(17px,1.5vw,21px);line-height:1.5">I'm a Full-Stack Web Developer and BCA student who learns by building real things for real clients — management platforms, storefronts, agency sites, portfolios.</p>
+    <p data-reveal="up" style="margin:0 0 30px;font-size:clamp(17px,1.5vw,21px);line-height:1.5;color:#ffd9b0">Strong curiosity, zero fear of the docs. New tool drops, I'm already poking at it.</p>
+    <div data-reveal="up" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-weight:700;font-size:14px">
+      <span style="padding:10px 16px;border-radius:999px;background:#ff6b1a;color:#120a14;--r:-3deg;animation:squish 3s ease-in-out infinite">15+ projects</span>
+      <span style="padding:10px 16px;border-radius:999px;background:#5df2c8;color:#120a14;--r:2deg;animation:squish 3s ease-in-out infinite .4s">7 certs</span>
+      <span style="padding:10px 16px;border-radius:999px;background:#ff8ad8;color:#120a14;--r:-2deg;animation:squish 3s ease-in-out infinite .8s">8 happy clients</span>
+      <a href="Bubblegum About.dc.html" style="margin-left:6px;color:#fff3e0;text-decoration:none;border-bottom:3px solid #ff8ad8;font-size:16px" style-hover="color:#ff8ad8">the long version →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK: horizontal strip -->
+<section id="work" style="position:relative;z-index:1;padding:40px 0 110px">
+  <div data-reveal="up" style="padding:0 20px;max-width:1100px;margin:0 auto 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <div>
+      <div style="font-family:'Space Mono',monospace;color:#5df2c8;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px">02 — work</div>
+      <h2 style="margin:0;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:clamp(44px,7vw,100px);line-height:.9;text-transform:uppercase;color:#ffd23f;text-shadow:5px 5px 0 #120a14,10px 10px 0 #ff8ad8">shipped &amp; live</h2>
+    </div>
+    <a href="Bubblegum Projects.dc.html" style="font-weight:700;font-size:16px;color:#fff3e0;text-decoration:none;border-bottom:3px solid #ff6b1a" style-hover="color:#ff6b1a">all 11 projects →</a>
+  </div>
+  <div style="display:flex;gap:26px;overflow-x:auto;padding:20px max(20px,calc((100vw - 1100px)/2)) 40px;scroll-snap-type:x mandatory;scrollbar-width:none">
+    <a data-reveal="up" href="https://www.trackmyacademy.com/" target="_blank" rel="noopener" style="flex:none;width:min(84vw,420px);scroll-snap-align:start;text-decoration:none;color:#120a14;background:#ff8ad8;border-radius:30px;padding:22px;box-shadow:0 12px 0 #fff3e0;transform:rotate(-2deg);transition:transform .3s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) translateY(-10px)">
+      <div style="aspect-ratio:16/10;border-radius:18px;background:repeating-linear-gradient(45deg,#f57acb 0 12px,#ff8ad8 12px 24px);display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase">[ screenshot: trackmyacademy.com ]</div>
+      <h3 style="margin:18px 0 6px;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:28px;line-height:1">Track My Academy</h3>
+      <p style="margin:0 0 14px;font-size:16px;line-height:1.4;font-weight:500">Sports-academy ops platform — tracking, scheduling, scaling.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;font-weight:700"><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">React</span><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">Node</span><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">Firebase</span></div>
+    </a>
+    <a data-reveal="up" href="https://kyraelite.com" target="_blank" rel="noopener" style="flex:none;width:min(84vw,420px);scroll-snap-align:start;text-decoration:none;color:#120a14;background:#5df2c8;border-radius:30px;padding:22px;box-shadow:0 12px 0 #fff3e0;transform:rotate(1.5deg);transition:transform .3s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) translateY(-10px)">
+      <div style="aspect-ratio:16/10;border-radius:18px;background:repeating-linear-gradient(45deg,#4fe0b8 0 12px,#5df2c8 12px 24px);display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase">[ screenshot: kyraelite.com ]</div>
+      <h3 style="margin:18px 0 6px;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:28px;line-height:1">Kyra Elite</h3>
+      <p style="margin:0 0 14px;font-size:16px;line-height:1.4;font-weight:500">Premium fashion e-com with an admin dashboard. Fast and shiny.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;font-weight:700"><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">React</span><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">TypeScript</span><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">Tailwind</span></div>
+    </a>
+    <a data-reveal="up" href="https://handcricket.arunvignesh.my/" target="_blank" rel="noopener" style="flex:none;width:min(84vw,420px);scroll-snap-align:start;text-decoration:none;color:#120a14;background:#ffd23f;border-radius:30px;padding:22px;box-shadow:0 12px 0 #fff3e0;transform:rotate(-1deg);transition:transform .3s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) translateY(-10px)">
+      <div style="aspect-ratio:16/10;border-radius:18px;background:repeating-linear-gradient(45deg,#f2c12e 0 12px,#ffd23f 12px 24px);display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase">[ screenshot: hand cricket ai ]</div>
+      <h3 style="margin:18px 0 6px;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:28px;line-height:1">Hand Cricket AI</h3>
+      <p style="margin:0 0 14px;font-size:16px;line-height:1.4;font-weight:500">Webcam reads your fingers, plays cricket against you. In a browser.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;font-weight:700"><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">TensorFlow.js</span><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">MediaPipe</span></div>
+    </a>
+    <a data-reveal="up" href="https://marinadigi.com" target="_blank" rel="noopener" style="flex:none;width:min(84vw,420px);scroll-snap-align:start;text-decoration:none;color:#120a14;background:#ff6b1a;border-radius:30px;padding:22px;box-shadow:0 12px 0 #fff3e0;transform:rotate(2deg);transition:transform .3s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) translateY(-10px)">
+      <div style="aspect-ratio:16/10;border-radius:18px;background:repeating-linear-gradient(45deg,#f05f0e 0 12px,#ff6b1a 12px 24px);display:grid;place-items:center;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase">[ screenshot: marinadigi.com ]</div>
+      <h3 style="margin:18px 0 6px;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:28px;line-height:1">Marina Digitals</h3>
+      <p style="margin:0 0 14px;font-size:16px;line-height:1.4;font-weight:500">Lead dev on a digital-marketing agency's site.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;font-weight:700"><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">React</span><span style="padding:5px 10px;border-radius:999px;background:#120a14;color:#fff3e0">Vite</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- XP: stacked pills -->
+<section id="xp" style="position:relative;z-index:1;padding:20px 20px 120px;max-width:1100px;margin:0 auto">
+  <div data-reveal="up" style="font-family:'Space Mono',monospace;color:#ff6b1a;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px">03 — experience</div>
+  <div data-reveal="up" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:40px"><h2 style="margin:0;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:clamp(40px,6vw,88px);line-height:.95;text-transform:uppercase;color:#ff8ad8;text-shadow:5px 5px 0 #120a14,10px 10px 0 #5df2c8">the receipts</h2><a href="Bubblegum Experience.dc.html" style="font-weight:700;font-size:16px;color:#fff3e0;text-decoration:none;border-bottom:3px solid #5df2c8" style-hover="color:#5df2c8">full timeline →</a></div>
+  <div style="display:grid;gap:14px">
+    <div data-reveal="left" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 28px;border-radius:999px;background:#fff3e0;color:#120a14;transform:rotate(-1deg);transition:transform .25s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) scale(1.02);background:#ffd23f"><span style="font-family:'Bowlby One',sans-serif;font-size:clamp(18px,2.2vw,26px)">Software Product Manager</span><span style="font-weight:700">Track My Academy</span><span style="font-family:'Space Mono',monospace;font-size:13px">Aug 2025 → now</span></div>
+    <div data-reveal="left" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 28px;border-radius:999px;background:#fff3e0;color:#120a14;transform:rotate(.8deg);margin-left:4%;transition:transform .25s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) scale(1.02);background:#ff8ad8"><span style="font-family:'Bowlby One',sans-serif;font-size:clamp(18px,2.2vw,26px)">Senior Web Developer</span><span style="font-weight:700">Marina Digitals</span><span style="font-family:'Space Mono',monospace;font-size:13px">Jan 2025 → now</span></div>
+    <div data-reveal="left" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 28px;border-radius:999px;background:#fff3e0;color:#120a14;transform:rotate(-.6deg);margin-left:1%;transition:transform .25s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) scale(1.02);background:#5df2c8"><span style="font-family:'Bowlby One',sans-serif;font-size:clamp(18px,2.2vw,26px)">Senior Web Developer</span><span style="font-weight:700">Track My Academy</span><span style="font-family:'Space Mono',monospace;font-size:13px">Nov 2024 → Mar 2025</span></div>
+    <div data-reveal="left" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 28px;border-radius:999px;background:#fff3e0;color:#120a14;transform:rotate(1.2deg);margin-left:6%;transition:transform .25s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) scale(1.02);background:#ff6b1a"><span style="font-family:'Bowlby One',sans-serif;font-size:clamp(18px,2.2vw,26px)">Android Dev Intern</span><span style="font-weight:700">Corizo</span><span style="font-family:'Space Mono',monospace;font-size:13px">Jan → Mar 2025</span></div>
+    <div data-reveal="left" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 28px;border-radius:999px;background:#fff3e0;color:#120a14;transform:rotate(-1deg);margin-left:2%;transition:transform .25s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:rotate(0) scale(1.02);background:#ffd23f"><span style="font-family:'Bowlby One',sans-serif;font-size:clamp(18px,2.2vw,26px)">AI/ML Intern</span><span style="font-weight:700">Novitech R&amp;D</span><span style="font-family:'Space Mono',monospace;font-size:13px">Sep → Oct 2024</span></div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer style="position:relative;z-index:1;background:#fff3e0;color:#120a14;border-radius:60px 60px 0 0;padding:90px 20px 40px">
+  <div data-reveal="up" style="max-width:1100px;margin:0 auto;text-align:center">
+    <h2 style="margin:0;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:clamp(52px,12vw,200px);line-height:.85;text-transform:uppercase;color:#ff6b1a;text-shadow:5px 5px 0 #120a14,10px 10px 0 #ff8ad8,15px 15px 0 #120a14">say hi!</h2>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:50px 0 70px;font-family:'Bowlby One',sans-serif;font-size:17px">
+      <a href="mailto:shankar72ind@gmail.com" style="padding:16px 26px;border-radius:999px;background:#120a14;color:#fff3e0;text-decoration:none;box-shadow:0 6px 0 #ff6b1a;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:translateY(-4px) rotate(-2deg)">email</a>
+      <a href="https://github.com/Arun270647" target="_blank" rel="noopener" style="padding:16px 26px;border-radius:999px;background:#ffd23f;color:#120a14;text-decoration:none;box-shadow:0 6px 0 #120a14;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:translateY(-4px) rotate(2deg)">github</a>
+      <a href="https://www.linkedin.com/in/arun-vignesh-v/" target="_blank" rel="noopener" style="padding:16px 26px;border-radius:999px;background:#ff8ad8;color:#120a14;text-decoration:none;box-shadow:0 6px 0 #120a14;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:translateY(-4px) rotate(-2deg)">linkedin</a>
+      <a href="https://www.instagram.com/_arun._.06/" target="_blank" rel="noopener" style="padding:16px 26px;border-radius:999px;background:#5df2c8;color:#120a14;text-decoration:none;box-shadow:0 6px 0 #120a14;transition:all .2s cubic-bezier(.2,1.6,.4,1)" style-hover="transform:translateY(-4px) rotate(2deg)">instagram</a>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;border-top:2px solid #120a14;padding-top:18px"><span>© 2026 Arun Vignesh · Chennai</span><span>replies in 24h, usually faster</span></div>
+  </div>
+</footer>
+
+<!-- ADVICE -->
+<sc-if value="{{ adviceOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeAdvice }}" style="position:fixed;inset:0;z-index:100;background:rgba(18,10,20,.78);display:grid;place-items:center;padding:20px;backdrop-filter:blur(8px)">
+    <div onClick="{{ stop }}" style="position:relative;max-width:600px;width:100%;background:#ffd23f;color:#120a14;border-radius:40px 40px 40px 8px;box-shadow:0 14px 0 #ff6b1a;padding:44px 38px 32px;animation:pop .5s cubic-bezier(.2,1.6,.4,1) both">
+      <div style="position:absolute;top:-18px;right:30px;background:#ff8ad8;padding:8px 14px;border-radius:999px;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;text-transform:uppercase;transform:rotate(4deg)">unsolicited advice</div>
+      <p style="margin:0;font-family:'Bowlby One',sans-serif;font-size:clamp(22px,2.8vw,32px);line-height:1.15">{{ advice }}</p>
+      <div style="display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;font-weight:700;font-size:15px">
+        <button onClick="{{ nextAdvice }}" style="padding:14px 22px;border-radius:999px;background:#120a14;color:#ffd23f;border:0;cursor:pointer;font:inherit;box-shadow:0 5px 0 #ff6b1a" style-hover="background:#ff6b1a;color:#120a14">another one</button>
+        <button onClick="{{ closeAdvice }}" style="padding:14px 22px;border-radius:999px;background:#fff3e0;color:#120a14;border:0;cursor:pointer;font:inherit;box-shadow:0 5px 0 #120a14" style-hover="background:#ff8ad8">ok bye</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;chaos&quot;,&quot;calm&quot;],&quot;default&quot;:&quot;chaos&quot;,&quot;tsType&quot;:&quot;'chaos'|'calm'&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = { adviceOpen: false, advice: '' };
+  ADVICES = [
+    "My code works, I don't know why. My code breaks, I don't know why.",
+    "I didn't break the code. I just exposed its weakness.",
+    "If the code runs, the submission deadline is near.",
+    "Debugging: removing the bugs you added while fixing previous bugs.",
+    "My program works perfectly… in my imagination.",
+    "Coding at 2 AM turns bad ideas into confident ones.",
+    "If it compiles without errors, be very suspicious.",
+    "When nothing works, restart the laptop for emotional support.",
+    "Code runs faster when the teacher is watching.",
+    "Bugs appear exactly when confidence increases.",
+    "I wrote this code yesterday. Today it's black magic.",
+    "Real programmers measure time in deadlines, not hours."
+  ];
+  pick() { return this.ADVICES[Math.floor(Math.random() * this.ADVICES.length)]; }
+  componentDidMount() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches || (this.props.motion ?? 'chaos') === 'calm';
+    if (reduce) return;
+    const els = document.querySelectorAll('[data-reveal]');
+    els.forEach((el, i) => {
+      const k = el.dataset.reveal;
+      el.style.opacity = '0';
+      el.style.transition = 'opacity .6s ease, translate .9s cubic-bezier(.2,1.5,.4,1), scale .9s cubic-bezier(.2,1.6,.4,1)';
+      if (k === 'left') el.style.translate = '-80px 0';
+      else if (k === 'pop') el.style.scale = '.6';
+      else el.style.translate = '0 70px';
+      el.style.transitionDelay = (i % 4) * 80 + 'ms';
+    });
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { const s = e.target.style; s.opacity = '1'; s.translate = '0 0'; s.scale = '1'; this.io.unobserve(e.target); } });
+    }, { threshold: .15 });
+    els.forEach(el => this.io.observe(el));
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); }
+  renderVals() {
+    return {
+      adviceOpen: this.state.adviceOpen,
+      advice: this.state.advice,
+      openAdvice: () => this.setState({ adviceOpen: true, advice: this.pick() }),
+      nextAdvice: () => this.setState({ advice: this.pick() }),
+      closeAdvice: () => this.setState({ adviceOpen: false }),
+      stop: (e) => e.stopPropagation()
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -5,15 +5,34 @@ import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
 
 const experiences = [
     {
+        role: 'Chief Technology Officer',
+        company: 'TrackMy Tech Pvt. Ltd.',
+        period: 'Mar 2026 - Present',
+        description: [
+            'Lead technology strategy and system architecture decisions for scalable web and mobile products',
+            'Own the product development roadmap, coordinating engineering, product and design functions from specification through release',
+            'Established engineering standards for code review, deployment and release management across the team'
+        ]
+    },
+    {
         role: 'Software Product Manager',
         company: 'Track My Academy',
-        period: 'Aug 2025 - Present',
+        period: 'Aug 2025 - Feb 2026',
         description: [
-            'Managed end-to-end product lifecycle for a sports academy management platform',
-            'Defined product requirements, user stories, and feature roadmaps',
-            'Collaborated with engineering, design, and QA teams to deliver features on time',
-            'Improved platform usability for academies, coaches, and players',
-            'Oversaw releases, enhancements, and issue resolution to ensure product stability.'
+            'Owned the end-to-end product lifecycle for a sports academy management SaaS platform used by 500+ sports academies and their coaches and players',
+            'Defined PRDs, user stories, sprint goals and feature roadmaps with engineering and design teams using Agile and Scrum practices',
+            'Ran iterative UX research and usability testing, translating findings into prioritised backlog items that drove engineering execution',
+            'Managed production releases, QA cycles and issue resolution to maintain platform stability'
+        ]
+    },
+    {
+        role: 'Senior Software Associate',
+        company: 'Marina Digital',
+        period: 'Jan 2025 - Present',
+        description: [
+            'Developed responsive production interfaces using Next.js, React and Tailwind CSS for e-commerce, healthcare and IT-services clients, aligning frontend implementation with branding, performance and SEO requirements',
+            'Delivered client-facing websites end to end, from build through production launch',
+            'Managed deployment, domain configuration and post-launch maintenance across client production environments'
         ]
     },
     {
@@ -21,21 +40,8 @@ const experiences = [
         company: 'Track My Academy',
         period: 'Nov 2024 - Mar 2025',
         description: [
-            'Led end-to-end development of TrackMyAcademy\'s main website using modern web technologies',
-            'Developed responsive, high-performance web applications using HTML, CSS, JavaScript, React',
-            'Implemented SEO best practices, performance optimization, and cross-browser compatibility',
-            'Collaborated with product managers, designers, and backend developers in agile workflows',
-            'Delivered multiple freelance websites, handling full-stack development, deployment, and maintenance'
-        ]
-    },
-    {
-        role: 'Senior Web Developer',
-        company: 'Marina Digitals',
-        period: 'Jan 2025 - Present',
-        description: [
-            'Developed and delivered client websites and digital solutions aligned with Marina Digitals\' branding and business goals',
-            'Built responsive, performance-optimized, and SEO-friendly web interfaces for diverse client projects',
-            'Collaborated with designers and project teams to implement frontend features, enhancements, and bug fixes'
+            'Led end-to-end development of the Track My Academy website using React, JavaScript and HTML/CSS',
+            'Implemented on-page SEO, Lighthouse performance optimisation and cross-browser compatibility fixes'
         ]
     },
     {
@@ -43,29 +49,15 @@ const experiences = [
         company: 'Corizo',
         period: 'Jan 2025 - Mar 2025',
         description: [
-            'Assisted in developing Android applications using Java/Kotlin and Android Studio',
-            'Implemented UI components, basic features, and bug fixes following Android best practices',
-            'Collaborated with mentors to test, debug, and improve app functionality and performance'
+            'Built Android application features using Java, Kotlin and Android Studio'
         ]
     },
     {
-        role: 'Web Developer Intern',
-        company: 'Track My Academy',
+        role: 'AI/ML Research Intern',
+        company: 'Novitech R&D Pvt Ltd',
         period: 'Sep 2024 - Oct 2024',
         description: [
-            'Trained in vibe coding and modern frontend development practices',
-            'Assisted in debugging, bug fixing, and frontend UI updates',
-            'Collaborated with developers to support feature enhancements and code optimization'
-        ]
-    },
-    {
-        role: 'Intern',
-        company: 'Novitech R&D Pvt LTD',
-        period: 'Sep 2024 - Oct 2024',
-        description: [
-            'Gained hands-on experience in artificial intelligence and machine learning concepts',
-            'Assisted in data preprocessing, model training, and basic AI experimentation',
-            'Collaborated with the R&D team to support AI-driven solutions and research tasks'
+            'Supported data preprocessing, model training and AI-driven research tasks'
         ]
     }
 ];
@@ -90,42 +82,43 @@ export const ExperienceSection = () => {
                     <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                 </motion.div>
 
-                <div className="max-w-4xl mx-auto space-y-8">
+                {/* Grid Layout - 3 cards per row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : {}}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: index * 0.1 }}
-                            className="terminal-window group flex flex-col before:hidden"
+                            className="terminal-window group flex flex-col before:hidden h-full"
                         >
                             {/* Window Header */}
                             <div className="px-4 py-2 text-xs font-terminal bg-border text-muted-foreground border-b border-border tracking-[0.25em]">
                                 ● ○ ○
                             </div>
 
-                            <div className="p-6 md:p-8">
-                                <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4 border-b border-border/50 pb-4">
+                            <div className="p-6 h-full flex flex-col">
+                                <div className="flex flex-col justify-between mb-4 gap-3 border-b border-border/50 pb-4">
                                     <div>
-                                        <h3 className="font-pixel text-sm md:text-lg text-primary text-glow mb-1">
+                                        <h3 className="font-pixel text-xs md:text-sm text-primary text-glow mb-2">
                                             {exp.role}
                                         </h3>
-                                        <div className="flex items-center gap-2 text-muted-foreground font-terminal text-sm">
-                                            <Briefcase className="w-4 h-4" />
+                                        <div className="flex items-center gap-2 text-muted-foreground font-terminal text-xs mb-2">
+                                            <Briefcase className="w-3 h-3" />
                                             <span className="text-foreground">{exp.company}</span>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-2 text-primary font-terminal text-xs md:text-sm bg-primary/10 px-3 py-1 rounded">
-                                        <Calendar className="w-4 h-4" />
+                                    <div className="flex items-center gap-2 text-primary font-terminal text-[10px] md:text-xs bg-primary/10 px-2 py-1 self-start">
+                                        <Calendar className="w-3 h-3" />
                                         <span>{exp.period}</span>
                                     </div>
                                 </div>
 
-                                <div className="space-y-3 font-terminal text-sm text-foreground/80">
+                                <div className="space-y-2 font-terminal text-xs text-foreground/80 flex-1">
                                     {exp.description.map((item, i) => (
-                                        <div key={i} className="flex gap-3">
-                                            <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                                            <p>{item}</p>
+                                        <div key={i} className="flex gap-2">
+                                            <ChevronRight className="w-3 h-3 text-primary shrink-0 mt-0.5" />
+                                            <p className="leading-relaxed">{item}</p>
                                         </div>
                                     ))}
                                 </div>

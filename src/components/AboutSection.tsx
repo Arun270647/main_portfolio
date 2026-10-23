@@ -1,42 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Code, Cpu, Database, Globe } from 'lucide-react';
-
-const ASCII_FRAMES = [
-  `
-   ╔═══════════════╗
-   ║   (>_<)       ║
-   ║   /| |\\  BUG? ║
-   ║  SEARCHING... ║
-   ║   [||||]  40% ║
-   ╚═══════════════╝
-  `,
-  `
-   ╔═══════════════╗
-   ║   (O_O)  !!   ║
-   ║   /| |\\  ERR  ║
-   ║  NULL PTR !!  ║
-   ║   PANIC MODE  ║
-   ╚═══════════════╝
-  `,
-  `
-   ╔═══════════════╗
-   ║   (T_T)       ║
-   ║   /| |\\  WHY  ║
-   ║  STACK OVF    ║
-   ║   SEND HELP   ║
-   ╚═══════════════╝
-  `,
-  `
-   ╔═══════════════╗
-   ║   (^_^)  OK   ║
-   ║   /| |\\  FIXD ║
-   ║  IT WORKS!!   ║
-   ║   PUSHING...  ║
-   ╚═══════════════╝
-  `
-];
 
 const stats = [
   { icon: Code, value: '15+', label: 'Projects' },
@@ -48,14 +13,6 @@ const stats = [
 export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [frameIndex, setFrameIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFrameIndex((prev) => (prev + 1) % ASCII_FRAMES.length);
-    }, 800);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section id="about" className="py-12 relative" ref={ref}>
@@ -74,7 +31,7 @@ export const AboutSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* ASCII Art / Visual Side */}
+          {/* Profile Box with Image and Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -82,31 +39,41 @@ export const AboutSection = () => {
             className="terminal-window"
           >
             <div className="pt-16 p-6 md:p-8">
-              <div className="relative h-[120px] mb-6 flex items-center justify-center">
-                <pre className="ascii-art text-primary text-glow text-center text-[10px] md:text-sm font-mono whitespace-pre leading-none transition-all duration-300">
-                  {ASCII_FRAMES[frameIndex]}
-                </pre>
-              </div>
+              <div className="grid md:grid-cols-2 gap-6 items-start">
+                {/* Left Side - Profile Text */}
+                <div className="font-terminal text-sm text-muted-foreground">
+                  <div className="text-primary mb-3">$ cat profile.txt</div>
+                  <div className="pl-4 border-l border-primary/30 space-y-2">
+                    <p>
+                      <span className="text-primary">NAME:</span>
+                      <span className="text-foreground ml-2">Arun Vignesh</span>
+                    </p>
+                    <p>
+                      <span className="text-primary">ROLE:</span>
+                      <span className="text-foreground ml-2">Full-Stack Developer</span>
+                    </p>
+                    <p>
+                      <span className="text-primary">LOCATION:</span>
+                      <span className="text-foreground ml-2">Chennai, India</span>
+                    </p>
+                    <p>
+                      <span className="text-primary">STATUS:</span>
+                      <span className="text-foreground ml-2 animate-pulse">Available for hire</span>
+                    </p>
+                  </div>
+                </div>
 
-              <div className="font-terminal text-sm text-muted-foreground">
-                <div className="text-primary mb-3">$ cat profile.txt</div>
-                <div className="pl-4 border-l border-primary/30 space-y-2">
-                  <p>
-                    <span className="text-primary">NAME:</span>
-                    <span className="text-foreground ml-2">Arun Vignesh</span>
-                  </p>
-                  <p>
-                    <span className="text-primary">ROLE:</span>
-                    <span className="text-foreground ml-2">Full-Stack Developer</span>
-                  </p>
-                  <p>
-                    <span className="text-primary">LOCATION:</span>
-                    <span className="text-foreground ml-2">Chennai, India</span>
-                  </p>
-                  <p>
-                    <span className="text-primary">STATUS:</span>
-                    <span className="text-foreground ml-2 animate-pulse">Available for hire</span>
-                  </p>
+                {/* Right Side - Profile Image */}
+                <div className="flex items-center justify-center">
+                  <div className="relative w-full max-w-[200px] aspect-square">
+                    <img
+                      src="/1773160520413.jpg"
+                      alt="Arun Vignesh Profile"
+                      className="w-full h-full object-cover border-2 border-primary/30 shadow-lg hover:border-primary transition-colors duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute -inset-1 bg-primary/10 -z-10 blur-md" />
+                  </div>
                 </div>
               </div>
             </div>

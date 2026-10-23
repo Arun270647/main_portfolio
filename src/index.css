@@ -344,4 +344,34 @@
       hsl(var(--background) / 0.5) 2px
     );
   }
+
+  /* Custom Scrollbar for horizontal experience cards */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--border));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--border));
+    border-radius: 0;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 0;
+    border: 1px solid hsl(var(--primary));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+
+  /* Smooth horizontal scroll */
+  .overflow-x-auto {
+    scroll-behavior: smooth;
+  }
 }

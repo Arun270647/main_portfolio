@@ -6,6 +6,30 @@ import { webPageSchema, breadcrumbSchema, portfolioSchema } from '@/utils/struct
 const Projects = () => {
     const featuredProjects = [
         {
+            name: "ADSYS Infotech Solutions",
+            description: "Professional IT solutions provider offering comprehensive technology services and innovative digital solutions for businesses",
+            url: "https://adsysinfo.com",
+            technologies: ["React", "Tailwind", "Vite"]
+        },
+        {
+            name: "SaysEdu",
+            description: "Education consulting and creative communications platform delivering strategic messaging solutions for educational institutions",
+            url: "https://saysedu.in",
+            technologies: ["React", "Tailwind", "Vite"]
+        },
+        {
+            name: "Spark Information Tech",
+            description: "Digital product engineering firm focused on creating innovative technology solutions",
+            url: "https://sparkinformationtech.com",
+            technologies: ["React", "TypeScript", "Tailwind"]
+        },
+        {
+            name: "Madipakkam Physiotherapy & Health Care",
+            description: "Premier physiotherapy and healthcare center with 25+ years of clinical excellence offering personalized rehabilitation",
+            url: "https://madipakkamphysioandhc.com",
+            technologies: ["React", "Tailwind", "Vite"]
+        },
+        {
             name: "Track My Academy",
             description: "Comprehensive academy management platform with React, Node.js, and Firebase",
             url: "https://www.trackmyacademy.com/",
