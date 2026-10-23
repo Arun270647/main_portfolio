@@ -48,7 +48,6 @@ export default function About() {
       {/* story bubbles */}
       <section style={{ position: 'relative', zIndex: 1, padding: '90px 20px 60px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 50, alignItems: 'start' }}>
         <Reveal kind="left" style={{ position: 'sticky', top: 110 }}>
-          <div className="mono" style={{ color: 'var(--gum)', marginBottom: 14 }}>01 — story</div>
           <h2 className="display h2-cream" style={{ margin: 0, fontSize: 'clamp(36px, 5vw, 72px)', lineHeight: .95 }}>student by day, shipper by 2 AM.</h2>
         </Reveal>
         <div style={{ display: 'grid', gap: 18, fontSize: 'clamp(17px, 1.4vw, 20px)', lineHeight: 1.5, fontWeight: 500 }}>
@@ -60,7 +59,6 @@ export default function About() {
 
       {/* lanes */}
       <section style={{ position: 'relative', zIndex: 1, padding: '40px 20px 90px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--mint)', marginBottom: 14 }}>02 — what I do</Reveal>
         <Reveal as="h2" className="display h2-must" style={{ margin: '0 0 44px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>three lanes</Reveal>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 26 }}>
           {lanes.map(([n, t, d, bg, r], i) => (
@@ -75,14 +73,12 @@ export default function About() {
 
       {/* skill matrix */}
       <section id="toolbox" style={{ scrollMarginTop: 90, position: 'relative', zIndex: 1, padding: '20px 20px 60px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--tang)', marginBottom: 14 }}>03 — skill matrix</Reveal>
         <Reveal as="h2" className="display h2-gum" style={{ margin: '0 0 40px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>the numbers</Reveal>
         <SkillBars />
       </section>
 
       {/* candy jar */}
       <section style={{ position: 'relative', zIndex: 1, padding: '20px 20px 100px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--gum)', marginBottom: 14 }}>04 — everything else in the jar</Reveal>
         <Reveal as="h2" className="display h2-cream" style={{ margin: '0 0 40px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>candy jar</Reveal>
         <Reveal style={{ display: 'flex', flexWrap: 'wrap', gap: '14px 10px' }}>
           {skills.map((s, i) => (
@@ -93,7 +89,6 @@ export default function About() {
 
       {/* certificates */}
       <section id="certificates" style={{ scrollMarginTop: 90, position: 'relative', zIndex: 1, padding: '0 20px 100px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--must)', marginBottom: 14 }}>05 — receipts</Reveal>
         <Reveal as="h2" className="display h2-must" style={{ margin: '0 0 12px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>{certificates.length} certifications</Reveal>
         <Reveal as="p" style={{ margin: '0 0 40px', color: 'var(--cream-2)', fontWeight: 500, fontSize: 'clamp(16px, 1.3vw, 19px)' }}>Each one links to the credential.</Reveal>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 24 }}>

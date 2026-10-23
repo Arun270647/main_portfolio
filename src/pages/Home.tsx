@@ -12,6 +12,8 @@ import { projects, roles, links, stats, testimonials } from '../data/portfolio';
 import { TestimonialCard } from '../components/TestimonialCard';
 
 const sticker = (bg: string): React.CSSProperties => ({ position: 'absolute', background: bg, color: 'var(--ink)', fontFamily: 'var(--display)', fontSize: 15, padding: '12px 18px', borderRadius: 999, boxShadow: '0 5px 0 var(--ink)' });
+// Stickers on the workspace photo shrink on phones so they don't cover it.
+const frameSticker: React.CSSProperties = { fontSize: 'clamp(11px, 2.8vw, 15px)', padding: 'clamp(7px, 1.6vw, 12px) clamp(11px, 2.6vw, 18px)' };
 const pillRow = ['var(--must)', 'var(--gum)', 'var(--mint)', 'var(--tang)', 'var(--must)'];
 
 export default function Home() {
@@ -29,25 +31,24 @@ export default function Home() {
 
       <main id="main">
       {/* HERO */}
-      <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 120px) 20px 30px', maxWidth: 1300, margin: '0 auto' }}>
-        <div className="mono drop" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'var(--mint)', border: '2px solid var(--mint)', borderRadius: 999, padding: '8px 16px' }}>
-          <span className="blink" style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--mint)' }} />open for freelance + full-time
-        </div>
-        <h1 className="display" style={{ margin: '24px 0 0', lineHeight: .88, fontSize: 'clamp(64px, 13vw, 210px)' }}>
-          <span className="drop chrome-gum" style={{ display: 'block', '--d': '.1s' }}>Arun</span>
-          <span className="drop chrome-must" style={{ display: 'block', '--d': '.28s' }}>Vignesh</span>
-        </h1>
-        <p className="drop" style={{ margin: '34px auto 0', maxWidth: 620, fontSize: 'clamp(18px, 1.7vw, 24px)', lineHeight: 1.4, fontWeight: 500, '--d': '.55s' }}>
-          Full-stack dev + BCA student in Chennai. Intern to CTO in 18 months. I turn briefs into fast, shiny React apps for academies, e-com brands, clinics and filmmakers. Sometimes I teach a webcam to play cricket.
-        </p>
-        <div className="drop" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginTop: 34, '--d': '.7s' }}>
-          <Link to="/projects" className="btn tang">see the work</Link>
-          <a href={links.resume} className="btn cream" download>resume ↓</a>
-          <AdviceButton />
+      <section className="hero" style={{ position: 'relative', zIndex: 1, padding: 'clamp(30px, 5vw, 70px) clamp(20px, 3vw, 48px) 30px', maxWidth: 1400, margin: '0 auto' }}>
+        <div className="hero-copy">
+          <h1 className="display hero-name" style={{ margin: 0, lineHeight: .88 }}>
+            <span className="drop chrome-gum" style={{ display: 'block', '--d': '.1s' }}>Arun</span>
+            <span className="drop chrome-must" style={{ display: 'block', '--d': '.28s' }}>Vignesh</span>
+          </h1>
+          <p className="drop" style={{ margin: '34px 0 0', maxWidth: 620, fontSize: 'clamp(18px, 1.7vw, 24px)', lineHeight: 1.4, fontWeight: 500, '--d': '.55s' }}>
+            Full-stack dev + BCA student in Chennai. Intern to CTO in 18 months. I turn briefs into fast, shiny React apps for academies, e-com brands, clinics and filmmakers. Sometimes I teach a webcam to play cricket.
+          </p>
+          <div className="drop" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 34, '--d': '.7s' }}>
+            <Link to="/projects" className="btn tang">see the work</Link>
+            <a href={links.resume} className="btn cream" download>resume ↓</a>
+            <AdviceButton />
+          </div>
         </div>
 
         {/* photo blob + stickers */}
-        <div className="popin" style={{ position: 'relative', width: 'min(100%, 420px)', aspectRatio: '1', margin: '70px auto 0', '--d': '.5s' }}>
+        <div className="popin" style={{ position: 'relative', width: 'min(90%, 500px)', aspectRatio: '1', margin: '0 auto', '--d': '.5s' }}>
           <div className="blobby" style={{ position: 'absolute', inset: 0, background: 'var(--tang)', transform: 'rotate(8deg)' }} />
           <div className="blobby" style={{ position: 'absolute', inset: 14, overflow: 'hidden', background: 'var(--ink-2)', '--d': '1s' }}>
             <img src="/me.jpg" alt="Arun Vignesh" width={840} height={840} fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -60,6 +61,46 @@ export default function Home() {
       </section>
 
       <Marquee text="React ● Node ● Firebase ● TypeScript ● Tailwind ● TensorFlow.js ● MediaPipe ● Vite ●" bg="var(--must)" margin="60px 0 0" />
+
+      {/* WORKSPACE: desk photo + brief-to-live steps */}
+      <section id="workspace" style={{ position: 'relative', zIndex: 1, padding: '110px clamp(20px, 3vw, 48px) 0', maxWidth: 1400, margin: '0 auto' }}>
+        <div className="ws-head">
+          <Reveal as="h2" className="display h2-must ws-title" style={{ margin: 0, lineHeight: .95 }}>3 monitors. 12 terminals. infinite projects.</Reveal>
+        </div>
+
+        <div className="ws-grid">
+          {/* left: disclaimer + desk photo */}
+          <div>
+            <Reveal as="p" style={{ margin: '0 0 44px', fontSize: 'clamp(17px, 1.5vw, 21px)', lineHeight: 1.5 }}>
+              <b style={{ color: 'var(--must)' }}>Disclaimer:</b> Dark Mode is injurious to health
+            </Reveal>
+            <Reveal kind="pop" style={{ position: 'relative', background: 'var(--cream)', borderRadius: 32, padding: 'clamp(10px, 1.4vw, 18px)', boxShadow: '0 14px 0 var(--mint)', transform: 'rotate(-1deg)' }}>
+              <div className="shot" style={{ aspectRatio: '16 / 9', padding: 0, background: 'var(--ink-2)' }}>
+                <img src="/workspace.jpg" alt="Arun's desk at night: a laptop and two monitors lit up, with a wall of photos and TrackMyTech posters behind" loading="lazy" width={1600} height={900} />
+              </div>
+              <div className="bob" style={{ ...sticker('var(--must)'), ...frameSticker, left: 24, top: -20, '--r': '-6deg' }}>3 screens</div>
+              <div className="bob" style={{ ...sticker('var(--gum)'), ...frameSticker, right: 24, top: -20, '--r': '5deg', '--d': '.7s' }}>∞ tabs</div>
+              <div className="bob" style={{ ...sticker('var(--mint)'), ...frameSticker, left: '38%', bottom: -22, '--r': '-3deg', '--d': '1.3s' }}>lights off, code on</div>
+            </Reveal>
+          </div>
+
+          {/* right: brief-to-live steps, stacked */}
+          <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: 22 }}>
+            {[
+              ['brief', 'A call, a voice note, a napkin sketch. I turn it into a plan before I touch a key.', 'var(--tang)'],
+              ['build', 'React, TypeScript, Tailwind. Code on one screen, preview on the next, docs on the third.', 'var(--gum)'],
+              ['polish', 'Tested on every screen size, tuned for Lighthouse and SEO until it is fast and findable.', 'var(--must)'],
+              ['ship', 'Deployed, domain wired, live on the internet. Then I keep it running.', 'var(--mint)'],
+            ].map(([step, copy, color], i) => (
+              <Reveal as="li" key={step} kind="right" delay={i * 80} style={{ background: 'var(--cream)', color: 'var(--ink)', borderRadius: 24, padding: '18px 22px 20px', boxShadow: `0 8px 0 ${color}`, transform: `rotate(${[-1.2, .9, -.7, 1.1][i]}deg)` }}>
+                <div className="mono" style={{ fontSize: 12, color: 'var(--ink)', opacity: .6 }}>step 0{i + 1}</div>
+                <div className="display" style={{ fontSize: 'clamp(24px, 2.2vw, 30px)', margin: '4px 0 6px' }}>{step}</div>
+                <p style={{ margin: 0, fontSize: 16, lineHeight: 1.45, fontWeight: 500 }}>{copy}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* ABOUT teaser: trading card */}
       <section id="about" style={{ position: 'relative', zIndex: 1, padding: '110px 20px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 50, alignItems: 'center' }}>
@@ -77,7 +118,6 @@ export default function Home() {
           </div>
         </Reveal>
         <div>
-          <Reveal className="mono" style={{ color: 'var(--gum)', marginBottom: 14 }}>01 — about</Reveal>
           <Reveal as="h2" className="display h2-cream" style={{ margin: '0 0 26px', fontSize: 'clamp(40px, 6vw, 88px)', lineHeight: .95 }}>hands-on,<br />heads-down.</Reveal>
           <Reveal as="p" style={{ margin: '0 0 16px', fontSize: 'clamp(17px, 1.5vw, 21px)', lineHeight: 1.5 }}>I'm Arun Vignesh, a Full-Stack Web Developer and BCA student from Chennai, passionate about exploring the depths of technology. I learn by building real things for real clients: management platforms, storefronts, clinics, agency sites, portfolios.</Reveal>
           <Reveal as="p" style={{ margin: '0 0 30px', fontSize: 'clamp(17px, 1.5vw, 21px)', lineHeight: 1.5, color: 'var(--cream-2)' }}>I love challenging myself with real-world applications and pushing my technical limits. Strong curiosity, zero fear of the docs: new tool drops, I'm already poking at it.</Reveal>
@@ -94,7 +134,6 @@ export default function Home() {
       <section id="work" style={{ position: 'relative', zIndex: 1, padding: '40px 0 110px' }}>
         <Reveal style={{ padding: '0 20px', maxWidth: 1100, margin: '0 auto 40px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
           <div>
-            <div className="mono" style={{ color: 'var(--mint)', marginBottom: 14 }}>02 — work</div>
             <h2 className="display h2-must" style={{ margin: 0, fontSize: 'clamp(44px, 7vw, 100px)' }}>shipped &amp; live</h2>
           </div>
           <Link to="/projects" style={{ fontWeight: 700, fontSize: 16, color: 'var(--cream)', textDecoration: 'none', borderBottom: '3px solid var(--tang)' }}>all {projects.length} projects →</Link>
@@ -110,7 +149,6 @@ export default function Home() {
 
       {/* XP pills */}
       <section id="xp" style={{ position: 'relative', zIndex: 1, padding: '20px 20px 120px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--tang)', marginBottom: 14 }}>03 — experience</Reveal>
         <Reveal style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap', marginBottom: 40 }}>
           <h2 className="display h2-gum" style={{ margin: 0, fontSize: 'clamp(40px, 6vw, 88px)', lineHeight: .95 }}>the receipts</h2>
           <Link to="/experience" style={{ fontWeight: 700, fontSize: 16, color: 'var(--cream)', textDecoration: 'none', borderBottom: '3px solid var(--mint)' }}>full timeline →</Link>
@@ -128,7 +166,6 @@ export default function Home() {
 
       {/* KIND WORDS */}
       <section id="kind-words" style={{ position: 'relative', zIndex: 1, padding: '0 20px 120px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--must)', marginBottom: 14 }}>04 — kind words</Reveal>
         <Reveal style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap', marginBottom: 40 }}>
           <h2 className="display h2-must" style={{ margin: 0, fontSize: 'clamp(40px, 6vw, 88px)', lineHeight: .95 }}>clients said</h2>
           <Link to="/projects#kind-words" style={{ fontWeight: 700, fontSize: 16, color: 'var(--cream)', textDecoration: 'none', borderBottom: '3px solid var(--must)' }}>all {testimonials.length} reviews →</Link>

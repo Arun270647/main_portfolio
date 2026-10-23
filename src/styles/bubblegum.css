@@ -100,6 +100,18 @@ img { display: block; max-width: 100%; }
 .strip::-webkit-scrollbar { display: none; }
 .strip > * { flex: none; width: min(84vw, 420px); scroll-snap-align: start; }
 
+/* Home hero: name + intro left, photo right; stacks on narrow screens. */
+.hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(30px, 3vw, 44px); align-items: center; }
+.hero-copy { container-type: inline-size; }
+.hero-name { font-size: clamp(56px, 7vw, 120px); font-size: 18.5cqi; }
+@media (max-width: 860px) { .hero { grid-template-columns: minmax(0, 1fr); } }
+
+/* Home workspace: title fits one line on wide screens; photo left, steps stacked right. */
+.ws-head { container-type: inline-size; }
+.ws-title { font-size: clamp(34px, 3.4cqi, 88px); }
+.ws-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(30px, 3vw, 44px); align-items: center; margin-top: 40px; }
+@media (max-width: 860px) { .ws-grid { grid-template-columns: minmax(0, 1fr); } }
+
 /* ---- accessibility ---- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
