@@ -108,7 +108,7 @@ const BlogCard = ({ post, index, isInView }: {
         </div>
 
         {/* Title */}
-        <h3 className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all mb-3 leading-relaxed" role="heading" aria-level="3">
+        <h3 className="font-pixel text-xs md:text-sm text-primary group-hover:text-glow transition-all mb-3 leading-relaxed">
           {post.title}
         </h3>
 
@@ -183,7 +183,7 @@ export const BlogSection = () => {
           className="flex items-center gap-4 mb-12"
         >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-          <h2 className="font-pixel text-base md:text-xl text-primary text-glow" role="heading" aria-level="2">
+          <h2 className="font-pixel text-base md:text-xl text-primary text-glow">
             {'// BLOG_ARCHIVE'}
           </h2>
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

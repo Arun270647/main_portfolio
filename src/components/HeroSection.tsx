@@ -51,48 +51,11 @@ export const HeroSection = () => {
     "Real programmers measure time in deadlines, not hours."
   ];
 
-  const [location, setLocation] = useState<{
-    lat: string;
-    lng: string;
-    text: string;
-  }>({
+  const location = {
     lat: '13.0827° N',
     lng: '80.2707° E',
     text: 'CHENNAI, IN'
-  });
-
-  useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(async (position) => {
-        const { latitude, longitude } = position.coords;
-
-        const latDir = latitude >= 0 ? 'N' : 'S';
-        const lngDir = longitude >= 0 ? 'E' : 'W';
-        const latStr = `${Math.abs(latitude).toFixed(4)}° ${latDir}`;
-        const lngStr = `${Math.abs(longitude).toFixed(4)}° ${lngDir}`;
-
-        try {
-          const response = await fetch(
-            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
-          );
-          const data = await response.json();
-          const city = data.city || data.locality || 'UNKNOWN';
-          const country = data.countryCode || 'LOC';
-          const locationText = `${city.toUpperCase()}, ${country}`;
-
-          setLocation({
-            lat: latStr,
-            lng: lngStr,
-            text: locationText.substring(0, 12) // Truncate to fit
-          });
-        } catch (error) {
-          setLocation(prev => ({ ...prev, lat: latStr, lng: lngStr, text: 'DETECTED' }));
-        }
-      }, (error) => {
-        console.error("Geolocation error:", error);
-      });
-    }
-  }, []);
+  };
 
   const navLinks = [
     { label: 'ABOUT', icon: User, href: '/about', description: 'Learn about me' },

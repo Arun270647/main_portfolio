@@ -45,15 +45,20 @@ export const ContactSection = () => {
       return;
     }
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS is not configured: set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY.');
+      toast.error('The contact form is unavailable right now. Please email shankar72ind@gmail.com directly.');
+      return;
+    }
+
     setIsSubmitting(true);
     setErrors({});
 
     try {
-      // EmailJS configuration - Replace these with your actual values
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_portfolio';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_portfolio';
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
-
       if (formRef.current) {
         await emailjs.sendForm(
           serviceId,
@@ -191,12 +196,15 @@ export const ContactSection = () => {
                 ) : (
                   <div className="space-y-5">
                     <div>
-                      <label className="block font-terminal text-xs md:text-sm text-muted-foreground mb-2">
+                      <label htmlFor="contact-name" className="block font-terminal text-xs md:text-sm text-muted-foreground mb-2">
                         NAME_ID:
                       </label>
                       <input
                         type="text"
+                        id="contact-name"
                         name="from_name"
+                        aria-invalid={Boolean(errors.name)}
+                        aria-describedby={errors.name ? "contact-name-error" : undefined}
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -204,7 +212,7 @@ export const ContactSection = () => {
                         placeholder="Enter your name..."
                       />
                       {errors.name && (
-                        <p className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
+                        <p id="contact-name-error" className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" />
                           {errors.name}
                         </p>
@@ -212,12 +220,15 @@ export const ContactSection = () => {
                     </div>
 
                     <div>
-                      <label className="block font-terminal text-xs md:text-sm text-muted-foreground mb-2">
+                      <label htmlFor="contact-email" className="block font-terminal text-xs md:text-sm text-muted-foreground mb-2">
                         EMAIL_ADDRESS:
                       </label>
                       <input
                         type="email"
+                        id="contact-email"
                         name="from_email"
+                        aria-invalid={Boolean(errors.email)}
+                        aria-describedby={errors.email ? "contact-email-error" : undefined}
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -225,7 +236,7 @@ export const ContactSection = () => {
                         placeholder="your@email.com"
                       />
                       {errors.email && (
-                        <p className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
+                        <p id="contact-email-error" className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" />
                           {errors.email}
                         </p>
@@ -233,11 +244,14 @@ export const ContactSection = () => {
                     </div>
 
                     <div>
-                      <label className="block font-terminal text-xs md:text-sm text-muted-foreground mb-2">
+                      <label htmlFor="contact-message" className="block font-terminal text-xs md:text-sm text-muted-foreground mb-2">
                         MESSAGE_BODY:
                       </label>
                       <textarea
+                        id="contact-message"
                         name="message"
+                        aria-invalid={Boolean(errors.message)}
+                        aria-describedby={errors.message ? "contact-message-error" : undefined}
                         required
                         rows={4}
                         value={formData.message}
@@ -246,7 +260,7 @@ export const ContactSection = () => {
                         placeholder="Type your message..."
                       />
                       {errors.message && (
-                        <p className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
+                        <p id="contact-message-error" className="mt-1 text-xs text-red-500 font-terminal flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" />
                           {errors.message}
                         </p>

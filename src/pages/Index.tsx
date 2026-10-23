@@ -9,8 +9,37 @@ import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
 import { organizationSchema, websiteSchema, profilePageSchema } from '@/utils/structuredData';
 
+const PRELOADER_SEEN_KEY = 'preloader-seen';
+
+// Checked at module load, before React replaces the build-time prerendered markup.
+const hasPrerenderedContent = typeof document !== 'undefined' && Boolean(document.getElementById('root')?.hasChildNodes());
+
+/**
+ * The boot screen only plays once per session, and never when the page arrived
+ * prerendered (it would hide content that was already on screen) or when the
+ * visitor prefers reduced motion.
+ */
+const shouldShowPreloader = () => {
+  if (hasPrerenderedContent) return false;
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
+  try {
+    return sessionStorage.getItem(PRELOADER_SEEN_KEY) === null;
+  } catch {
+    return true;
+  }
+};
+
+const markPreloaderSeen = () => {
+  try {
+    sessionStorage.setItem(PRELOADER_SEEN_KEY, '1');
+  } catch {
+    // Storage unavailable (private mode, blocked cookies); the boot screen just replays.
+  }
+};
+
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(shouldShowPreloader);
+  const [playedPreloader] = useState(isLoading);
 
   return (
     <>
@@ -40,11 +69,17 @@ const Index = () => {
 
       <AnimatePresence mode="wait">
         {isLoading ? (
-          <Preloader key="preloader" onComplete={() => setIsLoading(false)} />
+          <Preloader
+            key="preloader"
+            onComplete={() => {
+              markPreloaderSeen();
+              setIsLoading(false);
+            }}
+          />
         ) : (
           <motion.div
             key="main-content"
-            initial={{ opacity: 0 }}
+            initial={playedPreloader ? { opacity: 0 } : false}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
