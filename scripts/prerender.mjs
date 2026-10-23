@@ -24,6 +24,9 @@ const SITE_ORIGIN = 'https://www.arunvignesh.my';
 
 const STATIC_ROUTES = ['/', '/about', '/skills', '/projects', '/certificates', '/experience', '/contact', '/blog', '/obs'];
 
+/** noindex utility pages: no canonical tag and no site nav, so only wait for content. */
+const UTILITY_ROUTES = new Set(['/obs']);
+
 /** Derive blog slugs from the `blogPosts` array in src/pages/BlogPost.tsx. */
 const blogSlugs = () => {
   const source = readFileSync(join(ROOT, 'src/pages/BlogPost.tsx'), 'utf8');
@@ -122,9 +125,10 @@ const main = () => startServer().then(async (server) => {
         await page.goto(`${base}${route}`, { waitUntil: 'networkidle0' });
         const expected = canonicalFor(route);
         await page.waitForFunction(
-          (href) => {
-            const canonical = document.querySelector('link[rel="canonical"][data-rh="true"]');
+          (href, utility) => {
             const hasContent = (document.getElementById('root')?.textContent ?? '').trim().length > 0;
+            if (utility) return hasContent && document.querySelector('meta[name="robots"][data-rh="true"]') !== null;
+            const canonical = document.querySelector('link[rel="canonical"][data-rh="true"]');
             // Wait for real page content, not an intro screen: the homepage shows a
             // Preloader first, and snapshotting it leaves crawlers no links or text.
             const hasInternalLinks = document.querySelector('#root a[href^="/"]') !== null;
@@ -132,6 +136,7 @@ const main = () => startServer().then(async (server) => {
           },
           {},
           expected,
+          UTILITY_ROUTES.has(route),
         );
         // Scroll through the page so framer-motion `whileInView` sections finish
         // their entrance animations before the snapshot, then return to the top.
