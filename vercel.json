@@ -7,7 +7,7 @@
       "permanent": true
     },
     { "source": "/skills", "destination": "/about#toolbox", "permanent": true },
-    { "source": "/certificates", "destination": "/about", "permanent": true },
+    { "source": "/certificates", "destination": "/about#certificates", "permanent": true },
     { "source": "/contact", "destination": "/#contact", "permanent": true },
     { "source": "/blog", "destination": "/projects", "permanent": true },
     { "source": "/blog/track-my-academy", "destination": "/projects#track-my-academy", "permanent": true },

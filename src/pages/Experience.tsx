@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Nav } from '../components/Nav';
 import { Blobs } from '../components/Blobs';
 import { Marquee } from '../components/Marquee';
@@ -14,10 +15,10 @@ export default function Experience() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <SEOHead
-        title="Experience | Arun Vignesh, Intern to Product Manager"
-        description="Six roles across Track My Academy, Marina Digitals, Corizo and Novitech: web developer intern to senior web developer to software product manager in 12 months."
+        title="Experience | Arun Vignesh, Intern to CTO in 18 Months"
+        description="Six roles across TrackMy Tech, Track My Academy, Marina Digital, Corizo and Novitech: AI/ML intern to senior web developer to product manager to CTO, Sep 2024 to now."
         path="/experience"
-        schema={[person, webPage('Experience of Arun Vignesh', 'Six roles, three companies, Sep 2024 to now.', '/experience'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }])]}
+        schema={[person, webPage('Experience of Arun Vignesh', 'Six roles, intern to CTO, Sep 2024 to now.', '/experience'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }])]}
       />
       <Blobs a="var(--mint)" b="var(--tang)" />
       <Nav shadow="var(--mint)" />
@@ -27,10 +28,10 @@ export default function Experience() {
         <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--mint)', border: '2px solid var(--mint)', borderRadius: 999, padding: '8px 16px' }}>experience — sep 2024 → now</div>
         <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(48px, 9.5vw, 150px)' }}>
           <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>intern to</span>
-          <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>product</span>
-          <span className="drop" style={{ display: 'block', '--d': '.45s', color: 'var(--must)', fontSize: '.55em', textShadow: '3px 3px 0 var(--ink), 6px 6px 0 var(--tang)' }}>in 12 months</span>
+          <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>CTO</span>
+          <span className="drop" style={{ display: 'block', '--d': '.45s', color: 'var(--must)', fontSize: '.55em', textShadow: '3px 3px 0 var(--ink), 6px 6px 0 var(--tang)' }}>in 18 months</span>
         </h1>
-        <p className="drop" style={{ margin: '34px auto 0', maxWidth: 560, fontSize: 'clamp(17px, 1.6vw, 22px)', lineHeight: 1.45, fontWeight: 500, '--d': '.65s' }}>Six roles, three companies, one very caffeinated year. Newest first.</p>
+        <p className="drop" style={{ margin: '34px auto 0', maxWidth: 560, fontSize: 'clamp(17px, 1.6vw, 22px)', lineHeight: 1.45, fontWeight: 500, '--d': '.65s' }}>Six roles, four companies, eighteen very caffeinated months. Newest first.</p>
       </section>
 
       {/* timeline */}
@@ -64,10 +65,12 @@ export default function Experience() {
       </section>
 
       <Marquee text="7 certifications ● full-stack web dev · rare minds ● pcap python · udemy ● android dev · corizo ● python essentials · openedg ● web dev · novitech ●" bg="var(--must)" speed={24} size="clamp(18px, 2.6vw, 30px)" margin="20px 0 70px" />
+      <p style={{ position: 'relative', zIndex: 1, textAlign: 'center', margin: '-30px 20px 60px', fontWeight: 700 }}><Link to="/about#certificates" style={{ color: 'var(--cream)', textDecoration: 'none', borderBottom: '3px solid var(--must)' }}>see the certificates →</Link></p>
 
       </main>
       <Footer title="next role?" buttons={[
         { label: "let's talk →", href: links.email, bg: 'dark' },
+        { label: 'resume ↓', href: links.resume, bg: 'var(--mint)' },
         { label: 'linkedin', href: links.linkedin, bg: 'var(--gum)', external: true },
         { label: 'see the work', href: '/projects', bg: 'var(--must)' },
       ]} />

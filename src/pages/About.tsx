@@ -5,7 +5,9 @@ import { Reveal } from '../components/Reveal';
 import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { person, webPage, breadcrumb } from '../utils/structuredData';
-import { skills, links } from '../data/portfolio';
+import { skills, links, certificates, stats } from '../data/portfolio';
+import { SkillBars } from '../components/SkillBars';
+import { CertCard } from '../components/CertCard';
 
 const lanes = [
   ['01', 'Full-stack builds', "React + TypeScript fronts, Node/Firebase backs, deployed on Vercel or Netlify. Fast, responsive, SEO'd, maintained after launch.", 'var(--tang)', '-1.5deg'],
@@ -18,8 +20,8 @@ export default function About() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <SEOHead
-        title="About Arun Vignesh | Full-Stack Developer and BCA Student"
-        description="Full-stack web developer and BCA student from Chennai. Intern to product manager at Track My Academy in 12 months, plus freelance builds for Kyra Elite, Fufies and Marina Digitals."
+        title="About Arun Vignesh | Full-Stack Developer, CTO, BCA Student"
+        description="Full-stack web developer and BCA student from Chennai. Intern to CTO at TrackMy Tech in 18 months, senior software associate at Marina Digital, 15 shipped projects, 7 certifications."
         path="/about"
         schema={[person, webPage('About Arun Vignesh', 'Story, skills and what Arun is doing now.', '/about'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
       />
@@ -51,7 +53,7 @@ export default function About() {
         </Reveal>
         <div style={{ display: 'grid', gap: 18, fontSize: 'clamp(17px, 1.4vw, 20px)', lineHeight: 1.5, fontWeight: 500 }}>
           <Reveal as="p" kind="pop" style={{ margin: 0, padding: '26px 28px', background: 'var(--cream)', color: 'var(--ink)', borderRadius: '28px 28px 28px 6px', boxShadow: '0 10px 0 var(--gum)', transform: 'rotate(-1deg)' }}>I'm Arun Vignesh — a Full-Stack Web Developer and BCA student from Chennai. I got into this by being too curious to leave anything alone, and I stayed because shipping things people actually use is addictive.</Reveal>
-          <Reveal as="p" kind="pop" delay={80} style={{ margin: 0, padding: '26px 28px', background: 'var(--mint)', color: 'var(--ink)', borderRadius: '28px 28px 6px 28px', boxShadow: '0 10px 0 var(--cream)', transform: 'rotate(1deg)' }}>Since late 2024 I've gone intern → senior web dev → product manager at Track My Academy, while running freelance builds for Kyra Elite, Fufies and Marina Digitals. 15+ projects, 2+ years, zero lorem ipsum.</Reveal>
+          <Reveal as="p" kind="pop" delay={80} style={{ margin: 0, padding: '26px 28px', background: 'var(--mint)', color: 'var(--ink)', borderRadius: '28px 28px 6px 28px', boxShadow: '0 10px 0 var(--cream)', transform: 'rotate(1deg)' }}>Since late 2024 I've gone intern → senior web dev → product manager → CTO at Track My Academy / TrackMy Tech, while shipping client builds at Marina Digital and freelance for Kyra Elite, Fufies and more. {stats.projects} projects, 2+ years, zero lorem ipsum.</Reveal>
           <Reveal as="p" kind="pop" delay={160} style={{ margin: 0, padding: '26px 28px', background: 'var(--gum)', color: 'var(--ink)', borderRadius: '28px 28px 28px 6px', boxShadow: '0 10px 0 var(--must)', transform: 'rotate(-.6deg)' }}>On the side I poke at AI in the browser — my Hand Cricket game reads your fingers through the webcam with MediaPipe + TensorFlow.js. Equal parts research and nonsense.</Reveal>
         </div>
       </section>
@@ -71,10 +73,17 @@ export default function About() {
         </div>
       </section>
 
+      {/* skill matrix */}
+      <section id="toolbox" style={{ scrollMarginTop: 90, position: 'relative', zIndex: 1, padding: '20px 20px 60px', maxWidth: 1100, margin: '0 auto' }}>
+        <Reveal className="mono" style={{ color: 'var(--tang)', marginBottom: 14 }}>03 — skill matrix</Reveal>
+        <Reveal as="h2" className="display h2-gum" style={{ margin: '0 0 40px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>the numbers</Reveal>
+        <SkillBars />
+      </section>
+
       {/* candy jar */}
-      <section id="toolbox" style={{ scrollMarginTop: 90, position: 'relative', zIndex: 1, padding: '20px 20px 100px', maxWidth: 1100, margin: '0 auto' }}>
-        <Reveal className="mono" style={{ color: 'var(--tang)', marginBottom: 14 }}>03 — toolbox</Reveal>
-        <Reveal as="h2" className="display h2-gum" style={{ margin: '0 0 40px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>candy jar</Reveal>
+      <section style={{ position: 'relative', zIndex: 1, padding: '20px 20px 100px', maxWidth: 1100, margin: '0 auto' }}>
+        <Reveal className="mono" style={{ color: 'var(--gum)', marginBottom: 14 }}>04 — everything else in the jar</Reveal>
+        <Reveal as="h2" className="display h2-cream" style={{ margin: '0 0 40px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>candy jar</Reveal>
         <Reveal style={{ display: 'flex', flexWrap: 'wrap', gap: '14px 10px' }}>
           {skills.map((s, i) => (
             <span key={s} className="pill squish" style={{ background: pillColors[i % pillColors.length], '--r': `${(i % 2 ? 1 : -1) * (1 + (i % 3))}deg`, '--d': `${i * .2}s` }}>{s}</span>
@@ -82,12 +91,24 @@ export default function About() {
         </Reveal>
       </section>
 
+      {/* certificates */}
+      <section id="certificates" style={{ scrollMarginTop: 90, position: 'relative', zIndex: 1, padding: '0 20px 100px', maxWidth: 1100, margin: '0 auto' }}>
+        <Reveal className="mono" style={{ color: 'var(--must)', marginBottom: 14 }}>05 — receipts</Reveal>
+        <Reveal as="h2" className="display h2-must" style={{ margin: '0 0 12px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>{certificates.length} certifications</Reveal>
+        <Reveal as="p" style={{ margin: '0 0 40px', color: 'var(--cream-2)', fontWeight: 500, fontSize: 'clamp(16px, 1.3vw, 19px)' }}>Each one links to the credential.</Reveal>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 24 }}>
+          {certificates.map((c, i) => (
+            <Reveal key={c.title + c.issuer} kind="pop" delay={(i % 4) * 70} style={{ display: 'flex' }}><CertCard c={c} index={i} /></Reveal>
+          ))}
+        </div>
+      </section>
+
       <Marquee text="∞ coffee ● 2 AM commits ● restarts laptop for emotional support ● reads docs for fun ● suspicious when it compiles first try ●" bg="var(--gum)" tilt={-1.2} speed={26} size="clamp(18px, 2.6vw, 30px)" margin="0 0 60px" />
 
       {/* currently */}
       <section style={{ position: 'relative', zIndex: 1, padding: '20px 20px 110px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 22 }}>
         {[
-          ['currently', 'var(--mint)', 'Product Manager @ Track My Academy', '+ Senior Web Dev @ Marina Digitals', '-.8deg', true],
+          ['currently', 'var(--mint)', 'CTO @ TrackMy Tech', '+ Senior Software Associate @ Marina Digital', '-.8deg', true],
           ['studying', 'var(--gum)', 'BCA — Bachelor of Computer Applications', 'Chennai, Tamil Nadu', '.9deg', false],
           ['open to', 'var(--must)', 'Freelance builds & full-time roles', 'Remote or Chennai · replies in 24h', '-.5deg', false],
         ].map(([k, c, t, s, r, live]) => (

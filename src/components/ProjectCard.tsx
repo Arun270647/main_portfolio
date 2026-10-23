@@ -18,7 +18,7 @@ export function ProjectCard({ p, index, style }: { p: Project; index: number; st
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>{p.tech.map(t => <span key={t} className="chip">{t}</span>)}</div>
       <div style={{ display: 'flex', gap: 14, marginTop: 16, fontWeight: 700, fontSize: 14 }}>
         <span style={{ borderBottom: '3px solid var(--ink)' }}>{p.category === 'play' ? 'play' : 'live'} ↗</span>
-        <span role="link" tabIndex={0} onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener'); }} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener'); } }} style={{ borderBottom: '3px solid transparent', cursor: 'pointer' }}>github ↗</span>
+        {p.github && <span role="link" tabIndex={0} onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener'); }} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener'); } }} style={{ borderBottom: '3px solid transparent', cursor: 'pointer' }}>github ↗</span>}
       </div>
     </a>
   );

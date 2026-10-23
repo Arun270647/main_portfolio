@@ -7,7 +7,8 @@ import { ProjectCard } from '../components/ProjectCard';
 import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { projectList, breadcrumb } from '../utils/structuredData';
-import { projects, links } from '../data/portfolio';
+import { projects, links, testimonials } from '../data/portfolio';
+import { TestimonialCard } from '../components/TestimonialCard';
 
 type Filter = 'all' | 'client' | 'play';
 const filters: [Filter, string, string, string][] = [
@@ -26,8 +27,8 @@ export default function Projects() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <SEOHead
-        title="Projects by Arun Vignesh | 11 Live React Apps"
-        description="Track My Academy, Kyra Elite, Hand Cricket AI, Marina Digitals, Fufies and more: 11 shipped React, TypeScript and Firebase projects with live links and source."
+        title={`Projects by Arun Vignesh | ${projects.length} Live React Apps`}
+        description={`Track My Academy, Kyra Elite, Hand Cricket AI, Marina Digitals, Adsys Infotech, Fufies and more: ${projects.length} shipped React, TypeScript and Firebase projects with live links, plus ${testimonials.length} client reviews.`}
         path="/projects"
         schema={[projectList, breadcrumb([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])]}
       />
@@ -59,7 +60,18 @@ export default function Projects() {
         ))}
       </section>
 
-      <Marquee text='8 happy clients ● 5.0 avg rating ● "way better than I imagined" ● "ahead of schedule" ● "transformed our vision" ●' bg="var(--mint)" speed={24} size="clamp(18px, 2.6vw, 30px)" margin="0 0 70px" />
+      <Marquee text={`${testimonials.length} happy clients ● 5.0 avg rating ● "way better than I imagined" ● "ahead of schedule" ● "transformed our vision" ●`} bg="var(--mint)" speed={24} size="clamp(18px, 2.6vw, 30px)" margin="0 0 70px" />
+
+      {/* testimonials */}
+      <section id="kind-words" style={{ scrollMarginTop: 90, position: 'relative', zIndex: 1, padding: '20px 20px 110px', maxWidth: 1100, margin: '0 auto' }}>
+        <Reveal className="mono" style={{ color: 'var(--mint)', marginBottom: 14 }}>kind words — {testimonials.length} of them</Reveal>
+        <Reveal as="h2" className="display h2-cream" style={{ margin: '0 0 40px', fontSize: 'clamp(40px, 6.5vw, 92px)' }}>clients said</Reveal>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 26, alignItems: 'start' }}>
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} kind="pop" delay={(i % 3) * 90}><TestimonialCard t={t} index={i} /></Reveal>
+          ))}
+        </div>
+      </section>
 
       </main>
       <Footer title="yours next?" buttons={[
