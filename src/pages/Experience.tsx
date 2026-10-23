@@ -6,7 +6,7 @@ import { Reveal } from '../components/Reveal';
 import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { person, webPage, breadcrumb } from '../utils/structuredData';
-import { roles, links } from '../data/portfolio';
+import { roles, links, testimonials } from '../data/portfolio';
 
 const colors = ['var(--mint)', 'var(--gum)', 'var(--must)', 'var(--cream)', 'var(--tang)', 'var(--ink-2)'];
 const rots = ['1deg', '-1deg', '.8deg', '-.7deg', '1.2deg', '-1.2deg'];
@@ -41,6 +41,7 @@ export default function Experience() {
           const left = i % 2 === 0; // year badge on the left, card on the right
           const bg = colors[i];
           const dark = bg === 'var(--ink-2)';
+          const quote = r.endorsedBy ? testimonials.find(t => t.name === r.endorsedBy) : undefined;
           const badge = (
             <div className="sticky-wide" style={{ textAlign: left ? 'right' : 'left', alignSelf: 'start', top: 120, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: left ? 'flex-end' : 'flex-start' }}>
               <div className="display bob" style={{ display: 'inline-block', background: bg, color: dark ? 'var(--cream)' : 'var(--ink)', border: dark ? '3px solid var(--cream)' : 0, fontSize: 'clamp(28px, 4vw, 54px)', padding: '8px 22px', borderRadius: 999, boxShadow: `0 6px 0 ${dark ? 'var(--mint)' : bg === 'var(--cream)' ? 'var(--tang)' : 'var(--cream)'}`, '--r': `${left ? -3 : 3}deg`, '--d': `${i * .6}s`, animationDuration: '5s' }}>{r.year}</div>
@@ -54,6 +55,12 @@ export default function Experience() {
               <h3 className="display" style={{ margin: '8px 0 2px', fontSize: 'clamp(22px, 2.4vw, 30px)', lineHeight: 1.05, textTransform: 'none' }}>{r.role}</h3>
               <div style={{ fontWeight: 700, fontSize: 17 }}>{r.company}</div>
               <ul style={{ margin: '18px 0 0', paddingLeft: 20, fontSize: 16, lineHeight: 1.5, fontWeight: 500, display: 'grid', gap: 6 }}>{r.bullets.map(b => <li key={b}>{b}</li>)}</ul>
+              {quote && (
+                <figure style={{ margin: '22px 0 0', paddingLeft: 16, borderLeft: '4px solid currentColor' }}>
+                  <blockquote style={{ margin: 0, fontSize: 15, lineHeight: 1.5, fontWeight: 500, fontStyle: 'italic' }}>“{quote.text}”</blockquote>
+                  <figcaption className="mono" style={{ marginTop: 10, fontSize: 11, letterSpacing: '.06em' }}>— {quote.name}, {quote.role}, {quote.company}</figcaption>
+                </figure>
+              )}
             </div>
           );
           return (

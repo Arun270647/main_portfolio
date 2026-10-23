@@ -22,7 +22,7 @@ export default function About() {
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="About Arun Vignesh | Full-Stack Developer, CTO, BCA Student"
-        description="Full-stack web developer and BCA student from Chennai. CTO at TrackMy Tech, senior software associate at Marina Digital, 15 shipped projects, 7 certifications."
+        description={`Full-stack web developer and BCA student from Chennai. CTO at TrackMy Tech, senior software associate at Marina Digital, ${stats.projects} shipped projects, ${stats.certs} certifications.`}
         path="/about"
         schema={[person, webPage('About Arun Vignesh', 'Story, skills and what Arun is doing now.', '/about'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
       />

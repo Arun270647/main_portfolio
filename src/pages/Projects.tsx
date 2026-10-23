@@ -28,7 +28,7 @@ export default function Projects() {
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title={`Projects by Arun Vignesh | ${projects.length} Live React Apps`}
-        description={`Track My Academy, Kyra Elite, Hand Cricket AI, Marina Digitals, Adsysinfo, Fufies and more: ${projects.length} shipped React, TypeScript and Firebase projects with live links, plus ${testimonials.length} client reviews.`}
+        description={`Kyra Elite, Hand Cricket AI, Adsysinfo, SaysEdu, Fufies and more: ${projects.length} shipped React, TypeScript and Firebase projects with live links, plus ${testimonials.length} client reviews.`}
         path="/projects"
         schema={[projectList, breadcrumb([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])]}
       />

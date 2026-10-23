@@ -28,12 +28,12 @@
     },
     {
       "source": "/blog/track-my-academy",
-      "destination": "/projects#track-my-academy",
+      "destination": "/experience",
       "permanent": true
     },
     {
       "source": "/blog/marina-digitals",
-      "destination": "/projects#marina-digitals",
+      "destination": "/experience",
       "permanent": true
     },
     {
