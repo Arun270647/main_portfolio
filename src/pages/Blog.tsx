@@ -26,17 +26,16 @@ export default function Blog() {
 
       <main id="main">
         <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
-          <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--mint)', border: '2px solid var(--mint)', borderRadius: 999, padding: '8px 16px' }}>blog — {posts.length} {posts.length === 1 ? 'story' : 'stories'} so far</div>
-          <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(52px, 11vw, 170px)' }}>
-            <span className="drop chrome-mint" style={{ display: 'block', '--d': '.1s' }}>build</span>
-            <span className="drop chrome-cream" style={{ display: 'block', '--d': '.28s' }}>stories</span>
+          <h1 className="display" style={{ margin: 0, fontSize: 'clamp(44px, 8.5vw, 104px)' }}>
+            <span className="drop chrome-mint" style={{ display: 'block', '--d': '.1s' }}>stories</span>
+            <span className="drop chrome-cream" style={{ display: 'block', '--d': '.28s' }}>beyond projects</span>
           </h1>
           <p className="drop" style={{ maxWidth: 620, margin: '36px auto 0', fontSize: 19, lineHeight: 1.5, '--d': '.5s' }}>
             What I built, what broke, and what I'd do differently. Written for humans, not for search engines.
           </p>
         </section>
 
-        <section style={{ position: 'relative', zIndex: 1, padding: '40px 20px 110px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 30 }}>
+        <section style={{ position: 'relative', zIndex: 1, padding: '40px 20px 110px', maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: 28 }}>
           {posts.length === 0 && (
             <p className="mono" style={{ textAlign: 'center', gridColumn: '1 / -1' }}>first story lands soon ✦</p>
           )}
@@ -45,8 +44,8 @@ export default function Blog() {
               <Link to={`/blog/${p.slug}`} className="card" style={{ flex: 1, background: tints[i % tints.length], transform: `rotate(${tilts[i % tilts.length]})` }}>
                 {p.cover && <div className="shot" style={{ padding: 0, background: 'var(--ink)' }}><img src={p.cover} alt="" loading="lazy" /></div>}
                 <div className="mono" style={{ fontSize: 11, marginTop: 16 }}>{formatDate(p.date)} · {p.readMins} min read</div>
-                <h2 style={{ fontFamily: 'var(--display)', fontWeight: 400, textTransform: 'uppercase', lineHeight: 1, fontSize: 26, margin: '10px 0 10px' }}>{p.title}</h2>
-                <p style={{ margin: 0, fontSize: 16, lineHeight: 1.45 }}>{p.excerpt}</p>
+                <h2 style={{ fontFamily: 'var(--display)', fontWeight: 400, textTransform: 'uppercase', lineHeight: 1.05, fontSize: 21, margin: '10px 0 10px' }}>{p.title}</h2>
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.45 }}>{p.excerpt}</p>
                 {p.tags.length > 0 && (
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 'auto', paddingTop: 16 }}>
                     {p.tags.map(t => <span key={t} className="chip">{t}</span>)}
