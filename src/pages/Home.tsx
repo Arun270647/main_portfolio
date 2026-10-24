@@ -11,6 +11,7 @@ import { person, website, profilePage } from '../utils/structuredData';
 import { projects, links, stats, testimonials } from '../data/portfolio';
 import { TestimonialCard } from '../components/TestimonialCard';
 import { SacredTimeline } from '../components/SacredTimeline';
+import { optimizedImage } from '../utils/images';
 
 const sticker = (bg: string): React.CSSProperties => ({ position: 'absolute', background: bg, color: 'var(--ink)', fontFamily: 'var(--display)', fontSize: 15, padding: '12px 18px', borderRadius: 999, boxShadow: '0 5px 0 var(--ink)' });
 // Stickers on the workspace photo shrink on phones so they don't cover it.
@@ -53,7 +54,7 @@ export default function Home() {
         <div className="popin" style={{ position: 'relative', width: 'min(90%, 500px)', aspectRatio: '1', margin: '0 auto', '--d': '.5s' }}>
           <div className="blobby" style={{ position: 'absolute', inset: 0, background: 'var(--tang)', transform: 'rotate(8deg)' }} />
           <div className="blobby" style={{ position: 'absolute', inset: 14, overflow: 'hidden', background: 'var(--ink-2)', '--d': '1s' }}>
-            <img src="/me.jpg" alt="Arun Vignesh" width={840} height={840} fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={optimizedImage('/me.jpg').src} alt="Arun Vignesh" width={840} height={840} fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="bob" style={{ ...sticker('var(--must)'), left: -40, top: 30, '--r': '-10deg' }}>{stats.projects} projects</div>
           <div className="bob" style={{ ...sticker('var(--mint)'), right: -50, top: 110, '--r': '8deg', '--d': '.7s' }}>2+ yrs</div>
@@ -76,7 +77,7 @@ export default function Home() {
             </Reveal>
             <Reveal kind="pop" style={{ position: 'relative', background: 'var(--cream)', borderRadius: 32, padding: 'clamp(10px, 1.4vw, 18px)', boxShadow: '0 14px 0 var(--mint)', transform: 'rotate(-1deg)' }}>
               <div className="shot" style={{ aspectRatio: '16 / 9', padding: 0, background: 'var(--ink-2)' }}>
-                <img src="/workspace.jpg" alt="Arun's desk at night: a laptop and two monitors lit up, with a wall of photos and TrackMyTech posters behind" loading="lazy" width={1600} height={900} />
+                <img src={optimizedImage('/workspace.jpg').src} alt="Arun's desk at night: a laptop and two monitors lit up, with a wall of photos and TrackMyTech posters behind" loading="lazy" width={1600} height={900} />
               </div>
               <div className="bob" style={{ ...sticker('var(--must)'), ...frameSticker, left: 24, top: -20, '--r': '-6deg' }}>3 screens</div>
               <div className="bob" style={{ ...sticker('var(--gum)'), ...frameSticker, right: 24, top: -20, '--r': '5deg', '--d': '.7s' }}>∞ tabs</div>
@@ -107,7 +108,7 @@ export default function Home() {
         <Reveal kind="pop" style={{ background: 'var(--cream)', color: 'var(--ink)', borderRadius: 28, padding: 22, boxShadow: '0 14px 0 var(--gum)', transform: 'rotate(-4deg)' }}>
           <div className="mono" style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11 }}><span>player card</span><span>#001</span></div>
           <div className="shot" style={{ margin: '14px 0', aspectRatio: '1', background: 'repeating-linear-gradient(45deg, #ffe7c2 0 12px, var(--cream) 12px 24px)' }}>
-            <img src="/me-goofy.jpg" alt="Arun, goofy portrait" loading="lazy" width={400} height={400} />
+            <img src={optimizedImage('/me-goofy.jpg').src} alt="Arun, goofy portrait" loading="lazy" width={400} height={400} />
           </div>
           <div className="display" style={{ fontSize: 28, lineHeight: 1, textTransform: 'none' }}>Arun V.</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px 14px', marginTop: 14, fontSize: 15, fontWeight: 500 }}>

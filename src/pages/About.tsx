@@ -8,6 +8,7 @@ import { person, webPage, breadcrumb } from '../utils/structuredData';
 import { skills, links, certificates, stats } from '../data/portfolio';
 import { SkillBars } from '../components/SkillBars';
 import { CertCard } from '../components/CertCard';
+import { optimizedImage } from '../utils/images';
 
 const lanes = [
   ['01', 'Full-stack builds', "React + TypeScript fronts, Node/Firebase backs, deployed on Vercel or Netlify. Fast, responsive, SEO'd, maintained after launch.", 'var(--tang)', '-1.5deg'],
@@ -42,7 +43,7 @@ export default function About() {
         <div className="popin" style={{ position: 'relative', width: 'min(90%, 460px)', aspectRatio: '1', margin: '0 auto', '--d': '.5s' }}>
           <div className="blobby" style={{ position: 'absolute', inset: 0, background: 'var(--must)', transform: 'rotate(-8deg)' }} />
           <div className="blobby" style={{ position: 'absolute', inset: 14, overflow: 'hidden', background: 'var(--ink-2)', '--d': '1s' }}>
-            <img src="/me-goofy.jpg" alt="Arun, goofy" width={760} height={760} fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={optimizedImage('/me-goofy.jpg').src} alt="Arun, goofy" width={760} height={760} fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="bob" style={{ position: 'absolute', left: -40, top: 40, background: 'var(--tang)', color: 'var(--ink)', fontFamily: 'var(--display)', fontSize: 15, padding: '12px 18px', borderRadius: 999, boxShadow: '0 5px 0 var(--ink)', '--r': '-10deg' }}>BCA student</div>
           <div className="bob" style={{ position: 'absolute', right: -44, bottom: 60, background: 'var(--gum)', color: 'var(--ink)', fontFamily: 'var(--display)', fontSize: 15, padding: '12px 18px', borderRadius: 999, boxShadow: '0 5px 0 var(--ink)', '--r': '8deg', '--d': '.7s' }}>est. chennai</div>

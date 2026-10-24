@@ -1,6 +1,6 @@
 // Generates resized WebP versions of site images so code and posts can keep referencing the original PNG/JPG.
 //
-// For every PNG/JPG under each source folder below it writes, next to the original:
+// For every PNG/JPG under each source folder (or each listed file) below it writes, next to the original:
 //   <name>.webp        at most `width` px wide
 //   <name>.thumb.webp  `thumb` px wide, when the folder sets one
 // and records every image in src/content/images.json, which src/utils/images.ts reads to swap in
@@ -22,6 +22,8 @@ const SOURCES = [
   { dir: 'blog', width: 1400, thumb: 680 },
   // Project card screenshots, shown at ~350px.
   { dir: 'projects', width: 800 },
+  // Portraits (already 400px) and the home-page desk photo (up to ~1100px).
+  { files: ['me.jpg', 'me-goofy.jpg', 'workspace.jpg'], width: 1400 },
 ];
 
 const walk = (dir) =>
@@ -43,9 +45,11 @@ const manifest = {};
 let found = 0;
 let written = 0;
 
-for (const { dir, width, thumb } of SOURCES) {
-  const root = join(PUBLIC, dir);
-  const files = existsSync(root) ? walk(root).filter((f) => /\.(png|jpe?g)$/i.test(f)) : [];
+for (const { dir, files: listed, width, thumb } of SOURCES) {
+  const root = dir && join(PUBLIC, dir);
+  const files = listed
+    ? listed.map((f) => join(PUBLIC, f)).filter(existsSync)
+    : existsSync(root) ? walk(root).filter((f) => /\.(png|jpe?g)$/i.test(f)) : [];
   found += files.length;
   for (const src of files) {
     const base = src.replace(/\.(png|jpe?g)$/i, '');
