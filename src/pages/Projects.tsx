@@ -39,7 +39,7 @@ export default function Projects() {
       <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
         <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--gum)', border: '2px solid var(--gum)', borderRadius: 999, padding: '8px 16px' }}>work — {projects.length} things that went live</div>
         <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(52px, 11vw, 170px)' }}>
-          <span className="drop chrome-must" style={{ display: 'block', '--d': '.1s', textShadow: '4px 4px 0 var(--ink), 8px 8px 0 var(--gum), 12px 12px 0 var(--ink)' }}>shipped</span>
+          <span className="drop chrome-must" style={{ display: 'block', '--d': '.1s', textShadow: '4px 4px 0 var(--ink), 8px 8px 0 var(--gum), 12px 12px 0 var(--ink)' }}>shipped</span>{' '}
           <span className="drop chrome-cream" style={{ display: 'block', '--d': '.28s', textShadow: '4px 4px 0 var(--ink), 8px 8px 0 var(--mint), 12px 12px 0 var(--ink)' }}>&amp; live</span>
         </h1>
         <div className="drop" style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap', marginTop: 44, fontWeight: 700, fontSize: 15, '--d': '.6s' }}>

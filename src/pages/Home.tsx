@@ -36,7 +36,7 @@ export default function Home() {
       <section className="hero" style={{ position: 'relative', zIndex: 1, padding: 'clamp(30px, 5vw, 70px) clamp(20px, 3vw, 48px) 30px', maxWidth: 1400, margin: '0 auto' }}>
         <div className="hero-copy">
           <h1 className="display hero-name" style={{ margin: 0, lineHeight: .88 }}>
-            <span className="drop chrome-gum" style={{ display: 'block', '--d': '.1s' }}>Arun</span>
+            <span className="drop chrome-gum" style={{ display: 'block', '--d': '.1s' }}>Arun</span>{' '}
             <span className="drop chrome-must" style={{ display: 'block', '--d': '.28s' }}>Vignesh</span>
           </h1>
           <p className="drop" style={{ margin: '34px 0 0', maxWidth: 620, fontSize: 'clamp(18px, 1.7vw, 24px)', lineHeight: 1.4, fontWeight: 500, '--d': '.55s' }}>

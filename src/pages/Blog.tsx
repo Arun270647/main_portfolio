@@ -28,7 +28,7 @@ export default function Blog() {
       <main id="main">
         <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
           <h1 className="display" style={{ margin: 0, fontSize: 'clamp(44px, 8.5vw, 104px)' }}>
-            <span className="drop chrome-mint" style={{ display: 'block', '--d': '.1s' }}>stories</span>
+            <span className="drop chrome-mint" style={{ display: 'block', '--d': '.1s' }}>stories</span>{' '}
             <span className="drop chrome-cream" style={{ display: 'block', '--d': '.28s' }}>beyond projects</span>
           </h1>
           <p className="drop" style={{ maxWidth: 620, margin: '36px auto 0', fontSize: 19, lineHeight: 1.5, '--d': '.5s' }}>
@@ -45,7 +45,7 @@ export default function Blog() {
               <Link to={`/blog/${p.slug}`} className="card" style={{ flex: 1, background: tints[i % tints.length], transform: `rotate(${tilts[i % tilts.length]})` }}>
                 {p.cover && (() => {
                   const img = optimizedImage(p.cover);
-                  return <div className="shot" style={{ padding: 0, background: 'var(--ink)' }}><img src={img.thumb ?? img.src} width={img.width} height={img.height} alt="" loading="lazy" decoding="async" /></div>;
+                  return <div className="shot" style={{ padding: 0, background: 'var(--ink)' }}><img src={img.thumb ?? img.src} width={img.width} height={img.height} alt={p.coverAlt ?? p.title} loading="lazy" decoding="async" /></div>;
                 })()}
                 <div className="mono" style={{ fontSize: 11, marginTop: 16 }}>{formatDate(p.date)} · {p.readMins} min read</div>
                 <h2 style={{ fontFamily: 'var(--display)', fontWeight: 400, textTransform: 'uppercase', lineHeight: 1.05, fontSize: 21, margin: '10px 0 10px' }}>{p.title}</h2>

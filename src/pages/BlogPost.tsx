@@ -24,16 +24,19 @@ export default function BlogPost() {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    author: { '@type': 'Person', name: 'Arun Vignesh V', url: ORIGIN },
+    dateModified: post.updated ?? post.date,
+    author: { '@type': 'Person', '@id': `${ORIGIN}/#person`, name: 'Arun Vignesh', url: ORIGIN },
     image: post.cover ? `${ORIGIN}${post.cover}` : undefined,
     mainEntityOfPage: `${ORIGIN}${path}`,
   };
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
-        title={`${post.title} | Arun Vignesh`}
+        title={`${post.seoTitle ?? post.title} | Arun Vignesh`}
         description={post.excerpt}
         path={path}
+        type="article"
+        image={post.cover ? `${ORIGIN}${post.cover}` : undefined}
         schema={[article, breadcrumb([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }, { name: post.title, path }])]}
       />
       {cover && <Helmet><link rel="preload" as="image" href={cover.src} /></Helmet>}
@@ -44,7 +47,7 @@ export default function BlogPost() {
         <Link to="/blog" className="mono" style={{ color: 'var(--mint)', textDecoration: 'none' }}>← all stories</Link>
         <h1 className="display drop" style={{ margin: '22px 0 0', fontSize: 'clamp(34px, 6vw, 68px)', lineHeight: 1, color: 'var(--cream)', textShadow: '4px 4px 0 var(--tang)' }}>{post.title}</h1>
         <div className="mono" style={{ marginTop: 20, color: 'var(--must)' }}>{formatDate(post.date)} · {post.readMins} min read</div>
-        {cover && <img src={cover.src} width={cover.width} height={cover.height} alt="" style={{ width: '100%', height: 'auto', borderRadius: 26, marginTop: 30, boxShadow: '0 12px 0 var(--gum)' }} />}
+        {cover && <img src={cover.src} width={cover.width} height={cover.height} alt={post.coverAlt ?? post.title} style={{ width: '100%', height: 'auto', borderRadius: 26, marginTop: 30, boxShadow: '0 12px 0 var(--gum)' }} />}
         <article className="post-body" dangerouslySetInnerHTML={{ __html: renderMarkdown(post.body) }} />
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 50 }}>
           {post.linkedin && <a className="btn cream" href={post.linkedin} target="_blank" rel="noopener">discuss on linkedin →</a>}

@@ -35,7 +35,7 @@ export default function About() {
         <div className="hero-copy">
           {/* "hi, I'm" is narrower than Home's "Vignesh", so a bigger size fills the column the same way */}
           <h1 className="display hero-name" style={{ margin: 0, lineHeight: .88, fontSize: '24cqi' }}>
-            <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>hi, I'm</span>
+            <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>hi, I'm</span>{' '}
             <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>Arun</span>
           </h1>
         </div>

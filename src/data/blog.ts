@@ -10,6 +10,9 @@ import { optimizedImage, type OptimizedImage } from '../utils/images';
 // excerpt: One-line summary for the list page and social cards.
 // tags: Track My Academy, UX
 // linkedin: https://www.linkedin.com/pulse/...   (optional, added once it is live there)
+// seoTitle: Shorter title for Google, about 60 characters   (optional, falls back to title)
+// updated: 2026-11-02T10:00:00+05:30   (optional, last real edit; falls back to date)
+// coverAlt: What the cover image shows   (optional, falls back to title)
 // ---
 
 export type Post = {
@@ -20,6 +23,9 @@ export type Post = {
   excerpt: string;
   tags: string[];
   linkedin?: string;
+  seoTitle?: string;
+  updated?: string;
+  coverAlt?: string;
   body: string;
   readMins: number;
 };
@@ -46,6 +52,9 @@ function parse(raw: string): Post | null {
     excerpt: meta.excerpt || '',
     tags: meta.tags ? meta.tags.split(',').map(t => t.trim()).filter(Boolean) : [],
     linkedin: meta.linkedin || undefined,
+    seoTitle: meta.seoTitle || undefined,
+    updated: meta.updated || undefined,
+    coverAlt: meta.coverAlt || undefined,
     body,
     readMins: Math.max(1, Math.round(body.split(/\s+/).length / 220)),
   };

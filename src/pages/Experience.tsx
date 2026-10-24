@@ -28,7 +28,7 @@ export default function Experience() {
       <section style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 'clamp(50px, 9vw, 110px) 20px 20px', maxWidth: 1100, margin: '0 auto' }}>
         <div className="mono drop" style={{ display: 'inline-flex', color: 'var(--mint)', border: '2px solid var(--mint)', borderRadius: 999, padding: '8px 16px' }}>experience — sep 2024 → now</div>
         <h1 className="display" style={{ margin: '24px 0 0', fontSize: 'clamp(48px, 9.5vw, 150px)' }}>
-          <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>where I've</span>
+          <span className="drop chrome-cream" style={{ display: 'block', '--d': '.1s' }}>where I've</span>{' '}
           <span className="drop chrome-mint" style={{ display: 'block', '--d': '.28s' }}>worked</span>
         </h1>
         <p className="drop" style={{ margin: '34px auto 0', maxWidth: 560, fontSize: 'clamp(17px, 1.6vw, 22px)', lineHeight: 1.45, fontWeight: 500, '--d': '.65s' }}>Six roles since Sep 2024: internships, client builds, product work and engineering leadership. Newest first.</p>

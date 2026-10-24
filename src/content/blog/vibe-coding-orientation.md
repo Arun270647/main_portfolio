@@ -6,6 +6,8 @@ cover: /blog/vibe-coding-orientation/welcome.png
 excerpt: I ran a vibe coding orientation for 85 internship students. The first question was "will AI replace us?" So I answered with a live landing page.
 tags: Vibe Coding, Full Stack, Internship, AI
 linkedin: https://lnkd.in/p/giXskfz5
+seoTitle: Will AI Replace Developers? A Live Coding Demo
+coverAlt: Arun presenting a vibe coding orientation to 85 internship students
 ---
 Quick one before we start: do you think AI is coming for developer jobs? Keep your answer in your head. We'll check it at the end. 👀
 
