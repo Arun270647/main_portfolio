@@ -1,14 +1,16 @@
 import type { CSSProperties } from 'react';
+import { optimizedImage } from '../utils/images';
 import { cardPalette, cardRotations, type Project } from '../data/portfolio';
 
 /** Rounded candy card. index drives the color cycle + tilt. */
 export function ProjectCard({ p, index, style }: { p: Project; index: number; style?: CSSProperties }) {
   const [bg, stripe, shadow] = cardPalette[index % cardPalette.length];
   const rot = cardRotations[index % cardRotations.length];
+  const shot = p.shot ? optimizedImage(p.shot) : null;
   return (
     <a id={p.id} href={p.live} target="_blank" rel="noopener" className="card" style={{ scrollMarginTop: 110, background: bg, boxShadow: `0 12px 0 ${shadow}`, transform: `rotate(${rot})`, ...style }}>
       <div className="shot" style={{ background: `repeating-linear-gradient(45deg, ${stripe} 0 12px, ${bg} 12px 24px)` }}>
-        {p.shot ? <img src={p.shot} alt={`${p.title} screenshot`} loading="lazy" width={640} height={400} /> : <>[ screenshot: {p.title} ]</>}
+        {shot ? <img src={shot.src} alt={`${p.title} screenshot`} loading="lazy" decoding="async" width={shot.width ?? 640} height={shot.height ?? 400} /> : <>[ screenshot: {p.title} ]</>}
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 10, marginTop: 18 }}>
         <h3 className="display" style={{ margin: 0, fontSize: 26, lineHeight: 1, textTransform: 'none' }}>{p.title}</h3>

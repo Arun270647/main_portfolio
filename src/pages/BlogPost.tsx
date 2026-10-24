@@ -6,7 +6,8 @@ import { SEOHead } from '../components/SEOHead';
 import { breadcrumb } from '../utils/structuredData';
 import { links } from '../data/portfolio';
 import { Helmet } from 'react-helmet-async';
-import { findPost, formatDate, renderMarkdown, blogImage } from '../data/blog';
+import { findPost, formatDate, renderMarkdown } from '../data/blog';
+import { optimizedImage } from '../utils/images';
 import NotFound from './NotFound';
 
 const ORIGIN = 'https://www.arunvignesh.my';
@@ -16,7 +17,7 @@ export default function BlogPost() {
   const post = findPost(slug);
   if (!post) return <NotFound />;
   const path = `/blog/${post.slug}`;
-  const cover = post.cover ? blogImage(post.cover) : null;
+  const cover = post.cover ? optimizedImage(post.cover) : null;
   const article = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',

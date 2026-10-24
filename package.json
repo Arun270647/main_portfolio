@@ -4,9 +4,9 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/optimize-blog-images.mjs",
+    "predev": "node scripts/optimize-images.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/optimize-blog-images.mjs",
+    "prebuild": "node scripts/optimize-images.mjs",
     "build": "vite build",
     "postbuild": "node scripts/prerender.mjs",
     "prerender": "node scripts/prerender.mjs",

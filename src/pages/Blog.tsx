@@ -6,7 +6,8 @@ import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { breadcrumb } from '../utils/structuredData';
 import { links } from '../data/portfolio';
-import { publishedPosts, formatDate, blogImage } from '../data/blog';
+import { publishedPosts, formatDate } from '../data/blog';
+import { optimizedImage } from '../utils/images';
 
 const tints = ['var(--must)', 'var(--gum)', 'var(--mint)', 'var(--tang)'];
 const tilts = ['-1.2deg', '1deg', '-.6deg', '1.4deg'];
@@ -43,7 +44,7 @@ export default function Blog() {
             <Reveal key={p.slug} kind="pop" delay={(i % 3) * 90} style={{ display: 'flex' }}>
               <Link to={`/blog/${p.slug}`} className="card" style={{ flex: 1, background: tints[i % tints.length], transform: `rotate(${tilts[i % tilts.length]})` }}>
                 {p.cover && (() => {
-                  const img = blogImage(p.cover);
+                  const img = optimizedImage(p.cover);
                   return <div className="shot" style={{ padding: 0, background: 'var(--ink)' }}><img src={img.thumb ?? img.src} width={img.width} height={img.height} alt="" loading="lazy" decoding="async" /></div>;
                 })()}
                 <div className="mono" style={{ fontSize: 11, marginTop: 16 }}>{formatDate(p.date)} · {p.readMins} min read</div>
