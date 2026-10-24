@@ -22,6 +22,18 @@ export type Post = {
   readMins: number;
 };
 
+export type BlogImage = { src: string; thumb?: string; width?: number; height?: number };
+
+// Written by scripts/optimize-blog-images.mjs before dev/build; missing (e.g. a bare typecheck) means originals are used.
+const imageManifest = (Object.values(
+  import.meta.glob('../content/blog-images.json', { import: 'default', eager: true }),
+)[0] ?? {}) as Record<string, Required<BlogImage>>;
+
+/** WebP version and intrinsic size of a /blog/... image, falling back to the original file. */
+export const blogImage = (src: string): BlogImage => imageManifest[src] ?? { src };
+
+const sizeAttrs = (img: BlogImage) => (img.width ? ` width="${img.width}" height="${img.height}"` : '');
+
 const files = import.meta.glob('../content/blog/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 
 function parse(raw: string): Post | null {
@@ -89,7 +101,8 @@ export function renderMarkdown(md: string): string {
     } else if (lines.every(l => /^>\s?/.test(l))) {
       out.push(`<blockquote>${inline(lines.map(l => l.replace(/^>\s?/, '')).join(' '))}</blockquote>`);
     } else if ((h = first.match(/^!\[([^\]]*)\]\(([^)\s]+)\)$/)) && lines.length === 1) {
-      out.push(`<figure><img src="${h[2]}" alt="${esc(h[1])}" loading="lazy" />${h[1] ? `<figcaption>${esc(h[1])}</figcaption>` : ''}</figure>`);
+      const img = blogImage(h[2]);
+      out.push(`<figure><img src="${img.src}"${sizeAttrs(img)} alt="${esc(h[1])}" loading="lazy" decoding="async" />${h[1] ? `<figcaption>${esc(h[1])}</figcaption>` : ''}</figure>`);
     } else {
       out.push(`<p>${lines.map(inline).join('<br />')}</p>`);
     }

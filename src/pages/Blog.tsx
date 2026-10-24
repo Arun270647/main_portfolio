@@ -6,7 +6,7 @@ import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { breadcrumb } from '../utils/structuredData';
 import { links } from '../data/portfolio';
-import { publishedPosts, formatDate } from '../data/blog';
+import { publishedPosts, formatDate, blogImage } from '../data/blog';
 
 const tints = ['var(--must)', 'var(--gum)', 'var(--mint)', 'var(--tang)'];
 const tilts = ['-1.2deg', '1deg', '-.6deg', '1.4deg'];
@@ -42,7 +42,10 @@ export default function Blog() {
           {posts.map((p, i) => (
             <Reveal key={p.slug} kind="pop" delay={(i % 3) * 90} style={{ display: 'flex' }}>
               <Link to={`/blog/${p.slug}`} className="card" style={{ flex: 1, background: tints[i % tints.length], transform: `rotate(${tilts[i % tilts.length]})` }}>
-                {p.cover && <div className="shot" style={{ padding: 0, background: 'var(--ink)' }}><img src={p.cover} alt="" loading="lazy" /></div>}
+                {p.cover && (() => {
+                  const img = blogImage(p.cover);
+                  return <div className="shot" style={{ padding: 0, background: 'var(--ink)' }}><img src={img.thumb ?? img.src} width={img.width} height={img.height} alt="" loading="lazy" decoding="async" /></div>;
+                })()}
                 <div className="mono" style={{ fontSize: 11, marginTop: 16 }}>{formatDate(p.date)} · {p.readMins} min read</div>
                 <h2 style={{ fontFamily: 'var(--display)', fontWeight: 400, textTransform: 'uppercase', lineHeight: 1.05, fontSize: 21, margin: '10px 0 10px' }}>{p.title}</h2>
                 <p style={{ margin: 0, fontSize: 15, lineHeight: 1.45 }}>{p.excerpt}</p>

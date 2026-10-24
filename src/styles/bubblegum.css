@@ -172,7 +172,7 @@ img { display: block; max-width: 100%; }
 .post-body strong { color: var(--mint); }
 .post-body blockquote { margin: 26px 0; padding: 18px 24px; border-left: 6px solid var(--gum); background: var(--ink-2); border-radius: 0 18px 18px 0; font-style: italic; }
 .post-body figure { margin: 30px 0; }
-.post-body figure img { border-radius: 20px; }
+.post-body figure img { border-radius: 20px; height: auto; }
 .post-body figcaption { font-family: var(--mono); font-size: 12px; text-transform: uppercase; margin-top: 10px; opacity: .8; }
 .post-body code { font-family: var(--mono); background: var(--ink-2); padding: 2px 6px; border-radius: 6px; font-size: .85em; }
 
