@@ -25,7 +25,7 @@ export default function Home() {
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="Arun Vignesh | Full-Stack Developer, Chennai"
-        description={`Full-stack web developer and BCA student in Chennai building fast React apps for academies, e-commerce brands and agencies. ${stats.projects} live projects, open for freelance and full-time.`}
+        description={`Full-stack developer and BCA student in Chennai building fast React apps for academies, e-commerce brands and agencies. ${stats.projects} live projects, open for work.`}
         path="/"
         schema={[person, website, profilePage]}
       />

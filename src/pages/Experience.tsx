@@ -17,7 +17,7 @@ export default function Experience() {
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'clip' }}>
       <SEOHead
         title="Experience | Arun Vignesh, Full-Stack Developer and CTO"
-        description="Six roles since Sep 2024 across TrackMy Tech, Track My Academy, Marina Digital, Corizo and Novitech: AI/ML research, web development, product management, and now CTO at TrackMy Tech."
+        description="Six roles since Sep 2024 at TrackMy Tech, Track My Academy, Marina Digital, Corizo and Novitech: AI/ML research, web dev, product management, now CTO."
         path="/experience"
         schema={[person, webPage('Experience of Arun Vignesh', 'Six roles since Sep 2024, newest first.', '/experience'), breadcrumb([{ name: 'Home', path: '/' }, { name: 'Experience', path: '/experience' }])]}
       />
