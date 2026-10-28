@@ -52,7 +52,7 @@ Jarvis now has proper Windows and Mac installers, plus its own website.
 
 ![The Jarvis download page](/blog/i-gave-my-ai-assistant-away/download.jpg)
 
-Try it at [jarvis-assistant-oss.vercel.app](https://jarvis-assistant-oss.vercel.app). It's still an early alpha, so tell me what breaks.
+Try it at [jarvis.arunvignesh.my](https://jarvis.arunvignesh.my). It's still an early alpha, so tell me what breaks.
 
 > The product starts where your own setup ends.
 
