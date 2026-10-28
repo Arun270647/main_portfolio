@@ -1,0 +1,45 @@
+name: Publish scheduled blog posts
+
+# Moves every post in blog-queue/ whose date has passed into the live blog and
+# pushes to main, which triggers the Vercel deploy. Runs daily at 10:05 IST, with
+# a second run at 13:15 IST in case the first is delayed or a post is due later.
+on:
+  schedule:
+    - cron: '35 4 * * *'
+    - cron: '45 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: publish-blog
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - id: queue
+        run: node scripts/publish-queue.mjs
+
+      - if: steps.queue.outputs.published != ''
+        run: |
+          npm ci
+          npm run typecheck
+          npm run lint
+
+      - if: steps.queue.outputs.published != ''
+        env:
+          PUBLISHED: ${{ steps.queue.outputs.published }}
+        run: |
+          git config user.name "Arun Vignesh"
+          git config user.email "arun270647@users.noreply.github.com"
+          git add -A blog-queue src/content/blog public/blog public/sitemap.xml
+          git commit -m "Publish blog post: ${PUBLISHED//,/, }"
+          git push
