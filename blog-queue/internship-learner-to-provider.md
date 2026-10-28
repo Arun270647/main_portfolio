@@ -47,7 +47,7 @@ So I made every choice by remembering what I wished someone had done for me:
 
 Here's the part I like most: I'm *still* an intern.
 
-In 2026, while working as a CTO, I also did an internship at Gradtwin, building a research dashboard for scientists. (That story is coming next week.)
+In 2026, while working as a CTO, I also did an internship at Gradtwin, building a research dashboard for scientists.
 
 Being on both sides at the same time keeps me honest. I still know exactly how it feels to wait for a reply from a mentor.
 
