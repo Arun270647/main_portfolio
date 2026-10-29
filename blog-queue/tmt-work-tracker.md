@@ -1,7 +1,7 @@
 ---
 title: At a small startup, nobody knew who was working on what
 slug: tmt-work-tracker
-date: 2026-10-29T15:39:00+05:30
+date: 2026-11-16T13:00:00+05:30
 cover: /blog/tmt-work-tracker/cover.jpg
 excerpt: Work at TrackMy Tech lived in chats and in people's heads. I built a work tracker in a day, and the hard part wasn't tracking work at all.
 tags: TrackMy Tech, Teamwork, Build Story

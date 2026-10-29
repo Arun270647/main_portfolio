@@ -1,7 +1,7 @@
 ---
 title: 140 students applied. Our system wasn't ready for them.
 slug: internship-platform-140-students
-date: 2026-10-29T15:35:00+05:30
+date: 2026-11-08T13:00:00+05:30
 cover: /blog/internship-platform-140-students/cover.jpg
 excerpt: We launched an internship and 140+ students applied. Then emails stalled, links expired and passwords vanished. Here's how we rebuilt the journey around the students.
 tags: Internship, Product, Build Story

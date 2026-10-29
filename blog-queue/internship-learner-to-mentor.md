@@ -1,7 +1,7 @@
 ---
 title: From internship learner to internship mentor
 slug: internship-learner-to-mentor
-date: 2026-10-29T15:38:00+05:30
+date: 2026-11-14T13:00:00+05:30
 cover: /blog/internship-learner-to-mentor/cover.png
 coverAlt: Teaching a live Adsysinfo internship class on Google Meet
 excerpt: Two years ago I was the intern waiting for a task. Today I'm a mentor on Adsysinfo's internship, and every choice I make is a fix for something I sat through.

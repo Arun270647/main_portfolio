@@ -1,7 +1,7 @@
 ---
 title: Track My Academy started as one prompt. 3,000 changes later…
 slug: track-my-academy-one-prompt
-date: 2026-10-29T15:32:00+05:30
+date: 2026-11-02T13:00:00+05:30
 cover: /blog/track-my-academy-one-prompt/cover.jpg
 excerpt: The first version of Track My Academy was built by AI from a single prompt. Turning that demo into something real academies trust took a year and more than 3,000 changes.
 tags: Track My Academy, Product, Build Story

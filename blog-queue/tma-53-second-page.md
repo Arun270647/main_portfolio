@@ -1,7 +1,7 @@
 ---
 title: A coach waited 53 seconds for a page to load. Here's why.
 slug: tma-53-second-page
-date: 2026-10-29T15:36:00+05:30
+date: 2026-11-10T13:00:00+05:30
 cover: /blog/tma-53-second-page/cover.jpg
 excerpt: A page in Track My Academy took 53 seconds to load. The fix brought it down to 0.6 seconds, and it had nothing to do with faster servers.
 tags: Track My Academy, Performance, Build Story

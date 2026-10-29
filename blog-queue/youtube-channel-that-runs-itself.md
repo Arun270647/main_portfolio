@@ -1,7 +1,7 @@
 ---
 title: I tried to build a YouTube channel that runs itself
 slug: youtube-channel-that-runs-itself
-date: 2026-10-29T15:37:00+05:30
+date: 2026-11-12T13:00:00+05:30
 cover: /blog/youtube-channel-that-runs-itself/cover.jpg
 excerpt: Could AI write a story, voice it and animate it while I sleep? The first video was technically perfect and completely forgettable. Here's what changed.
 tags: AI, Content, Build Story
