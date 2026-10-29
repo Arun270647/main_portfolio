@@ -1,7 +1,7 @@
 ---
 title: Teaching websites to people who'd never heard of HTML
 slug: teaching-websites-to-beginners
-date: 2026-11-23T10:00:00+05:30
+date: 2026-11-22T13:00:00+05:30
 cover: /blog/teaching-websites-to-beginners/cover.jpg
 excerpt: My students didn't know what a website was. My first plan was a normal course, and it was far too much. So I kept cutting.
 tags: Teaching, Vibe Coding, Build Story

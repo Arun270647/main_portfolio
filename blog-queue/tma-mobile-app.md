@@ -1,7 +1,7 @@
 ---
 title: Putting Track My Academy in every coach's pocket
 slug: tma-mobile-app
-date: 2026-11-19T10:00:00+05:30
+date: 2026-11-18T13:00:00+05:30
 cover: /blog/tma-mobile-app/cover.jpg
 excerpt: Coaches don't sit at desks, so Track My Academy became a phone app. A health check found 30 problems, and the real lesson was about who gets to say "fixed".
 tags: Track My Academy, Mobile App, Build Story

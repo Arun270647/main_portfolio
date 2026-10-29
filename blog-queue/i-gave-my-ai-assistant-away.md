@@ -1,7 +1,7 @@
 ---
 title: I gave my AI assistant away
 slug: i-gave-my-ai-assistant-away
-date: 2026-11-29T10:00:00+05:30
+date: 2026-11-28T13:00:00+05:30
 cover: /blog/i-gave-my-ai-assistant-away/cover.jpg
 excerpt: My own JARVIS runs my laptop. Friends wanted their own. Turning my personal assistant into something anyone can install meant starting where my own setup ended.
 tags: AI, Open Source, Build Story

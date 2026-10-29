@@ -1,7 +1,7 @@
 ---
 title: I built Tinder for attendance. Then I swiped left on it.
 slug: tinder-for-attendance
-date: 2026-10-31T10:45:00+05:30
+date: 2026-10-29T13:00:00+05:30
 cover: /blog/tinder-for-attendance/cover.png
 excerpt: A client was drowning in manual attendance and performance tracking. My first fix was swipe right / swipe left. Here's what we built instead.
 tags: Track My Academy, UX, Build Story

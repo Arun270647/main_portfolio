@@ -1,7 +1,7 @@
 ---
 title: My website checks itself every week and publishes my blog while I sleep
 slug: my-website-runs-itself
-date: 2026-11-27T10:00:00+05:30
+date: 2026-11-26T13:00:00+05:30
 cover: /blog/my-website-runs-itself/cover.jpg
 excerpt: Google was ignoring most of my portfolio, and my own name ranked sixth. So I built a robot that checks my site every week, fixes what it can, and publishes these very posts.
 tags: Portfolio, Automation, Build Story
@@ -52,7 +52,7 @@ The robot confirmed the live page was fine, asked Google to look again, shortene
 
 Here's the fun part. The post you're reading was written weeks ago.
 
-Approved posts wait in a queue with a date on them. Every Saturday, a second routine checks which ones are due, puts them live, adds them to the list Google reads, runs its checks and publishes.
+Approved posts wait in a queue with a date on them. Every afternoon, a second routine checks which ones are due, puts them live, adds them to the list Google reads, runs its checks and publishes.
 
 I write. The robot posts. 🤖
 

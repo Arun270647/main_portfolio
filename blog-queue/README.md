@@ -1,7 +1,7 @@
 # Blog queue
 
 Approved posts wait here until their publish date. The GitHub Action
-`.github/workflows/publish-blog.yml` runs daily at 10:05 IST (and again at 13:15 IST), moves every
+`.github/workflows/publish-blog.yml` runs daily at 13:05 IST (and again at 15:05 IST), moves every
 post whose `date` has passed into the live blog and pushes to `main`, which deploys the site.
 Run it by hand from the repo's Actions tab ("Run workflow") to publish immediately.
 
@@ -13,7 +13,7 @@ Run it by hand from the repo's Actions tab ("Run workflow") to publish immediate
    ---
    title: I built Tinder for attendance. Then I swiped left on it.
    slug: tinder-for-attendance
-   date: 2026-10-31T10:45:00+05:30
+   date: 2026-10-29T13:00:00+05:30
    cover: /blog/tinder-for-attendance/cover.png
    excerpt: One-line summary for the list page and social cards.
    tags: Track My Academy, UX
@@ -35,5 +35,5 @@ Run it by hand from the repo's Actions tab ("Run workflow") to publish immediate
 - runs `npm ci`, `npm run typecheck` and `npm run lint`, then commits
   "Publish blog post: <slug>" and pushes to `main`
 
-Post text is never edited. Test with `PUBLISH_NOW=2026-11-03T10:05:00+05:30 node scripts/publish-queue.mjs`
+Post text is never edited. Test with `PUBLISH_NOW=2026-11-02T13:05:00+05:30 node scripts/publish-queue.mjs`
 (in a throwaway copy: it moves files). This README is ignored.

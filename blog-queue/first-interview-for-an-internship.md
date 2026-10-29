@@ -1,7 +1,7 @@
 ---
 title: My first interview wasn't for a job. It was for an internship.
 slug: first-interview-for-an-internship
-date: 2026-11-21T10:00:00+05:30
+date: 2026-11-20T13:00:00+05:30
 cover: /blog/first-interview-for-an-internship/cover.jpg
 excerpt: A friend sent me a link, I applied on a whim, and then came an aptitude test, a group discussion and a four-hour wait I was sure would end in a rejection.
 tags: Internship, Career, Build Story

@@ -1,12 +1,12 @@
 name: Publish scheduled blog posts
 
 # Moves every post in blog-queue/ whose date has passed into the live blog and
-# pushes to main, which triggers the Vercel deploy. Runs daily at 10:05 IST, with
-# a second run at 13:15 IST in case the first is delayed or a post is due later.
+# pushes to main, which triggers the Vercel deploy. Posts are due at 13:00 IST, so it
+# runs daily at 13:05 IST, with a second run at 15:05 IST in case the first is delayed.
 on:
   schedule:
-    - cron: '35 4 * * *'
-    - cron: '45 7 * * *'
+    - cron: '35 7 * * *'
+    - cron: '35 9 * * *'
   workflow_dispatch:
 
 permissions:
