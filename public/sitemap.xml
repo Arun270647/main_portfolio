@@ -26,13 +26,19 @@
   </url>
   <url>
     <loc>https://www.arunvignesh.my/blog</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.arunvignesh.my/blog/vibe-coding-orientation</loc>
     <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.arunvignesh.my/blog/tinder-for-attendance</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
