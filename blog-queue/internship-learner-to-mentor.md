@@ -1,9 +1,10 @@
 ---
-title: From internship learner to internship provider
-slug: internship-learner-to-provider
+title: From internship learner to internship mentor
+slug: internship-learner-to-mentor
 date: 2026-11-15T10:00:00+05:30
-cover: /blog/internship-learner-to-provider/cover.jpg
-excerpt: Two years ago I was the intern waiting for a task. Today I run internships myself, and every choice I make is a fix for something I sat through.
+cover: /blog/internship-learner-to-mentor/cover.png
+coverAlt: Teaching a live Adsysinfo internship class on Google Meet
+excerpt: Two years ago I was the intern waiting for a task. Today I'm a mentor on Adsysinfo's internship, and every choice I make is a fix for something I sat through.
 tags: Internship, Career, Build Story
 ---
 Quick question: what's one thing your first internship got wrong, or got right?
@@ -14,7 +15,7 @@ I've sat on both sides of that table now. Here's what I learned from each. 👀
 
 In 2024 I did my first internships at Novitech: web development first, then AI and machine learning research. In early 2025 came Android development at Corizo.
 
-![My internship certificates from Novitech and Corizo](/blog/internship-learner-to-provider/then-certificates.jpg)
+![My internship certificates from Novitech and Corizo](/blog/internship-learner-to-mentor/then-certificates.jpg)
 
 I learned a lot. I'm grateful for all of it.
 
@@ -26,9 +27,9 @@ But I also learned what being an intern *feels* like:
 
 ## Two years later: the other side of the table
 
-Today I'm the CTO at TrackMy Tech. I have interns on my own team.
+Today I'm the CTO at TrackMy Tech, with interns on my own team. And right now I'm a mentor on Adsysinfo's internship, Full Stack Development with AI.
 
-I built the internship platform that 140+ students applied through. And I teach a course to beginners who had never heard the word HTML.
+I built the internship platform that 140+ students applied through. And I teach the classes myself, to beginners who had never heard the word HTML.
 
 Suddenly *I* was the one deciding how an internship feels.
 
@@ -41,7 +42,7 @@ So I made every choice by remembering what I wished someone had done for me:
 - **Classes that unlock only when we're live,** so nobody runs ahead and nobody falls behind.
 - **Homework that gets checked quickly,** because feedback two weeks late is just a grade.
 
-![Now: the mentor board for the internship I run](/blog/internship-learner-to-provider/now-mentor-board.jpg)
+![Now: the mentor board for the internship I teach](/blog/internship-learner-to-mentor/now-mentor-board.jpg)
 
 ## The plot twist
 
@@ -61,4 +62,4 @@ Being on both sides at the same time keeps me honest. I still know exactly how i
 
 ## Your turn 👇
 
-What's one thing your first internship got wrong, or got right? If you run internships now, what do you do differently because of it?
+What's one thing your first internship got wrong, or got right? If you mentor interns now, what do you do differently because of it?
