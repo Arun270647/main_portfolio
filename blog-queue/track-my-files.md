@@ -1,7 +1,7 @@
 ---
 title: We were tired of uploading files to random websites
 slug: track-my-files
-date: 2026-11-24T13:00:00+05:30
+date: 2026-10-29T15:43:00+05:30
 cover: /blog/track-my-files/cover.jpg
 excerpt: Every day someone at TrackMy Tech uploaded company files to a random free converter. So we built our own, and the best feature we shipped was deleting the sign-up page.
 tags: TrackMy Tech, Product, Build Story

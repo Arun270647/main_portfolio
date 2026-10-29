@@ -1,7 +1,7 @@
 ---
 title: I turned a childhood game into an AI that watches your hand
 slug: hand-cricket-webcam
-date: 2026-11-06T13:00:00+05:30
+date: 2026-10-29T15:34:00+05:30
 cover: /blog/hand-cricket-webcam/cover.jpg
 excerpt: Hand cricket always needed two kids and a lot of shouting. I taught my webcam to be the other player.
 tags: AI, Games, Build Story

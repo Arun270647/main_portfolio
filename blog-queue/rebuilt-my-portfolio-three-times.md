@@ -1,7 +1,7 @@
 ---
 title: I rebuilt my portfolio three times in one week
 slug: rebuilt-my-portfolio-three-times
-date: 2026-10-31T13:00:00+05:30
+date: 2026-10-29T15:31:00+05:30
 cover: /blog/rebuilt-my-portfolio-three-times/cover.jpg
 excerpt: My portfolio had to look like the person who built it. It took three rebuilds in one week, and the hardest change wasn't design at all.
 tags: Portfolio, Personal Branding, Build Story

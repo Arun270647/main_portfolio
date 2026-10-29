@@ -1,7 +1,7 @@
 ---
 title: I wanted my own JARVIS. So I built one.
 slug: building-my-own-jarvis
-date: 2026-11-04T13:00:00+05:30
+date: 2026-10-29T15:33:00+05:30
 cover: /blog/building-my-own-jarvis/cover.jpg
 excerpt: Every Iron Man fan wants JARVIS. I built my own assistant for my laptop, and the best feature I added was taking one away.
 tags: AI, Side Project, Build Story
