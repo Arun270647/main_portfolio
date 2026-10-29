@@ -1,9 +1,9 @@
 # Blog queue
 
-Approved posts wait here until their publish date. The GitHub Action
-`.github/workflows/publish-blog.yml` runs daily at 13:05 IST (and again at 15:05 IST), moves every
-post whose `date` has passed into the live blog and pushes to `main`, which deploys the site.
-Run it by hand from the repo's Actions tab ("Run workflow") to publish immediately.
+Approved posts wait here until their publish date. A Claude cloud routine ("Blog publisher")
+runs daily at 13:00 IST, moves every post whose `date` has passed into the live blog and pushes to
+`main`, which deploys the site. The GitHub Action `.github/workflows/publish-blog.yml` does the same
+job by hand: run it from the repo's Actions tab ("Run workflow") to publish immediately.
 
 ## Adding a post
 

@@ -1,12 +1,9 @@
 name: Publish scheduled blog posts
 
 # Moves every post in blog-queue/ whose date has passed into the live blog and
-# pushes to main, which triggers the Vercel deploy. Posts are due at 13:00 IST, so it
-# runs daily at 13:05 IST, with a second run at 15:05 IST in case the first is delayed.
+# pushes to main, which triggers the Vercel deploy. A Claude cloud routine does this
+# daily at 13:00 IST (GitHub's own schedule never fired), so this is the manual backup.
 on:
-  schedule:
-    - cron: '35 7 * * *'
-    - cron: '35 9 * * *'
   workflow_dispatch:
 
 permissions:
