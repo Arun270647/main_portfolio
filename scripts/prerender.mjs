@@ -21,10 +21,10 @@ const ROOT = resolve(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 const SITE_ORIGIN = 'https://www.arunvignesh.my';
 
-const STATIC_ROUTES = ['/', '/about', '/projects', '/experience', '/obs'];
+const STATIC_ROUTES = ['/', '/about', '/projects', '/experience'];
 
 /** noindex utility pages: no canonical tag and no site nav, so only wait for content. */
-const UTILITY_ROUTES = new Set(['/obs']);
+const UTILITY_ROUTES = new Set();
 
 /** Published blog posts (date <= build time) from src/content/blog/*.md. */
 const BLOG_DIR = join(ROOT, 'src', 'content', 'blog');

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /obs
 
 Sitemap: https://www.arunvignesh.my/sitemap.xml
